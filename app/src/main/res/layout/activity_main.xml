@@ -5,4 +5,43 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
 
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt.username"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="130dp"
+        android:hint="Username"
+        android:layout_alignParentEnd="false" />
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/txt.password"
+        android:layout_below="@+id/txt.username"
+        android:layout_centerHorizontal="true"
+        android:hint="Password" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="75dp"
+        android:text="Login"
+        android:id="@+id/button.login"
+        android:layout_marginTop="80dp"
+        android:layout_below="@+id/txt.password"
+        android:layout_alignLeft="@+id/txt.password"
+        android:layout_alignStart="@+id/txt.password"
+        android:clickable="true" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="75dp"
+        android:text="Register"
+        android:id="@+id/button.register"
+        android:layout_alignTop="@+id/button.login"
+        android:layout_alignRight="@+id/txt.password"
+        android:layout_alignEnd="@+id/txt.password" />
 </RelativeLayout>
