@@ -1,9 +1,11 @@
 package yesmen.cs2340.shoppingwithfriends;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -89,5 +91,12 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void login(View view) {
+        if (username.getText().toString().equals("admin") && password.getText().toString().equals("admin")) {
+            Intent intent = new Intent(this, MainMenu.class);
+            startActivity(intent);
+        }
     }
 }
