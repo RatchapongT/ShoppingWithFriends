@@ -93,6 +93,8 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    //user login method to allow user to go to main menu of application
+    //***for now made credentials "admin" "admin" for M3
     public void login(View view) {
         if (username.getText().toString().equals("admin") && password.getText().toString().equals("admin")) {
             Intent intent = new Intent(this, MainMenu.class);
