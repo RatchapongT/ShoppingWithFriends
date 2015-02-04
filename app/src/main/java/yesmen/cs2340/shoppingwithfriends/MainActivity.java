@@ -14,7 +14,7 @@ import android.widget.EditText;
 
 public class MainActivity extends ActionBarActivity {
 
-        EditText username, password;
+    EditText username, password;
 
 
     @Override
@@ -26,6 +26,7 @@ public class MainActivity extends ActionBarActivity {
         password = (EditText) findViewById(R.id.txtpassword);
 
         final Button loginbutton = (Button) findViewById(R.id.buttonlogin);
+        final Button registerbutton = (Button) findViewById(R.id.buttonregister);
 
         username.addTextChangedListener(new TextWatcher() {
             @Override
@@ -100,5 +101,10 @@ public class MainActivity extends ActionBarActivity {
             Intent intent = new Intent(this, MainMenu.class);
             startActivity(intent);
         }
+    }
+
+    public void registration(View view) {
+        Intent intent = new Intent(this, Registration.class);
+        startActivity(intent);
     }
 }
