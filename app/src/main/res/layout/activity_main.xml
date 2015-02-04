@@ -50,4 +50,15 @@
         android:clickable="true"
         android:onClick="registration"
         android:text="Register" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login fails!"
+        android:id="@+id/loginFail"
+        android:layout_below="@+id/txtpassword"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:visibility="invisible"
+        android:textColor="#ffff070b" />
 </RelativeLayout>

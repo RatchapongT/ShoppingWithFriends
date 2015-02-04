@@ -10,11 +10,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 //sunny patel
 
 public class MainActivity extends ActionBarActivity {
 
     EditText username, password;
+    TextView loginFail;
 
 
     @Override
@@ -100,6 +102,9 @@ public class MainActivity extends ActionBarActivity {
         if (username.getText().toString().equals("admin") && password.getText().toString().equals("admin")) {
             Intent intent = new Intent(this, MainMenu.class);
             startActivity(intent);
+        } else {
+            loginFail = (TextView) findViewById(R.id.loginFail);
+            loginFail.setVisibility(View.VISIBLE);
         }
     }
 
