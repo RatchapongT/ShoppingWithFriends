@@ -1,111 +1,124 @@
 package yesmen.cs2340.shoppingwithfriends;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.Toast;
 
-public class LoginPage extends ActionBarActivity {
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-    EditText username, password;
-    TextView loginFail;
+import java.util.ArrayList;
+import java.util.List;
+
+public class LoginPage extends ActionBarActivity implements View.OnClickListener {
+
+    private EditText enteredUsername, enteredPassword;
+    private Button loginButton, registerButton;
+
+    private ProgressDialog progessDialog;
+
+    JSONParser jsonParser = new JSONParser();
+
+    private static final String LOGIN_URL = "http://10.0.2.2:1234/yesmen/login.php";
+    //private static final String LOGIN_URL = "http://71.236.14.188:1234/yesmen/login.php";
+
+    //JSON element ids from repsonse of php script:
+    private static final String TAG_SUCCESS = "success";
+    private static final String TAG_MESSAGE = "message";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.login); // Set layout according to login.xml
 
-        setContentView(R.layout.activity_main);
+        enteredUsername = (EditText) findViewById(R.id.usernameField);
+        enteredPassword = (EditText) findViewById(R.id.passwordField);
 
-        username = (EditText) findViewById(R.id.txtusername);
-        password = (EditText) findViewById(R.id.txtpassword);
+        loginButton = (Button) findViewById(R.id.loginButton);
+        registerButton = (Button) findViewById(R.id.registrationButton);
 
-        final Button loginbutton = (Button) findViewById(R.id.buttonlogin);
-        final Button registerbutton = (Button) findViewById(R.id.buttonregister);
-
-        username.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (!username.getText().toString().trim().equals("") && !password.getText().toString().trim().equals("")) {
-                    loginbutton.setEnabled(true);
-                } else {
-                    loginbutton.setEnabled(false);
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-
-        password.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (!username.getText().toString().trim().equals("") && !password.getText().toString().trim().equals("")) {
-                    loginbutton.setEnabled(true);
-                } else {
-                    loginbutton.setEnabled(false);
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+        loginButton.setOnClickListener(this);
+        registerButton.setOnClickListener(this);
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+    public void onClick(View v) {
+        if (v.getId() == R.id.loginButton) {
+            new LoginAttempt().execute();
+        } else if (v.getId() == R.id.registrationButton) {
+            Intent intention = new Intent(this, RegistrationPage.class);
+            startActivity(intention);
         }
-
-        return super.onOptionsItemSelected(item);
     }
 
-    //user login method to allow user to go to main menu of application
-    //***for now made credentials "admin" "admin" for M3
-    public void login(View view) {
-        if (username.getText().toString().equals("admin") && password.getText().toString().equals("admin")) {
-            Intent intent = new Intent(this, MainMenu.class);
-            startActivity(intent);
-        } else {
-            loginFail = (TextView) findViewById(R.id.loginFail);
-            loginFail.setVisibility(View.VISIBLE);
+    class LoginAttempt extends AsyncTask<String, String, String> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progessDialog = new ProgressDialog(LoginPage.this);
+            progessDialog.setMessage("Validating login...");
+            progessDialog.setIndeterminate(false);
+            progessDialog.setCancelable(true);
+            progessDialog.show();
         }
+
+        @Override
+        protected String doInBackground(String... args) {
+            int loginSuccess = 0;
+            String username = enteredUsername.getText().toString();
+            String password = enteredPassword.getText().toString();
+            try {
+                // Building Parameters
+                List<NameValuePair> parameters = new ArrayList<NameValuePair>();
+                parameters.add(new BasicNameValuePair("username", username));
+                parameters.add(new BasicNameValuePair("password", password));
+
+                Log.d("Request!", "Starting the validation process");
+                // getting product details by making HTTP request
+                JSONObject json = jsonParser.makeHttpRequest(LOGIN_URL, "POST", parameters);
+
+                // check your log for json response
+                Log.d("Login attempt", json.toString());
+
+                // json success tag
+                loginSuccess = json.getInt(TAG_SUCCESS);
+                if (loginSuccess == 1) {
+                    Log.d("Login Successful!", json.toString());
+                    Intent intention = new Intent(LoginPage.this, Homepage.class);
+                    finish();
+                    startActivity(intention);
+                    return json.getString(TAG_MESSAGE);
+                } else {
+                    Log.d("Login Failure!", json.getString(TAG_MESSAGE));
+                    return json.getString(TAG_MESSAGE);
+
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+
+        }
+
+        protected void onPostExecute(String file_url) {
+            // dismiss the dialog once product deleted
+            progessDialog.dismiss();
+            if (file_url != null) {
+                Toast.makeText(LoginPage.this, file_url, Toast.LENGTH_LONG).show();
+            }
+        }
+
     }
 
 }
