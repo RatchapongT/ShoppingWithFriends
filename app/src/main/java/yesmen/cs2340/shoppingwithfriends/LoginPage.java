@@ -11,11 +11,8 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.util.Log;
 
-import java.sql.*;
-
-public class MainActivity extends ActionBarActivity {
+public class LoginPage extends ActionBarActivity {
 
     EditText username, password;
     TextView loginFail;
