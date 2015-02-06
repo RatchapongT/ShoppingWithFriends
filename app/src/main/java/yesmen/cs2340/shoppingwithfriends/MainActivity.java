@@ -16,7 +16,7 @@ import android.util.Log;
 import java.sql.*;
 
 public class MainActivity extends ActionBarActivity {
-    Connection databaseConnection = null;
+
     EditText username, password;
     TextView loginFail;
 
@@ -24,11 +24,6 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-
-
-        Log.i("Testing Log", "WERWEREWR");
-
-
 
         setContentView(R.layout.activity_main);
 
@@ -113,44 +108,7 @@ public class MainActivity extends ActionBarActivity {
         } else {
             loginFail = (TextView) findViewById(R.id.loginFail);
             loginFail.setVisibility(View.VISIBLE);
-            //connectToDatabase();
-            //printFromDatabase();
         }
     }
 
-    public void registration(View view) {
-        Intent intent = new Intent(this, Registration.class);
-        startActivity(intent);
-    }
-
-    public void connectToDatabase() {
-        try {
-            final String DB_USERNAME = "username";
-            final String DB_PASSWORD = "password";
-            final String CONN_STRING = "jdbc:mysql://10.0.2.2:3306/shopping_with_friends";
-            //final String CONN_STRING = "jdbc:mysql://71.236.14.188:3306/shopping_with_friends";
-
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
-            databaseConnection = DriverManager.getConnection(CONN_STRING, DB_USERNAME, DB_PASSWORD);
-
-        } catch (Exception e) {
-            Log.i("Error connection" + e.getMessage(), " Asdfasdfsdf");
-        }
-    }
-
-    public void printFromDatabase() {
-        try {
-            String query = "SELECT Username FROM USER";
-            Statement stmt = databaseConnection.createStatement();
-            ResultSet rs = stmt.executeQuery(query);
-
-            while (rs.next()) {
-                String lastName = rs.getString("Username");
-                Log.i("DABASEPRINT", lastName);
-            }
-            databaseConnection.close();
-        } catch (Exception e) {
-            Log.i("ERROR IN RETRIVING", "BABA");
-        }
-    }
 }
