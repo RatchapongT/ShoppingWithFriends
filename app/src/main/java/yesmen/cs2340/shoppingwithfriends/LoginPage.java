@@ -24,14 +24,14 @@ public class LoginPage extends ActionBarActivity implements View.OnClickListener
     private EditText enteredUsername, enteredPassword;
     private Button loginButton, registerButton;
 
-    private ProgressDialog progessDialog;
+    private ProgressDialog progressDialog;
 
     JSONParser jsonParser = new JSONParser();
 
     //private static final String LOGIN_URL = "http://10.0.2.2:80/yesmen/login.php";
     private static final String LOGIN_URL = "http://71.236.14.188:80/yesmen/login.php";
 
-    //JSON element ids from repsonse of php script:
+    //JSON element ids from response of php script:
     private static final String TAG_SUCCESS = "success";
     private static final String TAG_MESSAGE = "message";
 
@@ -39,6 +39,9 @@ public class LoginPage extends ActionBarActivity implements View.OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login); // Set layout according to login.xml
+
+        enteredUsername = null;
+        enteredPassword = null;
 
         enteredUsername = (EditText) findViewById(R.id.usernameField);
         enteredPassword = (EditText) findViewById(R.id.passwordField);
@@ -65,11 +68,11 @@ public class LoginPage extends ActionBarActivity implements View.OnClickListener
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            progessDialog = new ProgressDialog(LoginPage.this);
-            progessDialog.setMessage("Validating login...");
-            progessDialog.setIndeterminate(false);
-            progessDialog.setCancelable(true);
-            progessDialog.show();
+            progressDialog = new ProgressDialog(LoginPage.this);
+            progressDialog.setMessage("Validating login...");
+            progressDialog.setIndeterminate(false);
+            progressDialog.setCancelable(true);
+            progressDialog.show();
         }
 
         @Override
@@ -93,13 +96,14 @@ public class LoginPage extends ActionBarActivity implements View.OnClickListener
                 // json success tag
                 loginSuccess = json.getInt(TAG_SUCCESS);
                 if (loginSuccess == 1) {
+                    loginSuccess = 0;
                     Log.d("Login Successful!", json.toString());
                     Intent intention = new Intent(LoginPage.this, Homepage.class);
                     finish();
                     startActivity(intention);
                     return json.getString(TAG_MESSAGE);
                 } else {
-                    Log.d("Login Failure!", json.getString(TAG_MESSAGE));
+                    Log.d("Login Failure!", json.toString());
                     return json.getString(TAG_MESSAGE);
 
                 }
@@ -113,7 +117,7 @@ public class LoginPage extends ActionBarActivity implements View.OnClickListener
 
         protected void onPostExecute(String file_url) {
             // dismiss the dialog once product deleted
-            progessDialog.dismiss();
+            progressDialog.dismiss();
             if (file_url != null) {
                 Toast.makeText(LoginPage.this, file_url, Toast.LENGTH_LONG).show();
             }

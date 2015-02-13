@@ -28,11 +28,10 @@ public class RegistrationPage extends ActionBarActivity implements OnClickListen
 
     JSONParser jsonParser = new JSONParser();
 
+    private static final String LOGIN_URL = "http://10.0.2.2:80/yesmen/register.php";
+    //private static final String LOGIN_URL = "http://71.236.14.188:80/yesmen/register.php";
 
-    //private static final String LOGIN_URL = "http://10.0.2.2:1234/yesmen/register.php";
-    private static final String LOGIN_URL = "http://71.236.14.188:80/yesmen/register.php";
-
-    //JSON element ids from repsonse of php script:
+    //JSON element ids from response of php script:
     private static final String TAG_SUCCESS = "success";
     private static final String TAG_MESSAGE = "message";
 	
