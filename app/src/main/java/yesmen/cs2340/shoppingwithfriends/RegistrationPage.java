@@ -2,6 +2,7 @@ package yesmen.cs2340.shoppingwithfriends;
 
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -21,8 +22,8 @@ import java.util.List;
 
 public class RegistrationPage extends ActionBarActivity implements OnClickListener {
 
-    private EditText enteredUsername, enteredPassword;
-    private Button registerButton;
+    private EditText enteredUsername, enteredPassword, enteredConfirmed;
+    private Button registerButton, cancelbutton;
 
     private ProgressDialog progressDialog;
 
@@ -42,19 +43,28 @@ public class RegistrationPage extends ActionBarActivity implements OnClickListen
 
         enteredUsername = (EditText)findViewById(R.id.usernameField);
         enteredPassword = (EditText)findViewById(R.id.passwordField);
+        enteredConfirmed = (EditText)findViewById(R.id.confirmField);
 
 
         registerButton = (Button)findViewById(R.id.registrationButton);
+        cancelbutton = (Button)findViewById(R.id.cancelbutton);
         registerButton.setOnClickListener(this);
+        cancelbutton.setOnClickListener(this);
 		
 	}
 
 	@Override
 	public void onClick(View v) {
-		new CreateUser().execute();
+        if (v.getId() == R.id.registrationButton) {
+            new CreateUser().execute();;
+        } else if (v.getId() == R.id.cancelbutton) {
+            Intent intention = new Intent(this, LoginPage.class);
+            finish();
+            startActivity(intention);
+        }
 	}
 	
-	class CreateUser extends AsyncTask<String, String, String> {
+	class CreateUser extends AsyncTask<String, String, String> { 
 
         @Override
         protected void onPreExecute() {
@@ -71,7 +81,12 @@ public class RegistrationPage extends ActionBarActivity implements OnClickListen
             int registrationSuccess;
             String username = enteredUsername.getText().toString();
             String password = enteredPassword.getText().toString();
+            String confirm = enteredConfirmed.getText().toString();
             try {
+                if (!password.equals(confirm)) {
+                    String mismatch = new String("Password Mismatch!");
+                    return mismatch;
+                }
                 List<NameValuePair> params = new ArrayList<NameValuePair>();
                 params.add(new BasicNameValuePair("username", username));
                 params.add(new BasicNameValuePair("password", password));
