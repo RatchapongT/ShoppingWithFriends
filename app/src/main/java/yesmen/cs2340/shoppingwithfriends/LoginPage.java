@@ -28,8 +28,8 @@ public class LoginPage extends ActionBarActivity implements View.OnClickListener
 
     JSONParser jsonParser = new JSONParser();
 
-    private static final String LOGIN_URL = "http://10.0.2.2:80/yesmen/login.php";
-    //private static final String LOGIN_URL = "http://71.236.14.188:80/yesmen/login.php";
+    //private static final String LOGIN_URL = "http://10.0.2.2:80/yesmen/login.php";
+    private static final String LOGIN_URL = "http://71.236.14.188:80/yesmen/login.php";
 
     //JSON element ids from response of php script:
     private static final String TAG_SUCCESS = "success";
