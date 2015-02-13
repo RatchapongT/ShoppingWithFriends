@@ -96,7 +96,6 @@ public class LoginPage extends ActionBarActivity implements View.OnClickListener
                 // json success tag
                 loginSuccess = json.getInt(TAG_SUCCESS);
                 if (loginSuccess == 1) {
-                    loginSuccess = 0;
                     Log.d("Login Successful!", json.toString());
                     Intent intention = new Intent(LoginPage.this, Homepage.class);
                     finish();
