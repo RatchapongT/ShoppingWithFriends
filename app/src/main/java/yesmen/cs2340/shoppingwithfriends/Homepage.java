@@ -1,3 +1,7 @@
+/**
+ * @author      Luka Antolic-Soban, Resse Aitken, Ratchapong Tangkijvorakul, Matty Attokaren, Sunny Patel
+ * @version     1.4
+ */
 package yesmen.cs2340.shoppingwithfriends;
 
 import android.app.Activity;
@@ -7,6 +11,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.Button;
 
+//the main class for the Homepage Activity
 public class Homepage extends ActionBarActivity implements View.OnClickListener {
 
     private Button logoutButton;

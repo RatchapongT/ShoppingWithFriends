@@ -1,3 +1,7 @@
+/**
+ * @author      Luka Antolic-Soban, Resse Aitken, Ratchapong Tangkijvorakul, Matty Attokaren, Sunny Patel
+ * @version     1.4
+ */
 package yesmen.cs2340.shoppingwithfriends;
 
 import android.app.ProgressDialog;
