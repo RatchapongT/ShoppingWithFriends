@@ -31,4 +31,11 @@ public class Homepage extends ActionBarActivity implements View.OnClickListener 
         finish();
         startActivity(intention);
     }
+
+    /** Called when the user clicks the Add Friend button */
+    public void addFriend(View view) {
+        Intent intent = new Intent(this, addFriend.class);
+        finish();
+        startActivity(intent);
+    }
 }

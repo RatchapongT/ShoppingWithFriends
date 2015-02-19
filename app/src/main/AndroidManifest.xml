@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="yesmen.cs2340.shoppingwithfriends">
+    package="yesmen.cs2340.shoppingwithfriends" >
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme" >
         <activity
             android:name=".LoginPage"
-            android:label="@string/app_name">
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,14 +19,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="yesmen.cs2340.shoppingwithfriends.RegistrationPage"
-            android:label="@string/app_name"  >
+            android:name=".RegistrationPage"
+            android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="yesmen.cs2340.shoppingwithfriends.Homepage"
-            android:label="@string/app_name"  >
+            android:name=".Homepage"
+            android:label="@string/app_name" >
         </activity>
-
+        <activity
+            android:name=".addFriend"
+            android:label="@string/title_activity_add_friend" >
+        </activity>
     </application>
 
 </manifest>
