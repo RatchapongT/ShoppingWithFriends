@@ -20,7 +20,7 @@
         android:id="@+id/imageButton"
         android:src="@drawable/add_user"
         android:clickable="true"
-        android:onClick="addFriend"/>
+        android:onClick="addFriend" />
 
     <Button
         android:layout_width="wrap_content"
