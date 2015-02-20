@@ -15,11 +15,13 @@ import java.util.List;
  */
 public class DatabaseInterfacer {
 
-    private static final String IP_PUNCH = "http://10.0.2.2:80";
-    private static final String IP = "http://73.207.216.173:80";
+    private static final String LOCAL_IP = "http://10.0.2.2:80";
+    private static final String REMOTE_IP = "http://73.207.216.173:80";
 
     private static final String LOGIN_URL = "/yesmen/login.php";
     private static final String REGISTER_URL = "/yesmen/register.php";
+    private static final String ADD_FRIEND_URL = "/yesmen/add_friend.php";
+    private static final String VIEW_FRIEND_URL = "/yesmen/view_friends.php";
 
     //JSON element ids from response of php script:
     private static final String TAG_SUCCESS = "success";
@@ -64,10 +66,10 @@ public class DatabaseInterfacer {
             Log.d("Request!", "Starting the validation process");
             // getting product details by making HTTP request
             JSONParser jsonParser = new JSONParser();
-            JSONObject json = jsonParser.makeHttpRequest(IP+URL, "POST", params);
+            JSONObject json = jsonParser.makeHttpRequest(REMOTE_IP +URL, "POST", params);
 
             if (json == null) {
-                json = jsonParser.makeHttpRequest(IP_PUNCH+URL, "POST", params);
+                json = jsonParser.makeHttpRequest(LOCAL_IP +URL, "POST", params);
             }
 
             // check your log for json response

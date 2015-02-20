@@ -22,8 +22,10 @@ public class Homepage extends ActionBarActivity implements View.OnClickListener 
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         setContentView(R.layout.homepage);
+
         logoutButton = (Button) findViewById(R.id.logoutbutton);
         logoutButton.setOnClickListener(this);
+
         viewButton = (Button) findViewById(R.id.viewFriend);
         viewButton.setOnClickListener(this);
     }
