@@ -124,7 +124,9 @@ public class RegistrationPage extends ActionBarActivity implements OnClickListen
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+ 
             return null;
+			
 		}
 
         protected void onPostExecute(String file_url) {
