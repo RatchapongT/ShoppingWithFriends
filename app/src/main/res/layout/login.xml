@@ -2,32 +2,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-   >
+    >
 
     <Button
-        android:id="@+id/registrationButton"
+        android:id="@+id/login_register_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/loginButton"
+        android:layout_alignLeft="@+id/login_execute_button"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/loginButton"
+        android:layout_alignRight="@+id/login_execute_button"
         android:layout_marginBottom="25dp"
         android:text="Register" />
 
     <Button
-        android:id="@+id/loginButton"
+        android:id="@+id/login_execute_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/registrationButton"
-        android:layout_alignLeft="@+id/passwordField"
-        android:layout_alignRight="@+id/passwordField"
+        android:layout_above="@+id/login_register_button"
+        android:layout_alignLeft="@+id/login_password_input"
+        android:layout_alignRight="@+id/login_password_input"
         android:text="Login" />
 
     <EditText
-        android:id="@+id/passwordField"
+        android:id="@+id/login_password_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/loginButton"
+        android:layout_above="@+id/login_execute_button"
         android:layout_centerHorizontal="true"
         android:ems="10"
         android:inputType="textPassword" >
@@ -35,50 +35,38 @@
         <requestFocus />
     </EditText>
 
-    <TextView
-        android:id="@+id/loginTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Shopping With Friends"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textStyle="bold"
-        android:layout_above="@+id/loginLogo"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="33dp" />
-
     <ImageView
-        android:id="@+id/loginLogo"
+        android:id="@+id/login_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/shopping_logo"
-        android:layout_above="@+id/usernameText"
+        android:layout_above="@+id/login_username_text"
         android:layout_centerHorizontal="true" />
 
     <TextView
-        android:id="@+id/passwordText"
+        android:id="@+id/login_password_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/passwordField"
-        android:layout_alignLeft="@+id/passwordField"
+        android:layout_above="@+id/login_password_input"
+        android:layout_alignLeft="@+id/login_password_input"
         android:layout_marginLeft="22dp"
         android:text="Password" />
 
     <EditText
-        android:id="@+id/usernameField"
+        android:id="@+id/login_username_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/passwordText"
+        android:layout_above="@+id/login_password_text"
         android:layout_centerHorizontal="true"
         android:ems="10" />
 
     <TextView
-        android:id="@+id/usernameText"
+        android:id="@+id/login_username_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Username"
-        android:layout_above="@+id/usernameField"
-        android:layout_alignRight="@+id/passwordText"
-        android:layout_alignEnd="@+id/passwordText" />
+        android:layout_above="@+id/login_username_input"
+        android:layout_alignRight="@+id/login_password_text"
+        android:layout_alignEnd="@+id/login_password_text" />
 
 </RelativeLayout>

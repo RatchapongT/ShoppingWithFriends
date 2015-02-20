@@ -5,11 +5,9 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -78,7 +76,7 @@ public class ViewFriends extends ActionBarActivity implements View.OnClickListen
         protected String doInBackground(String... args) {
 
             int viewFriendSuccess = 0;
-            String myUser = CurrentUser.getCurrentUser().getUserName();
+            String myUser = CurrentUser.getCurrentUser().getUsername();
             myUser = myUser.toLowerCase();
 
             try {

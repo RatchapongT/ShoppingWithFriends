@@ -6,7 +6,7 @@ package yesmen.cs2340.shoppingwithfriends;
  */
 public class User {
 
-    private String userName;
+    private String username;
     private String name;
     private String biography;
     private String location;
@@ -14,11 +14,11 @@ public class User {
     private String phoneNumber;
 
     public User(String userName) {
-        this.userName = userName;
+        this.username = userName;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
     public String getName() {

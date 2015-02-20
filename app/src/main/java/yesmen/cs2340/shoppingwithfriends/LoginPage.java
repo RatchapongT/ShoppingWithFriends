@@ -29,11 +29,11 @@ public class LoginPage extends ActionBarActivity implements View.OnClickListener
         setContentView(R.layout.login); // Set layout according to login.xml
 
 
-        enteredUsername = (EditText) findViewById(R.id.usernameField);
-        enteredPassword = (EditText) findViewById(R.id.passwordField);
+        enteredUsername = (EditText) findViewById(R.id.login_username_input);
+        enteredPassword = (EditText) findViewById(R.id.login_password_input);
 
-        loginButton = (Button) findViewById(R.id.loginButton);
-        registerButton = (Button) findViewById(R.id.registrationButton);
+        loginButton = (Button) findViewById(R.id.login_execute_button);
+        registerButton = (Button) findViewById(R.id.login_register_button);
 
         loginButton.setOnClickListener(this);
         registerButton.setOnClickListener(this);
@@ -50,9 +50,9 @@ public class LoginPage extends ActionBarActivity implements View.OnClickListener
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.loginButton) {
+        if (v.getId() == R.id.login_execute_button) {
             new LoginAttempt().execute();
-        } else if (v.getId() == R.id.registrationButton) {
+        } else if (v.getId() == R.id.login_register_button) {
             Intent intention = new Intent(this, RegistrationPage.class);
             startActivity(intention);
         }

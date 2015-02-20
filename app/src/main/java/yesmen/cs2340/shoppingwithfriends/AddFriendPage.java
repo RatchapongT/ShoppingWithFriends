@@ -89,23 +89,12 @@ public class AddFriendPage extends ActionBarActivity implements View.OnClickList
         protected String doInBackground(String... args) {
             int addFriendSuccess = 0;
             String friendUser = enteredFriend.getText().toString();
-            String myUser = CurrentUser.getCurrentUser().getUserName();
+            String myUser = CurrentUser.getCurrentUser().getUsername();
 
 
 
             friendUser = friendUser.toLowerCase();
             myUser = myUser.toLowerCase();
-
-            Log.e("WHO AM I!!!!!" , myUser);
-            Log.e("WHO AM I!!!!!" , myUser);
-            Log.e("WHO AM I!!!!!" , myUser);
-            Log.e("WHO AM I!!!!!" , myUser);
-            Log.e("WHO AM I!!!!!" , myUser);
-            Log.e("WHO AM I!!!!!" , myUser);
-            Log.e("WHO AM I!!!!!" , myUser);
-            Log.e("WHO AM I!!!!!" , myUser);Log.e("WHO AM I!!!!!" , myUser);Log.e("WHO AM I!!!!!" , myUser);
-            Log.e("WHO AM I!!!!!" , myUser);Log.e("WHO AM I!!!!!" , myUser);
-
 
 
             try {

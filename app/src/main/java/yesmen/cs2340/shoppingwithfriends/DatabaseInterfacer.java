@@ -40,10 +40,10 @@ public class DatabaseInterfacer {
                     CurrentUser.setCurrentUser(new User(usernameID));
                 }
                 return json.getString(TAG_MESSAGE);
-            } else return "Database error 1";
-        }   catch (JSONException e) {
+            } else return "Login Failure (Connection)";
+        } catch (JSONException e) {
             e.printStackTrace();
-            return "Database error 2";
+            return "Login Failure (Technical)";
         }
     }
 
@@ -55,31 +55,25 @@ public class DatabaseInterfacer {
         try {
             if (json != null) {
                 return json.getString(TAG_MESSAGE);
-            } else return "Database error";
-        }   catch (JSONException e) {
-            return "Database error";
+            } else return "Register Failure (Connection)";
+        } catch (JSONException e) {
+            return "Register Failure (Technical)";
         }
     }
 
     private static JSONObject queryDatabase(String URL, List<NameValuePair> params) {
         try {
-            Log.d("Request!", "Starting the validation process");
-            // getting product details by making HTTP request
+
             JSONParser jsonParser = new JSONParser();
-            JSONObject json = jsonParser.makeHttpRequest(REMOTE_IP +URL, "POST", params);
+            JSONObject json = jsonParser.makeHttpRequest(REMOTE_IP + URL, "POST", params);
 
             if (json == null) {
-                json = jsonParser.makeHttpRequest(LOCAL_IP +URL, "POST", params);
+                json = jsonParser.makeHttpRequest(LOCAL_IP + URL, "POST", params);
             }
 
-            // check your log for json response
-            Log.d("Login attempt", json.toString());
-
-            // json success tag
-            int success = json.getInt(TAG_SUCCESS);
-
             Log.d("json Tag Message", json.getString(TAG_MESSAGE));
-            if (success == 1) {
+
+            if (json.getInt(TAG_SUCCESS) == 1) {
                 Log.d("Database Query Successful!", json.toString());
                 return json;
             } else {
