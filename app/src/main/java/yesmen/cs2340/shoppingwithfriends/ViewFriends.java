@@ -33,8 +33,8 @@ public class ViewFriends extends ActionBarActivity implements View.OnClickListen
     ListView listView ;
     private ArrayList<String> values = new ArrayList<String>();
 
-    private static final String SERVER_URL = "http://10.0.2.2:80/yesmen/view_friends.php";
-    //private static final String SERVER_URL = "http://73.207.216.173:80/yesmen/view_friends.php";
+    //private static final String SERVER_URL = "http://10.0.2.2:80/yesmen/view_friends.php";
+    private static final String SERVER_URL = "http://73.207.216.173:80/yesmen/view_friends.php";
 
     //JSON element ids from response of php script:
     private static final String TAG_SUCCESS = "success";
