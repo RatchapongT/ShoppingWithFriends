@@ -10,6 +10,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -33,8 +35,8 @@ public class RegistrationPage extends ActionBarActivity implements OnClickListen
 
     JSONParser jsonParser = new JSONParser();
 
-    //private static final String LOGIN_URL = "http://10.0.2.2:80/yesmen/register.php";
-    private static final String LOGIN_URL = "http://73.207.216.173:80/yesmen/register.php";
+    private static final String LOGIN_URL = "http://10.0.2.2:80/yesmen/register.php";
+    //private static final String LOGIN_URL = "http://73.207.216.173:80/yesmen/register.php";
 
     //JSON element ids from response of php script:
     private static final String TAG_SUCCESS = "success";
@@ -67,7 +69,15 @@ public class RegistrationPage extends ActionBarActivity implements OnClickListen
             startActivity(intention);
         }
 	}
-	
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu items for use in the action bar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.action_bar, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
 	class CreateUser extends AsyncTask<String, String, String> {
 
         @Override
