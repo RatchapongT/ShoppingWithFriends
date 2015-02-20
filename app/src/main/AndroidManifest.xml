@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".LoginPage"
-            android:label="Login" >
+            android:label="Shopping With Friends" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -115,7 +115,7 @@ public class AddFriendPage extends ActionBarActivity implements View.OnClickList
                 parameters.add(new BasicNameValuePair("UserID", myUser));
 
                 if (myUser.equals(friendUser)) {
-                    return "Stop adding your self shithead!";
+                    return "Stop adding yourself!";
                 }
 
 
