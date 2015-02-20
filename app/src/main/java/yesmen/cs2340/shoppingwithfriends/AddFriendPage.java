@@ -28,8 +28,8 @@ public class AddFriendPage extends ActionBarActivity implements View.OnClickList
 
     JSONParser jsonParser = new JSONParser();
 
-    private static final String SERVER_URL = "http://10.0.2.2:80/yesmen/add_friend.php";
-    //private static final String SERVER_URL = "http://73.207.216.173:80/yesmen/login.php";
+    //private static final String SERVER_URL = "http://10.0.2.2:80/yesmen/add_friend.php";
+    private static final String SERVER_URL = "http://73.207.216.173:80/yesmen/add_friend.php";
 
     //JSON element ids from response of php script:
     private static final String TAG_SUCCESS = "success";
@@ -71,7 +71,7 @@ public class AddFriendPage extends ActionBarActivity implements View.OnClickList
         protected String doInBackground(String... args) {
             int addFriendSuccess = 0;
             String friendUser = enteredFriend.getText().toString();
-            String myUser = CurrentUser.getCurrentUser().getUsername();
+            String myUser = CurrentUser.getCurrentUser().getUserName();
 
 
 
