@@ -9,11 +9,11 @@ public class CurrentUser {
         current = u;
     }
 
-    public User getCurrentUser() {
+    public static User getCurrentUser() {
         return current;
     }
 
-    public void setCurrentUser(User u) {
+    public static void setCurrentUser(User u) {
         current = u;
     }
 }
