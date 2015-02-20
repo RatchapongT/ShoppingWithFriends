@@ -4,7 +4,6 @@
  */
 package yesmen.cs2340.shoppingwithfriends;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -34,7 +33,7 @@ public class Homepage extends ActionBarActivity implements View.OnClickListener 
 
     /** Called when the user clicks the Add Friend button */
     public void addFriend(View view) {
-        Intent intent = new Intent(this, addFriend.class);
+        Intent intent = new Intent(this, AddFriendPage.class);
         finish();
         startActivity(intent);
     }

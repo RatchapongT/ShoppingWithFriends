@@ -32,20 +32,19 @@ public class LoginPage extends ActionBarActivity implements View.OnClickListener
 
     JSONParser jsonParser = new JSONParser();
 
-    //private static final String LOGIN_URL = "http://10.0.2.2:80/yesmen/login.php";
-    private static final String LOGIN_URL = "http://73.207.216.173:80/yesmen/login.php";
+    private static final String LOGIN_URL = "http://10.0.2.2:80/yesmen/login.php";
+    //private static final String LOGIN_URL = "http://73.207.216.173:80/yesmen/login.php";
 
     //JSON element ids from response of php script:
     private static final String TAG_SUCCESS = "success";
     private static final String TAG_MESSAGE = "message";
+    private static final String TAG_USER = "get_user";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login); // Set layout according to login.xml
 
-        enteredUsername = null;
-        enteredPassword = null;
 
         enteredUsername = (EditText) findViewById(R.id.usernameField);
         enteredPassword = (EditText) findViewById(R.id.passwordField);
@@ -99,9 +98,12 @@ public class LoginPage extends ActionBarActivity implements View.OnClickListener
 
                 // json success tag
                 loginSuccess = json.getInt(TAG_SUCCESS);
+
                 if (loginSuccess == 1) {
                     Log.d("Login Successful!", json.toString());
                     Intent intention = new Intent(LoginPage.this, Homepage.class);
+                    String usernameID = json.getString(TAG_USER);
+                    CurrentUser.setCurrentUser(new User(usernameID));
                     finish();
                     startActivity(intention);
                     return json.getString(TAG_MESSAGE);
