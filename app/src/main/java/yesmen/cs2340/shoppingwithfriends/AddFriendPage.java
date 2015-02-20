@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
@@ -52,9 +51,9 @@ public class AddFriendPage extends ActionBarActivity implements View.OnClickList
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_friend);
-        enteredFriend = (EditText) findViewById(R.id.friendUser);
-        submitButton = (Button) findViewById(R.id.submitButton);
-        cancelButton = (Button) findViewById(R.id.cancelbutton_friend);
+        enteredFriend = (EditText) findViewById(R.id.add_friend_username_input);
+        submitButton = (Button) findViewById(R.id.add_friend_execute_button);
+        cancelButton = (Button) findViewById(R.id.add_friend_cancel_button);
 
         submitButton.setOnClickListener(this);
         cancelButton.setOnClickListener(this);
@@ -71,9 +70,9 @@ public class AddFriendPage extends ActionBarActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.submitButton) {
+        if (v.getId() == R.id.add_friend_execute_button) {
             new AddFriendAttempt().execute();
-        } else if (v.getId() == R.id.cancelbutton_friend) {
+        } else if (v.getId() == R.id.add_friend_cancel_button) {
             Intent intention = new Intent(this, Homepage.class);
             finish();
             startActivity(intention);
@@ -100,30 +99,24 @@ public class AddFriendPage extends ActionBarActivity implements View.OnClickList
         protected String doInBackground(String... args) {
             int addFriendSuccess = 0;
             String friendUser = enteredFriend.getText().toString();
-            String myUser = CurrentUser.getCurrentUser().getUserName();
+            String myUser = CurrentUser.getCurrentUser().getUsername();
 
 
 
             friendUser = friendUser.toLowerCase();
             myUser = myUser.toLowerCase();
 
-            Log.e("WHO AM I!!!!!" , myUser);
-            Log.e("WHO AM I!!!!!" , myUser);
-            Log.e("WHO AM I!!!!!" , myUser);
-            Log.e("WHO AM I!!!!!" , myUser);
-            Log.e("WHO AM I!!!!!" , myUser);
-            Log.e("WHO AM I!!!!!" , myUser);
-            Log.e("WHO AM I!!!!!" , myUser);
-            Log.e("WHO AM I!!!!!" , myUser);Log.e("WHO AM I!!!!!" , myUser);Log.e("WHO AM I!!!!!" , myUser);
-            Log.e("WHO AM I!!!!!" , myUser);Log.e("WHO AM I!!!!!" , myUser);
-
-
 
             try {
                 // Building Parameters
+
                 List<NameValuePair> parameters = new ArrayList<NameValuePair>();
                 parameters.add(new BasicNameValuePair("FriendID", friendUser));
                 parameters.add(new BasicNameValuePair("UserID", myUser));
+
+                if (myUser.equals(friendUser)) {
+                    return "Stop adding your self shithead!";
+                }
 
 
                 // getting product details by making HTTP request

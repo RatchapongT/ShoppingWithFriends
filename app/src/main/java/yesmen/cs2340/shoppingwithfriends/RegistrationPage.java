@@ -39,8 +39,8 @@ public class RegistrationPage extends ActionBarActivity implements OnClickListen
 
     JSONParser jsonParser = new JSONParser();
 
-    private static final String LOGIN_URL = "http://10.0.2.2:80/yesmen/register.php";
-    //private static final String LOGIN_URL = "http://73.207.216.173:80/yesmen/register.php";
+    //private static final String LOGIN_URL = "http://10.0.2.2:80/yesmen/register.php";
+    private static final String LOGIN_URL = "http://73.207.216.173:80/yesmen/register.php";
 
     //JSON element ids from response of php script:
     private static final String TAG_SUCCESS = "success";
@@ -51,13 +51,13 @@ public class RegistrationPage extends ActionBarActivity implements OnClickListen
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.register);
 
-        enteredUsername = (EditText)findViewById(R.id.usernameField);
-        enteredPassword = (EditText)findViewById(R.id.passwordField);
-        enteredConfirmed = (EditText)findViewById(R.id.confirmField);
+        enteredUsername = (EditText)findViewById(R.id.register_username_input);
+        enteredPassword = (EditText)findViewById(R.id.register_password_input);
+        enteredConfirmed = (EditText)findViewById(R.id.register_confirm_password_input);
 
 
-        registerButton = (Button)findViewById(R.id.registrationButton);
-        cancelbutton = (Button)findViewById(R.id.cancelbutton);
+        registerButton = (Button)findViewById(R.id.register_execute_button);
+        cancelbutton = (Button)findViewById(R.id.register_cancel_button);
         registerButton.setOnClickListener(this);
         cancelbutton.setOnClickListener(this);
 		
@@ -65,9 +65,9 @@ public class RegistrationPage extends ActionBarActivity implements OnClickListen
 
 	@Override
 	public void onClick(View v) {
-        if (v.getId() == R.id.registrationButton) {
+        if (v.getId() == R.id.register_execute_button) {
             new CreateUser().execute();;
-        } else if (v.getId() == R.id.cancelbutton) {
+        } else if (v.getId() == R.id.register_cancel_button) {
             Intent intention = new Intent(this, LoginPage.class);
             finish();
             startActivity(intention);
