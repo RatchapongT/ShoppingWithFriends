@@ -1,7 +1,3 @@
-/**
- * @author      Luka Antolic-Soban, Resse Aitken, Ratchapong Tangkijvorakul, Matty Attokaren, Sunny Patel
- * @version     1.4
- */
 package yesmen.cs2340.shoppingwithfriends;
 
 import android.app.ProgressDialog;
@@ -15,6 +11,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+/**
+ * Class LoginPage extends ActionBarActivity and implements View.OnClickListener,
+ * is all the code that pertains to the login page in android.
+ *
+ * @author Luka Antolic-Soban, Resse Aitken, Ratchapong Tangkijvorakul, Matty Attokaren, Sunny Patel
+ * @version 1.6
+ */
 
 public class LoginPage extends ActionBarActivity implements View.OnClickListener {
 
@@ -57,7 +61,10 @@ public class LoginPage extends ActionBarActivity implements View.OnClickListener
             startActivity(intention);
         }
     }
-
+    /**
+     * Class LoginAttempt extends AsyncTask, checks the Login Attempt that is made by the user
+     *
+     */
     class LoginAttempt extends AsyncTask<String, String, String> {
 
         @Override
@@ -85,6 +92,11 @@ public class LoginPage extends ActionBarActivity implements View.OnClickListener
             }
         }
 
+        /**
+         * When a post is executed
+         *
+         * @param file_url
+         */
         protected void onPostExecute(String file_url) {
             // dismiss the dialog once product deleted
             progressDialog.dismiss();

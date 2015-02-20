@@ -1,7 +1,3 @@
-/**
- * @author      Luka Antolic-Soban, Resse Aitken, Ratchapong Tangkijvorakul, Matty Attokaren, Sunny Patel
- * @version     1.4
- */
 package yesmen.cs2340.shoppingwithfriends;
 
 import android.app.ProgressDialog;
@@ -25,6 +21,14 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+
+/**
+ * Class RegistrationPage extends ActionBarActivity and implements View.OnClickListener,
+ * is all the code that pertains to the registration page in android.
+ *
+ * @author      Luka Antolic-Soban, Resse Aitken, Ratchapong Tangkijvorakul, Matty Attokaren, Sunny Patel
+ * @version     1.6
+ */
 
 public class RegistrationPage extends ActionBarActivity implements OnClickListener {
 
@@ -77,7 +81,10 @@ public class RegistrationPage extends ActionBarActivity implements OnClickListen
         inflater.inflate(R.menu.action_bar, menu);
         return super.onCreateOptionsMenu(menu);
     }
-
+    /**
+     * Class LoginAttempt extends AsyncTask, checks the user being created.
+     *
+     */
 	class CreateUser extends AsyncTask<String, String, String> {
 
         @Override
@@ -128,7 +135,11 @@ public class RegistrationPage extends ActionBarActivity implements OnClickListen
             return null;
 			
 		}
-
+        /**
+         * When a post is executed
+         *
+         * @param file_url
+         */
         protected void onPostExecute(String file_url) {
             progressDialog.dismiss();
             if (file_url != null){

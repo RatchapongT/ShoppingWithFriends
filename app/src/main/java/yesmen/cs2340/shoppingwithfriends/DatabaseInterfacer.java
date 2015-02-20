@@ -11,7 +11,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Reese on 2/20/2015.
+ * Class DatabaseInterfacer, is a wrapper for the database. Communicates with the database.
+ *
+ * @author Luka Antolic-Soban, Resse Aitken, Ratchapong Tangkijvorakul, Matty Attokaren, Sunny Patel
+ * @version 1.1
  */
 public class DatabaseInterfacer {
 
@@ -28,6 +31,13 @@ public class DatabaseInterfacer {
     private static final String TAG_MESSAGE = "message";
     private static final String TAG_USER = "get_user";
 
+    /**
+     * Checks the login information.
+     *
+     * @param username
+     * @param password
+     * @return "Database error 1 or 2"
+     */
     public static String login(String username, String password) {
         List<NameValuePair> params = new ArrayList<>();
         params.add(new BasicNameValuePair("username", username));
@@ -47,6 +57,13 @@ public class DatabaseInterfacer {
         }
     }
 
+    /**
+     * Checks the registration information.
+     *
+     * @param username
+     * @param password
+     * @return "database error"
+     */
     public static String register(String username, String password) {
         List<NameValuePair> params = new ArrayList<>();
         params.add(new BasicNameValuePair("username", username));
@@ -61,6 +78,13 @@ public class DatabaseInterfacer {
         }
     }
 
+    /**
+     * Validates the login attempt with the help of the query database.
+     *
+     * @param URL
+     * @param params
+     * @return json
+     */
     private static JSONObject queryDatabase(String URL, List<NameValuePair> params) {
         try {
             Log.d("Request!", "Starting the validation process");

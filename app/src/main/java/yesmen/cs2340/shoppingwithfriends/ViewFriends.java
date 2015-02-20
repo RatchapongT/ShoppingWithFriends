@@ -23,7 +23,8 @@ import java.util.List;
 import org.json.JSONArray;
 
 /**
- * Created by Zanko on 2/20/2015.
+ * Class ViewFriends extends ActionBarActivity and implements View.OnClickListener,
+ * is all the code that pertains to the view friends page in android.
  */
 public class ViewFriends extends ActionBarActivity implements View.OnClickListener{
 
@@ -61,7 +62,10 @@ public class ViewFriends extends ActionBarActivity implements View.OnClickListen
             startActivity(intention);
         }
     }
-
+    /**
+     * Class ViewFriendsAttempt extends AsyncTask, checks the attempt to view friends.
+     *
+     */
     class ViewFriendsAttempt extends AsyncTask<String, String, String> {
 
         @Override
@@ -116,7 +120,11 @@ public class ViewFriends extends ActionBarActivity implements View.OnClickListen
             return null;
 
         }
-
+        /**
+         * When a post is executed
+         *
+         * @param file_url
+         */
         protected void onPostExecute(String file_url) {
             listView = (ListView) findViewById(R.id.list);
 

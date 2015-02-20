@@ -21,7 +21,14 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * Class AddFriendPage extends ActivityBarActivity and implements View.OnClickListener, is
+ * all the code that pertains to adding a friend in android. It checks if you are already a
+ * friend, and lets you add a new friend.
+ *
+ * @author Luka Antolic-Soban, Resse Aitken, Ratchapong Tangkijvorakul, Matty Attokaren, Sunny Patel
+ * @version 1.2
+ */
 public class AddFriendPage extends ActionBarActivity implements View.OnClickListener {
 
     private EditText enteredFriend;
@@ -72,7 +79,11 @@ public class AddFriendPage extends ActionBarActivity implements View.OnClickList
             startActivity(intention);
         }
     }
-
+    /**
+     * Class AddFriendAttempt extends AsyncTask, checks if you are already a
+     * friend, and all the code when attempting to add a friend.
+     *
+     */
     class AddFriendAttempt extends AsyncTask<String, String, String> {
 
         @Override
@@ -137,6 +148,11 @@ public class AddFriendPage extends ActionBarActivity implements View.OnClickList
 
         }
 
+        /**
+         * When a post is executed
+         *
+         * @param file_url
+         */
         protected void onPostExecute(String file_url) {
             // dismiss the dialog once product deleted
             progressDialog.dismiss();
