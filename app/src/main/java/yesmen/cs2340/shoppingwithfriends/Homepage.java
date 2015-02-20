@@ -15,7 +15,7 @@ import android.widget.Button;
 //the main class for the Homepage Activity
 public class Homepage extends ActionBarActivity implements View.OnClickListener {
 
-    private Button logoutButton;
+    private Button logoutButton, viewButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,13 +24,23 @@ public class Homepage extends ActionBarActivity implements View.OnClickListener 
         setContentView(R.layout.homepage);
         logoutButton = (Button) findViewById(R.id.logoutbutton);
         logoutButton.setOnClickListener(this);
+        viewButton = (Button) findViewById(R.id.viewFriend);
+        viewButton.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        Intent intention = new Intent(this, LoginPage.class);
-        finish();
-        startActivity(intention);
+
+
+        if (v.getId() == R.id.logoutbutton) {
+            Intent intention = new Intent(this, LoginPage.class);
+            finish();
+            startActivity(intention);
+        } else if (v.getId() == R.id.viewFriend) {
+            Intent intention = new Intent(this, ViewFriends.class);
+            finish();
+            startActivity(intention);
+        }
     }
 
     @Override

@@ -56,6 +56,7 @@ public class LoginPage extends ActionBarActivity implements View.OnClickListener
 
         loginButton.setOnClickListener(this);
         registerButton.setOnClickListener(this);
+
     }
 
     @Override
