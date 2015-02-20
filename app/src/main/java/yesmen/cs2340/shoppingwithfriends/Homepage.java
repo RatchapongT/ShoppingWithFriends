@@ -23,10 +23,10 @@ public class Homepage extends ActionBarActivity implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.homepage);
 
-        logoutButton = (Button) findViewById(R.id.logoutbutton);
+        logoutButton = (Button) findViewById(R.id.homepage_logout_button);
         logoutButton.setOnClickListener(this);
 
-        viewButton = (Button) findViewById(R.id.viewFriend);
+        viewButton = (Button) findViewById(R.id.homepage_view_friends_button);
         viewButton.setOnClickListener(this);
     }
 
@@ -34,11 +34,11 @@ public class Homepage extends ActionBarActivity implements View.OnClickListener 
     public void onClick(View v) {
 
 
-        if (v.getId() == R.id.logoutbutton) {
+        if (v.getId() == R.id.homepage_logout_button) {
             Intent intention = new Intent(this, LoginPage.class);
             finish();
             startActivity(intention);
-        } else if (v.getId() == R.id.viewFriend) {
+        } else if (v.getId() == R.id.homepage_view_friends_button) {
             Intent intention = new Intent(this, ViewFriends.class);
             finish();
             startActivity(intention);

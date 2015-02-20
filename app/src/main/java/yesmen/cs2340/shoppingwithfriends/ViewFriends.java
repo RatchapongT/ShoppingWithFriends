@@ -43,7 +43,7 @@ public class ViewFriends extends ActionBarActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_friends); // Set layout according to login.xml
-        cancelbutton = (Button)findViewById(R.id.cancel_view);
+        cancelbutton = (Button)findViewById(R.id.view_friend_cancel_button);
         cancelbutton.setOnClickListener(this);
 
 
@@ -54,7 +54,7 @@ public class ViewFriends extends ActionBarActivity implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.cancel_view) {
+        if (v.getId() == R.id.view_friend_cancel_button) {
             Intent intention = new Intent(this, Homepage.class);
             startActivity(intention);
         }
@@ -116,7 +116,7 @@ public class ViewFriends extends ActionBarActivity implements View.OnClickListen
         }
 
         protected void onPostExecute(String file_url) {
-            listView = (ListView) findViewById(R.id.list);
+            listView = (ListView) findViewById(R.id.view_friend_list);
 
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(ViewFriends.this,
                     android.R.layout.simple_list_item_1, android.R.id.text1, values);

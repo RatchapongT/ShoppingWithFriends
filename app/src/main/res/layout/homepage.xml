@@ -7,17 +7,11 @@
     android:id="@+id/verticalLayout"
     android:weightSum="1">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Shopping With Friends"
-        android:id="@+id/textView3" />
 
     <ImageButton
         android:layout_width="172dp"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton"
+        android:id="@+id/homepage_add_friend_button"
         android:src="@drawable/add_user"
         android:clickable="true"
         android:onClick="addFriend" />
@@ -26,13 +20,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="LogOut"
-        android:id="@+id/logoutbutton"
+        android:id="@+id/homepage_logout_button"
         android:layout_gravity="center_horizontal" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="View"
-        android:id="@+id/viewFriend" />
+        android:id="@+id/homepage_view_friends_button" />
 
 </LinearLayout>
