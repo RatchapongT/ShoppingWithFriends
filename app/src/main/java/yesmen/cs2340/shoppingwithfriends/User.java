@@ -6,19 +6,16 @@ package yesmen.cs2340.shoppingwithfriends;
  */
 public class User {
 
+    private String userName;
     private String name;
     private String biography;
     private String location;
     private String email;
     private String phoneNumber;
 
-    public User(String name) {
-        this.name = name;
+    public User(String userName) {
+        this.userName = userName;
     }
-
-
-
-
 
     public String getName() {
         return name;
