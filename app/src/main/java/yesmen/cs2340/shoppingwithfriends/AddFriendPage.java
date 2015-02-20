@@ -98,9 +98,14 @@ public class AddFriendPage extends ActionBarActivity implements View.OnClickList
 
             try {
                 // Building Parameters
+
                 List<NameValuePair> parameters = new ArrayList<NameValuePair>();
                 parameters.add(new BasicNameValuePair("FriendID", friendUser));
                 parameters.add(new BasicNameValuePair("UserID", myUser));
+
+                if (myUser.equals(friendUser)) {
+                    return "Stop adding your self shithead!";
+                }
 
 
                 // getting product details by making HTTP request
