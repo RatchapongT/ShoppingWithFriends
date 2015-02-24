@@ -83,7 +83,6 @@ public class DatabaseInterfacer {
      * @return String result of addFriend operation
      */
     public static String addFriend(String friendUser, String myUser) {
-        int addFriendSuccess = 0;
         friendUser = friendUser.toLowerCase();
         myUser = myUser.toLowerCase();
 
@@ -92,7 +91,7 @@ public class DatabaseInterfacer {
         params.add(new BasicNameValuePair("FriendID", friendUser));
         params.add(new BasicNameValuePair("UserID", myUser));
 
-        JSONObject json = queryDatabase(FRIEND_URL, params);
+        JSONObject json = queryDatabase(ADD_FRIEND_URL, params);
 
         try {
             if (json != null) {
@@ -108,10 +107,9 @@ public class DatabaseInterfacer {
 
     /**
      * Validates the login attempt with the help of the query database.
-     *
-     * @param URL
-     * @param params
-     * @return json
+     * @param URL URL ending of the desired php page to connect to
+     * @param params List f Name Value pairs to pass to the database
+     * @return json Returns a Json object from which to pull the pertinent information
      */
     private static JSONObject queryDatabase(String URL, List<NameValuePair> params) {
         try {

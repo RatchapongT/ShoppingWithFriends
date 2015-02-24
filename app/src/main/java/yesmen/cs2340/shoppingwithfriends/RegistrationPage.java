@@ -36,15 +36,6 @@ public class RegistrationPage extends ActionBarActivity implements OnClickListen
     private Button registerButton, cancelbutton;
 
     private ProgressDialog progressDialog;
-
-    JSONParser jsonParser = new JSONParser();
-
-    //private static final String LOGIN_URL = "http://10.0.2.2:80/yesmen/register.php";
-    private static final String LOGIN_URL = "http://73.207.216.173:80/yesmen/register.php";
-
-    //JSON element ids from response of php script:
-    private static final String TAG_SUCCESS = "success";
-    private static final String TAG_MESSAGE = "message";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -99,41 +90,23 @@ public class RegistrationPage extends ActionBarActivity implements OnClickListen
 		
 		@Override
 		protected String doInBackground(String... args) {
-            int registrationSuccess;
             String username = enteredUsername.getText().toString();
             String password = enteredPassword.getText().toString();
             String confirm = enteredConfirmed.getText().toString();
-            try {
-                if (!password.equals(confirm)) {
-                    String mismatch = new String("Password Mismatch!");
-                    return mismatch;
-                }
-                List<NameValuePair> params = new ArrayList<NameValuePair>();
-                params.add(new BasicNameValuePair("username", username));
-                params.add(new BasicNameValuePair("password", password));
- 
-                Log.d("request!", "starting");
 
-                JSONObject json = jsonParser.makeHttpRequest(LOGIN_URL, "POST", params);
-
-                Log.d("Login attempt", json.toString());
-
-                registrationSuccess = json.getInt(TAG_SUCCESS);
-                if (registrationSuccess == 1) {
-                	Log.d("User Created!", json.toString());              	
-                	finish();
-                	return json.getString(TAG_MESSAGE);
-                }else{
-                	Log.d("User Registration Failure!", json.getString(TAG_MESSAGE));
-                	return json.getString(TAG_MESSAGE);
-                	
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
+            if (password != confirm) {
+                return "Password and confirmation do not match!";
             }
- 
-            return null;
-			
+
+            String ret = DatabaseInterfacer.register(username, password);
+            if (ret.equals("User Created!")) {
+                Log.d("User Created!", ret);
+                finish();
+            } else {
+                Log.d("User Registration Failure!", ret);
+            }
+            return ret;
+
 		}
         /**
          * When a post is executed
