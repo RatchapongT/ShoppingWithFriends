@@ -11,13 +11,14 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".LoginPage"
-            android:label="Login" >
+            android:label="Shopping With Friends" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".RegistrationPage"
             android:label="Registration" >
@@ -30,6 +31,12 @@
             android:name=".AddFriendPage"
             android:label="Add Friend" >
         </activity>
+
+        <activity
+            android:name=".ViewFriends"
+            android:label="View Friends" >
+        </activity>
+
     </application>
 
 </manifest>

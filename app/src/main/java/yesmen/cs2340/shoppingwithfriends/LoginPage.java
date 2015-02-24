@@ -1,7 +1,3 @@
-/**
- * @author      Luka Antolic-Soban, Resse Aitken, Ratchapong Tangkijvorakul, Matty Attokaren, Sunny Patel
- * @version     1.4
- */
 package yesmen.cs2340.shoppingwithfriends;
 
 import android.app.ProgressDialog;
@@ -16,6 +12,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+/**
+ * Class LoginPage extends ActionBarActivity and implements View.OnClickListener,
+ * is all the code that pertains to the login page in android.
+ *
+ * @author Luka Antolic-Soban, Resse Aitken, Ratchapong Tangkijvorakul, Matty Attokaren, Sunny Patel
+ * @version 1.6
+ */
+
 public class LoginPage extends ActionBarActivity implements View.OnClickListener {
 
     private EditText enteredUsername, enteredPassword;
@@ -29,14 +33,15 @@ public class LoginPage extends ActionBarActivity implements View.OnClickListener
         setContentView(R.layout.login); // Set layout according to login.xml
 
 
-        enteredUsername = (EditText) findViewById(R.id.usernameField);
-        enteredPassword = (EditText) findViewById(R.id.passwordField);
+        enteredUsername = (EditText) findViewById(R.id.login_username_input);
+        enteredPassword = (EditText) findViewById(R.id.login_password_input);
 
-        loginButton = (Button) findViewById(R.id.loginButton);
-        registerButton = (Button) findViewById(R.id.registrationButton);
+        loginButton = (Button) findViewById(R.id.login_execute_button);
+        registerButton = (Button) findViewById(R.id.login_register_button);
 
         loginButton.setOnClickListener(this);
         registerButton.setOnClickListener(this);
+
     }
 
     @Override
@@ -49,14 +54,17 @@ public class LoginPage extends ActionBarActivity implements View.OnClickListener
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.loginButton) {
+        if (v.getId() == R.id.login_execute_button) {
             new LoginAttempt().execute();
-        } else if (v.getId() == R.id.registrationButton) {
+        } else if (v.getId() == R.id.login_register_button) {
             Intent intention = new Intent(this, RegistrationPage.class);
             startActivity(intention);
         }
     }
-
+    /**
+     * Class LoginAttempt extends AsyncTask, checks the Login Attempt that is made by the user
+     *
+     */
     class LoginAttempt extends AsyncTask<String, String, String> {
 
         @Override
@@ -84,6 +92,11 @@ public class LoginPage extends ActionBarActivity implements View.OnClickListener
             }
         }
 
+        /**
+         * When a post is executed
+         *
+         * @param file_url
+         */
         protected void onPostExecute(String file_url) {
             // dismiss the dialog once product deleted
             progressDialog.dismiss();

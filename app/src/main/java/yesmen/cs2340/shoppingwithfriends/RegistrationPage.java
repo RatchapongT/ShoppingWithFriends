@@ -1,7 +1,3 @@
-/**
- * @author      Luka Antolic-Soban, Resse Aitken, Ratchapong Tangkijvorakul, Matty Attokaren, Sunny Patel
- * @version     1.4
- */
 package yesmen.cs2340.shoppingwithfriends;
 
 import android.app.ProgressDialog;
@@ -18,25 +14,50 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Class RegistrationPage extends ActionBarActivity and implements View.OnClickListener,
+ * is all the code that pertains to the registration page in android.
+ *
+ * @author      Luka Antolic-Soban, Resse Aitken, Ratchapong Tangkijvorakul, Matty Attokaren, Sunny Patel
+ * @version     1.6
+ */
+
 public class RegistrationPage extends ActionBarActivity implements OnClickListener {
 
     private EditText enteredUsername, enteredPassword, enteredConfirmed;
     private Button registerButton, cancelbutton;
 
     private ProgressDialog progressDialog;
+
+    JSONParser jsonParser = new JSONParser();
+
+    //private static final String LOGIN_URL = "http://10.0.2.2:80/yesmen/register.php";
+    private static final String LOGIN_URL = "http://73.207.216.173:80/yesmen/register.php";
+
+    //JSON element ids from response of php script:
+    private static final String TAG_SUCCESS = "success";
+    private static final String TAG_MESSAGE = "message";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.register);
 
-        enteredUsername = (EditText)findViewById(R.id.usernameField);
-        enteredPassword = (EditText)findViewById(R.id.passwordField);
-        enteredConfirmed = (EditText)findViewById(R.id.confirmField);
+        enteredUsername = (EditText)findViewById(R.id.register_username_input);
+        enteredPassword = (EditText)findViewById(R.id.register_password_input);
+        enteredConfirmed = (EditText)findViewById(R.id.register_confirm_password_input);
 
 
-        registerButton = (Button)findViewById(R.id.registrationButton);
-        cancelbutton = (Button)findViewById(R.id.cancelbutton);
+        registerButton = (Button)findViewById(R.id.register_execute_button);
+        cancelbutton = (Button)findViewById(R.id.register_cancel_button);
         registerButton.setOnClickListener(this);
         cancelbutton.setOnClickListener(this);
 		
@@ -44,9 +65,9 @@ public class RegistrationPage extends ActionBarActivity implements OnClickListen
 
 	@Override
 	public void onClick(View v) {
-        if (v.getId() == R.id.registrationButton) {
-            new CreateUser().execute();
-        } else if (v.getId() == R.id.cancelbutton) {
+        if (v.getId() == R.id.register_execute_button) {
+            new CreateUser().execute();;
+        } else if (v.getId() == R.id.register_cancel_button) {
             Intent intention = new Intent(this, LoginPage.class);
             finish();
             startActivity(intention);
@@ -60,7 +81,10 @@ public class RegistrationPage extends ActionBarActivity implements OnClickListen
         inflater.inflate(R.menu.action_bar, menu);
         return super.onCreateOptionsMenu(menu);
     }
-
+    /**
+     * Class LoginAttempt extends AsyncTask, checks the user being created.
+     *
+     */
 	class CreateUser extends AsyncTask<String, String, String> {
 
         @Override
@@ -75,22 +99,47 @@ public class RegistrationPage extends ActionBarActivity implements OnClickListen
 		
 		@Override
 		protected String doInBackground(String... args) {
+            int registrationSuccess;
             String username = enteredUsername.getText().toString();
             String password = enteredPassword.getText().toString();
             String confirm = enteredConfirmed.getText().toString();
-            if (!password.equals(confirm)) {
-                return "Password Mismatch!";
-            }
-            String ret = DatabaseInterfacer.register(username, password);
-            Log.d("WTF", ret);
-            if (ret.equals("Username Successfully Added!")) {
-                finish();
-                return ret;
-            } else {
-                return ret;
-            }
-		}
+            try {
+                if (!password.equals(confirm)) {
+                    String mismatch = new String("Password Mismatch!");
+                    return mismatch;
+                }
+                List<NameValuePair> params = new ArrayList<NameValuePair>();
+                params.add(new BasicNameValuePair("username", username));
+                params.add(new BasicNameValuePair("password", password));
+ 
+                Log.d("request!", "starting");
 
+                JSONObject json = jsonParser.makeHttpRequest(LOGIN_URL, "POST", params);
+
+                Log.d("Login attempt", json.toString());
+
+                registrationSuccess = json.getInt(TAG_SUCCESS);
+                if (registrationSuccess == 1) {
+                	Log.d("User Created!", json.toString());              	
+                	finish();
+                	return json.getString(TAG_MESSAGE);
+                }else{
+                	Log.d("User Registration Failure!", json.getString(TAG_MESSAGE));
+                	return json.getString(TAG_MESSAGE);
+                	
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+ 
+            return null;
+			
+		}
+        /**
+         * When a post is executed
+         *
+         * @param file_url
+         */
         protected void onPostExecute(String file_url) {
             progressDialog.dismiss();
             if (file_url != null){

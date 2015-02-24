@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
@@ -21,7 +20,14 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * Class AddFriendPage extends ActivityBarActivity and implements View.OnClickListener, is
+ * all the code that pertains to adding a friend in android. It checks if you are already a
+ * friend, and lets you add a new friend.
+ *
+ * @author Luka Antolic-Soban, Resse Aitken, Ratchapong Tangkijvorakul, Matty Attokaren, Sunny Patel
+ * @version 1.2
+ */
 public class AddFriendPage extends ActionBarActivity implements View.OnClickListener {
 
     private EditText enteredFriend;
@@ -36,9 +42,9 @@ public class AddFriendPage extends ActionBarActivity implements View.OnClickList
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_friend);
-        enteredFriend = (EditText) findViewById(R.id.friendUser);
-        submitButton = (Button) findViewById(R.id.submitButton);
-        cancelButton = (Button) findViewById(R.id.cancelbutton_friend);
+        enteredFriend = (EditText) findViewById(R.id.add_friend_username_input);
+        submitButton = (Button) findViewById(R.id.add_friend_execute_button);
+        cancelButton = (Button) findViewById(R.id.add_friend_cancel_button);
 
         submitButton.setOnClickListener(this);
         cancelButton.setOnClickListener(this);
@@ -55,15 +61,19 @@ public class AddFriendPage extends ActionBarActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.submitButton) {
+        if (v.getId() == R.id.add_friend_execute_button) {
             new AddFriendAttempt().execute();
-        } else if (v.getId() == R.id.cancelbutton_friend) {
+        } else if (v.getId() == R.id.add_friend_cancel_button) {
             Intent intention = new Intent(this, Homepage.class);
             finish();
             startActivity(intention);
         }
     }
-
+    /**
+     * Class AddFriendAttempt extends AsyncTask, checks if you are already a
+     * friend, and all the code when attempting to add a friend.
+     *
+     */
     class AddFriendAttempt extends AsyncTask<String, String, String> {
 
         @Override
@@ -80,11 +90,16 @@ public class AddFriendPage extends ActionBarActivity implements View.OnClickList
         protected String doInBackground(String... args) {
             int addFriendSuccess = 0;
             String friendUser = enteredFriend.getText().toString();
-            String myUser = CurrentUser.getCurrentUser().getUserName();
+            String myUser = CurrentUser.getCurrentUser().getUsername();
 
             return DatabaseInterfacer.addFriend(friendUser, myUser);
         }
 
+        /**
+         * When a post is executed
+         *
+         * @param file_url
+         */
         protected void onPostExecute(String file_url) {
             // dismiss the dialog once product deleted
             progressDialog.dismiss();

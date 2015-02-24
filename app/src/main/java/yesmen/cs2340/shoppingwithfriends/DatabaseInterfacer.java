@@ -11,16 +11,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Reese on 2/20/2015.
+ * Class DatabaseInterfacer, is a wrapper for the database. Communicates with the database.
+ *
+ * @author Luka Antolic-Soban, Resse Aitken, Ratchapong Tangkijvorakul, Matty Attokaren, Sunny Patel
+ * @version 1.1
  */
 public class DatabaseInterfacer {
 
-    private static final String IP_PUNCH = "http://10.0.2.2:80";
-    private static final String IP = "http://73.207.216.173:80";
+    private static final String LOCAL_IP = "http://10.0.2.2:80";
+    private static final String REMOTE_IP = "http://73.207.216.173:80";
 
     private static final String LOGIN_URL = "/yesmen/login.php";
     private static final String REGISTER_URL = "/yesmen/register.php";
-    private static final String FRIEND_URL = "/yesmen/add_friend.php";
+    private static final String ADD_FRIEND_URL = "/yesmen/add_friend.php";
+    private static final String VIEW_FRIEND_URL = "/yesmen/view_friends.php";
 
     //JSON element ids from response of php script:
     private static final String TAG_SUCCESS = "success";
@@ -45,10 +49,10 @@ public class DatabaseInterfacer {
                     CurrentUser.setCurrentUser(new User(usernameID));
                 }
                 return json.getString(TAG_MESSAGE);
-            } else return "Database error, no response from server";
-        }   catch (JSONException e) {
+            } else return "Login Failure (Connection)";
+        } catch (JSONException e) {
             e.printStackTrace();
-            return "Database error";
+            return "Login Failure (Technical)";
         }
     }
 
@@ -66,9 +70,9 @@ public class DatabaseInterfacer {
         try {
             if (json != null) {
                 return json.getString(TAG_MESSAGE);
-            } else return "Database error";
-        }   catch (JSONException e) {
-            return "Database error";
+            } else return "Register Failure (Connection)";
+        } catch (JSONException e) {
+            return "Register Failure (Technical)";
         }
     }
 
@@ -102,25 +106,26 @@ public class DatabaseInterfacer {
 
 
 
+    /**
+     * Validates the login attempt with the help of the query database.
+     *
+     * @param URL
+     * @param params
+     * @return json
+     */
     private static JSONObject queryDatabase(String URL, List<NameValuePair> params) {
         try {
-            Log.d("Request!", "Starting the validation process");
-            // getting product details by making HTTP request
+
             JSONParser jsonParser = new JSONParser();
-            JSONObject json = jsonParser.makeHttpRequest(IP+URL, "POST", params);
+            JSONObject json = jsonParser.makeHttpRequest(REMOTE_IP + URL, "POST", params);
 
             if (json == null) {
-                json = jsonParser.makeHttpRequest(IP_PUNCH+URL, "POST", params);
+                json = jsonParser.makeHttpRequest(LOCAL_IP + URL, "POST", params);
             }
 
-            // check your log for json response
-            Log.d("Login attempt", json.toString());
-
-            // json success tag
-            int success = json.getInt(TAG_SUCCESS);
-
             Log.d("json Tag Message", json.getString(TAG_MESSAGE));
-            if (success == 1) {
+
+            if (json.getInt(TAG_SUCCESS) == 1) {
                 Log.d("Database Query Successful!", json.toString());
                 return json;
             } else {

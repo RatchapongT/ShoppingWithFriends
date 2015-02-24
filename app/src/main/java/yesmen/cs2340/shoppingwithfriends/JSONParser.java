@@ -1,7 +1,3 @@
-/**
- * @author      Luka Antolic-Soban, Resse Aitken, Ratchapong Tangkijvorakul, Matty Attokaren, Sunny Patel
- * @version     1.4
- */
 package yesmen.cs2340.shoppingwithfriends;
 
 import java.io.BufferedReader;
@@ -23,21 +19,38 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.util.Log;
 
+import android.util.Log;
+/**
+ * Class JSONParser, parse a string by web-server that android can understand.
+ *
+ * @author Luka Antolic-Soban, Resse Aitken, Ratchapong Tangkijvorakul, Matty Attokaren, Sunny Patel
+ * @version 1.4
+ */
 public class JSONParser {
 
     static InputStream is = null;
     static JSONObject jObj = null;
     static String json = "";
 
-    // constructor
+    /**
+     * Constructor for JSONParser
+     */
     public JSONParser() {
 
     }
 
     // function get json from url
     // by making HTTP POST or GET mehtod
+
+    /**
+     * makes an HTTP request to the web-server
+     *
+     * @param url
+     * @param method
+     * @param params
+     * @return jObj
+     */
     public JSONObject makeHttpRequest(String url, String method,
                                       List<NameValuePair> params) {
 
