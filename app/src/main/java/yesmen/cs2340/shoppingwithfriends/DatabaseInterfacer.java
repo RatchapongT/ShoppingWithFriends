@@ -20,12 +20,19 @@ public class DatabaseInterfacer {
 
     private static final String LOGIN_URL = "/yesmen/login.php";
     private static final String REGISTER_URL = "/yesmen/register.php";
+    private static final String FRIEND_URL = "/yesmen/add_friend.php";
 
     //JSON element ids from response of php script:
     private static final String TAG_SUCCESS = "success";
     private static final String TAG_MESSAGE = "message";
     private static final String TAG_USER = "get_user";
 
+    /**
+     * Attempts to log in to the system
+     * @param username Username
+     * @param password User's Password
+     * @return "Login Successful!" if successful, appropriate error message otherwise
+     */
     public static String login(String username, String password) {
         List<NameValuePair> params = new ArrayList<>();
         params.add(new BasicNameValuePair("username", username));
@@ -38,13 +45,19 @@ public class DatabaseInterfacer {
                     CurrentUser.setCurrentUser(new User(usernameID));
                 }
                 return json.getString(TAG_MESSAGE);
-            } else return "Database error 1";
+            } else return "Database error, no response from server";
         }   catch (JSONException e) {
             e.printStackTrace();
-            return "Database error 2";
+            return "Database error";
         }
     }
 
+    /**
+     * Registers a new user
+     * @param username Desired Username
+     * @param password Desired Password
+     * @return "Username Successfully Added!" if successful, appropriate error otherwise
+     */
     public static String register(String username, String password) {
         List<NameValuePair> params = new ArrayList<>();
         params.add(new BasicNameValuePair("username", username));
@@ -58,6 +71,36 @@ public class DatabaseInterfacer {
             return "Database error";
         }
     }
+
+    /**
+     *
+     * @param friendUser User friend to add
+     * @param myUser User self
+     * @return String result of addFriend operation
+     */
+    public static String addFriend(String friendUser, String myUser) {
+        int addFriendSuccess = 0;
+        friendUser = friendUser.toLowerCase();
+        myUser = myUser.toLowerCase();
+
+        // Building Parameters
+        List<NameValuePair> params = new ArrayList<>();
+        params.add(new BasicNameValuePair("FriendID", friendUser));
+        params.add(new BasicNameValuePair("UserID", myUser));
+
+        JSONObject json = queryDatabase(FRIEND_URL, params);
+
+        try {
+            if (json != null) {
+                return json.getString(TAG_MESSAGE);
+            } else return "Database error";
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return "Database error";
+        }
+    }
+
+
 
     private static JSONObject queryDatabase(String URL, List<NameValuePair> params) {
         try {

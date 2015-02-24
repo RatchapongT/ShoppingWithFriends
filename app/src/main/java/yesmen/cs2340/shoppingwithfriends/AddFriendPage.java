@@ -30,15 +30,6 @@ public class AddFriendPage extends ActionBarActivity implements View.OnClickList
 
     private ProgressDialog progressDialog;
 
-    JSONParser jsonParser = new JSONParser();
-
-    private static final String SERVER_URL = "http://10.0.2.2:80/yesmen/add_friend.php";
-    //private static final String SERVER_URL = "http://73.207.216.173:80/yesmen/add_friend.php";
-
-    //JSON element ids from response of php script:
-    private static final String TAG_SUCCESS = "success";
-    private static final String TAG_MESSAGE = "message";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -91,50 +82,7 @@ public class AddFriendPage extends ActionBarActivity implements View.OnClickList
             String friendUser = enteredFriend.getText().toString();
             String myUser = CurrentUser.getCurrentUser().getUserName();
 
-
-
-            friendUser = friendUser.toLowerCase();
-            myUser = myUser.toLowerCase();
-
-            Log.e("WHO AM I!!!!!" , myUser);
-            Log.e("WHO AM I!!!!!" , myUser);
-            Log.e("WHO AM I!!!!!" , myUser);
-            Log.e("WHO AM I!!!!!" , myUser);
-            Log.e("WHO AM I!!!!!" , myUser);
-            Log.e("WHO AM I!!!!!" , myUser);
-            Log.e("WHO AM I!!!!!" , myUser);
-            Log.e("WHO AM I!!!!!" , myUser);Log.e("WHO AM I!!!!!" , myUser);Log.e("WHO AM I!!!!!" , myUser);
-            Log.e("WHO AM I!!!!!" , myUser);Log.e("WHO AM I!!!!!" , myUser);
-
-
-
-            try {
-                // Building Parameters
-                List<NameValuePair> parameters = new ArrayList<NameValuePair>();
-                parameters.add(new BasicNameValuePair("FriendID", friendUser));
-                parameters.add(new BasicNameValuePair("UserID", myUser));
-
-
-                // getting product details by making HTTP request
-                JSONObject json = jsonParser.makeHttpRequest(SERVER_URL, "POST", parameters);
-
-                // check your log for json response
-
-                // json success tag
-                addFriendSuccess = json.getInt(TAG_SUCCESS);
-                if (addFriendSuccess == 1) {
-                    // Write to database
-                    return json.getString(TAG_MESSAGE);
-                } else {
-                    return json.getString(TAG_MESSAGE);
-
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-            return null;
-
+            return DatabaseInterfacer.addFriend(friendUser, myUser);
         }
 
         protected void onPostExecute(String file_url) {
