@@ -19,7 +19,7 @@ import java.util.List;
 public class DatabaseInterfacer {
 
 
-    private static final String REMOTE_IP = "http://wtfizlinux.com/";
+    private static final String REMOTE_IP = "http://wtfizlinux.com";
 
     private static final String LOGIN_URL = "/yesmen/login.php";
     private static final String REGISTER_URL = "/yesmen/register.php";
