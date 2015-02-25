@@ -18,8 +18,8 @@ import java.util.List;
  */
 public class DatabaseInterfacer {
 
-    private static final String LOCAL_IP = "http://10.0.2.2:80";
-    private static final String REMOTE_IP = "http://73.207.216.173:80";
+
+    private static final String REMOTE_IP = "http://wtfizlinux.com/";
 
     private static final String LOGIN_URL = "/yesmen/login.php";
     private static final String REGISTER_URL = "/yesmen/register.php";
@@ -116,10 +116,6 @@ public class DatabaseInterfacer {
 
             JSONParser jsonParser = new JSONParser();
             JSONObject json = jsonParser.makeHttpRequest(REMOTE_IP + URL, "POST", params);
-
-            if (json == null) {
-                json = jsonParser.makeHttpRequest(LOCAL_IP + URL, "POST", params);
-            }
 
             Log.d("json Tag Message", json.getString(TAG_MESSAGE));
 
