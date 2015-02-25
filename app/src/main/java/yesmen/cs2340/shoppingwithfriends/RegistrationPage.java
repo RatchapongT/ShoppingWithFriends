@@ -86,7 +86,7 @@ public class RegistrationPage extends Activity implements OnClickListener {
             String password = enteredPassword.getText().toString();
             String confirm = enteredConfirmed.getText().toString();
 
-            if (password != confirm) {
+            if (!password.equals(confirm)) {
                 return "Password and confirmation do not match!";
             }
 
