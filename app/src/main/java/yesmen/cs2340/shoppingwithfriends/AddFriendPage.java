@@ -1,9 +1,9 @@
 package yesmen.cs2340.shoppingwithfriends;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -12,13 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Class AddFriendPage extends ActivityBarActivity and implements View.OnClickListener, is
@@ -28,7 +21,7 @@ import java.util.List;
  * @author Luka Antolic-Soban, Resse Aitken, Ratchapong Tangkijvorakul, Matty Attokaren, Sunny Patel
  * @version 1.2
  */
-public class AddFriendPage extends ActionBarActivity implements View.OnClickListener {
+public class AddFriendPage extends Activity implements View.OnClickListener {
 
     private EditText enteredFriend;
     private Button submitButton;

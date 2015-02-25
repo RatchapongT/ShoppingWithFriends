@@ -1,10 +1,10 @@
 package yesmen.cs2340.shoppingwithfriends;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -14,14 +14,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Class RegistrationPage extends ActionBarActivity and implements View.OnClickListener,
  * is all the code that pertains to the registration page in android.
@@ -30,7 +22,7 @@ import java.util.List;
  * @version     1.6
  */
 
-public class RegistrationPage extends ActionBarActivity implements OnClickListener {
+public class RegistrationPage extends Activity implements OnClickListener {
 
     private EditText enteredUsername, enteredPassword, enteredConfirmed;
     private Button registerButton, cancelbutton;
@@ -57,7 +49,7 @@ public class RegistrationPage extends ActionBarActivity implements OnClickListen
 	@Override
 	public void onClick(View v) {
         if (v.getId() == R.id.register_execute_button) {
-            new CreateUser().execute();;
+            new CreateUser().execute();
         } else if (v.getId() == R.id.register_cancel_button) {
             Intent intention = new Intent(this, LoginPage.class);
             finish();

@@ -1,9 +1,9 @@
 package yesmen.cs2340.shoppingwithfriends;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -20,7 +20,7 @@ import android.widget.Toast;
  * @version 1.6
  */
 
-public class LoginPage extends ActionBarActivity implements View.OnClickListener {
+public class LoginPage extends Activity implements View.OnClickListener {
 
     private EditText enteredUsername, enteredPassword;
     private Button loginButton, registerButton;

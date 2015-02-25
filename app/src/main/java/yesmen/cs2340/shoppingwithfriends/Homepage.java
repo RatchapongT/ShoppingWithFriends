@@ -1,8 +1,8 @@
 package yesmen.cs2340.shoppingwithfriends;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
@@ -14,7 +14,7 @@ import android.widget.Button;
  * @author Luka Antolic-Soban, Resse Aitken, Ratchapong Tangkijvorakul, Matty Attokaren, Sunny Patel
  * @version 1.6
  */
-public class Homepage extends ActionBarActivity implements View.OnClickListener {
+public class Homepage extends Activity implements View.OnClickListener {
 
     private Button logoutButton, viewButton;
 
@@ -41,7 +41,6 @@ public class Homepage extends ActionBarActivity implements View.OnClickListener 
             startActivity(intention);
         } else if (v.getId() == R.id.homepage_view_friends_button) {
             Intent intention = new Intent(this, ViewFriends.class);
-            finish();
             startActivity(intention);
         }
     }
@@ -61,7 +60,6 @@ public class Homepage extends ActionBarActivity implements View.OnClickListener 
      */
     public void addFriend(View view) {
         Intent intent = new Intent(this, AddFriendPage.class);
-        finish();
         startActivity(intent);
     }
 }

@@ -4,7 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -24,7 +24,7 @@ import org.json.JSONArray;
  * Class ViewFriends extends ActionBarActivity and implements View.OnClickListener,
  * is all the code that pertains to the view friends page in android.
  */
-public class ViewFriends extends ActionBarActivity implements View.OnClickListener{
+public class ViewFriends extends FragmentActivity implements View.OnClickListener{
 
     private ProgressDialog progressDialog;
     JSONParser jsonParser = new JSONParser();
@@ -79,7 +79,7 @@ public class ViewFriends extends ActionBarActivity implements View.OnClickListen
         @Override
         protected String doInBackground(String... args) {
 
-            int viewFriendSuccess = 0;
+            int viewFriendSuccess;
             String myUser = CurrentUser.getCurrentUser().getUsername();
             myUser = myUser.toLowerCase();
 

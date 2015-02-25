@@ -34,7 +34,8 @@
 
         <activity
             android:name=".ViewFriends"
-            android:label="View Friends" >
+            android:label="View Friends"
+            android:theme="@android:style/Theme.Dialog" >
         </activity>
 
     </application>
