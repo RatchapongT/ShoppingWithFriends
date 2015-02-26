@@ -27,6 +27,7 @@ public class DatabaseInterfacer {
     private static final String ADD_FRIEND_URL = "/yesmen/add_friend.php";
     private static final String VIEW_FRIEND_URL = "/yesmen/view_friends.php";
     private static final String RETRIEVE_PROFILE_URL = "/yesmen/profile_retrieve.php";
+    private static final String UPDATE_PROFILE_URL = "/yesmen/profile_update.php";
 
     //JSON element ids from response of php script:
     private static final String TAG_SUCCESS = "success";
@@ -149,43 +150,6 @@ public class DatabaseInterfacer {
 
 
 
-/*
-    public static String[] retriveProfile(String myUser) {
-        myUser = myUser.toLowerCase();
-        List<NameValuePair> params = new ArrayList<>();
-        params.add(new BasicNameValuePair("UserID", myUser));
-        String[] ret = new String[1];
-        try {
-            JSONObject json = queryDatabase(RETRIEVE_PROFILE_URL, params);
-            if (json == null) {
-                ret[0] = "Database Error: no json object returned";
-                return ret;
-            }
-            // check your log for json response
-            JSONArray jArray = json.getJSONArray(TAG_MESSAGE);
-            if (jArray == null) {
-                ret[0] = "Database Error: Something went wrong.";
-                return ret;
-            }
-
-            if (json.getInt(TAG_SUCCESS) == 1) {
-                ret = new String[jArray.length() + 1];
-                for(int i = 0; i < jArray.length(); i++) {
-                    ret[i + 1] = jArray.getString(i);
-                }
-
-                ret[0] = "Success";
-            } else {
-                ret[0] =  "Something went wrong.";
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-            ret[0] = "Database Error";
-        }
-        return ret;
-    }*/
-
-
     public static User retrieveProfile(String username) {
         List<NameValuePair> params = new ArrayList<>();
         params.add(new BasicNameValuePair("username", username));
@@ -210,6 +174,27 @@ public class DatabaseInterfacer {
         }
         Log.d("FUCK THIS SHIT", "FUCK THIS SHIT");
         return new User("Fuck","Fuck","Fuck","Fuck","Fuck","Fuck");
+    }
+
+    public static String updateProfile(String username, String name, String biography,
+        String email, String location, String phonenum) {
+        List<NameValuePair> params = new ArrayList<>();
+        params.add(new BasicNameValuePair("Username", username));
+        params.add(new BasicNameValuePair("Name", name));
+        params.add(new BasicNameValuePair("Biography", biography));
+        params.add(new BasicNameValuePair("Email", email));
+        params.add(new BasicNameValuePair("Location", location));
+        params.add(new BasicNameValuePair("Phonenum", phonenum));
+        JSONObject json = queryDatabase(UPDATE_PROFILE_URL, params);
+
+        try {
+            if (json != null) {
+                return json.getString(TAG_MESSAGE);
+            } else return "Database error";
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return "Database error";
+        }
     }
 
     /**

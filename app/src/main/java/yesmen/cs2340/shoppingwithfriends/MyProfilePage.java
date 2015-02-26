@@ -59,7 +59,7 @@ public class MyProfilePage extends Activity implements View.OnClickListener {
             finish();
             startActivity(intention);
         } else if (v.getId() == R.id.my_profile_execute_button) {
-            //new UpdateProfileAttempt().execute();
+            new UpdateProfileAttempt().execute();
         }
     }
 
@@ -71,13 +71,13 @@ public class MyProfilePage extends Activity implements View.OnClickListener {
         return super.onCreateOptionsMenu(menu);
     }
 
-    /*class UpdateProfileAttempt extends AsyncTask<String, String, String> {
+    class UpdateProfileAttempt extends AsyncTask<String, String, String> {
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            progressDialog = new ProgressDialog(LoginPage.this);
-            progressDialog.setMessage("Validating login...");
+            progressDialog = new ProgressDialog(MyProfilePage.this);
+            progressDialog.setMessage("Updating...");
             progressDialog.setIndeterminate(false);
             progressDialog.setCancelable(true);
             progressDialog.show();
@@ -85,17 +85,16 @@ public class MyProfilePage extends Activity implements View.OnClickListener {
 
         @Override
         protected String doInBackground(String... args) {
+            String myUser = CurrentUser.getCurrentUser().getUsername();
             String name = enteredName.getText().toString();
             String biography = enteredBiography.getText().toString();
             String location = enteredLocation.getText().toString();
             String email = enteredEmail.getText().toString();
             String phoneNumber = enteredPhoneNumber.getText().toString();
 
-            String ret = DatabaseInterfacer.updateProfile(username, password);
-            if (ret.equals("Login successful!")) {
-                Intent intention = new Intent(LoginPage.this, Homepage.class);
-                finish();
-                startActivity(intention);
+            String ret = DatabaseInterfacer.updateProfile(myUser, name, biography, location, email,phoneNumber);
+
+            if (ret.equals("Success!")) {
                 return ret;
             } else {
                 return ret;
@@ -107,11 +106,11 @@ public class MyProfilePage extends Activity implements View.OnClickListener {
             // dismiss the dialog once product deleted
             progressDialog.dismiss();
             if (file_url != null) {
-                Toast.makeText(LoginPage.this, file_url, Toast.LENGTH_LONG).show();
+                Toast.makeText(MyProfilePage.this, file_url, Toast.LENGTH_LONG).show();
             }
         }
     }
-    */
+
 
     class RetrieveProfileAttempt extends AsyncTask<String, String, String> {
 
