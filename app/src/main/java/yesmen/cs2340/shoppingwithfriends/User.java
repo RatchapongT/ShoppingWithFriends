@@ -25,6 +25,19 @@ public class User {
     }
 
     /**
+     * Creates a user object with fields filled from args
+     * @param args Username, name, biography, location, email, phoneNumber
+     */
+    public User(String... args) {
+        username = args[0];
+        name = args[1];
+        biography = args[2];
+        location = args[3];
+        email = args[4];
+        phoneNumber = args[5];
+    }
+
+    /**
      * Gets the username
      *
      * @return username
