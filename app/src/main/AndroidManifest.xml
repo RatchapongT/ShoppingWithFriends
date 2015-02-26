@@ -39,6 +39,13 @@
             android:name=".DetailedFriend"
             android:label="@string/title_activity_detailed_friend" >
         </activity>
+
+        <activity
+            android:name=".MyProfilePage"
+            android:label="MY PRI" >
+        </activity>
+
+
     </application>
 
 </manifest>
