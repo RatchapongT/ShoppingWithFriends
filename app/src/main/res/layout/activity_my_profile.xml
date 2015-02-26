@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/my_profile_name_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name" />
+
+
+    <EditText
+        android:id="@+id/my_profile_name_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/my_profile_biography_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Biography" />
+
+
+    <EditText
+        android:id="@+id/my_profile_biography_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/my_profile_location_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Location" />
+
+    <EditText
+        android:id="@+id/my_profile_location_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/my_profile_email_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email" />
+    <EditText
+        android:id="@+id/my_profile_email_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/my_profile_phone_number_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Phone Number"/>
+
+
+    <EditText
+        android:id="@+id/my_profile_phone_number_input"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:ems="10" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update"
+        android:id="@+id/my_profile_execute_button" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:id="@+id/my_profile_cancel_button" />
+
+</LinearLayout>

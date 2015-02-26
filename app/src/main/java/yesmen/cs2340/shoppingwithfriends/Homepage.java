@@ -59,7 +59,7 @@ public class Homepage extends Activity implements View.OnClickListener {
      * @param view
      */
     public void addFriend(View view) {
-        Intent intent = new Intent(this, AddFriendPage.class);
+        Intent intent = new Intent(this, MyProfilePage.class);
         startActivity(intent);
     }
 }
