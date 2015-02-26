@@ -144,7 +144,7 @@ public class DatabaseInterfacer {
             }
         } catch (JSONException e) {
             e.printStackTrace();
-            ret[0] = "Database Error";
+            ret[0] = "No friends found!";
         }
         return ret;
     }
@@ -225,6 +225,10 @@ public class DatabaseInterfacer {
 
             JSONParser jsonParser = new JSONParser();
             JSONObject json = jsonParser.makeHttpRequest(REMOTE_IP + URL, "POST", params);
+
+            if (json == null) {
+                return null;
+            }
 
             Log.d("json Tag Message", json.getString(TAG_MESSAGE));
 
