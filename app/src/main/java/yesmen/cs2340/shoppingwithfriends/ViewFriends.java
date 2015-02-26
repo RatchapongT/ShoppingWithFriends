@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -18,18 +19,19 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.json.JSONArray;
 
 /**
  * Class ViewFriends extends ActionBarActivity and implements View.OnClickListener,
  * is all the code that pertains to the view friends page in android.
  */
-public class ViewFriends extends FragmentActivity implements View.OnClickListener{
+public class ViewFriends extends FragmentActivity implements View.OnClickListener {
 
     private ProgressDialog progressDialog;
     JSONParser jsonParser = new JSONParser();
     private Button cancelbutton;
-    ListView listView ;
+    ListView listView;
     private ArrayList<String> values = new ArrayList<String>();
 
     //private static final String SERVER_URL = "http://10.0.2.2:80/yesmen/view_friends.php";
@@ -44,7 +46,7 @@ public class ViewFriends extends FragmentActivity implements View.OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_friends); // Set layout according to login.xml
-        cancelbutton = (Button)findViewById(R.id.view_friend_cancel_button);
+        cancelbutton = (Button) findViewById(R.id.view_friend_cancel_button);
         cancelbutton.setOnClickListener(this);
 
 
@@ -60,9 +62,9 @@ public class ViewFriends extends FragmentActivity implements View.OnClickListene
             startActivity(intention);
         }
     }
+
     /**
      * Class ViewFriendsAttempt extends AsyncTask, checks the attempt to view friends.
-     *
      */
     class ViewFriendsAttempt extends AsyncTask<String, String, String> {
 
@@ -96,12 +98,10 @@ public class ViewFriends extends FragmentActivity implements View.OnClickListene
                 JSONArray jArray = json.getJSONArray(TAG_MESSAGE);
 
 
-
-
                 // json success tag
                 viewFriendSuccess = json.getInt(TAG_SUCCESS);
                 if (viewFriendSuccess == 1) {
-                    for(int i = 0; i < jArray.length(); ++i) {
+                    for (int i = 0; i < jArray.length(); ++i) {
                         values.add(jArray.getString(i));
 
                     }
@@ -118,6 +118,7 @@ public class ViewFriends extends FragmentActivity implements View.OnClickListene
             return null;
 
         }
+
         /**
          * When a post is executed
          *
@@ -129,13 +130,32 @@ public class ViewFriends extends FragmentActivity implements View.OnClickListene
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(ViewFriends.this,
                     android.R.layout.simple_list_item_1, android.R.id.text1, values);
             listView.setAdapter(adapter);
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view,
+                                        int position, long id) {
+
+                    // ListView Clicked item index
+                    int itemPosition = position;
+
+                    // ListView Clicked item value
+                    String itemValue = (String) listView.getItemAtPosition(position);
+
+                    // Show Alert
+                    Toast.makeText(getApplicationContext(),
+                            "Position :" + itemPosition + "  ListItem : " + itemValue, Toast.LENGTH_LONG)
+                            .show();
+
+                }
+            });
+
             // dismiss the dialog once product deleted
             progressDialog.dismiss();
             if (file_url != null) {
                 Toast.makeText(ViewFriends.this, file_url, Toast.LENGTH_LONG).show();
             }
         }
-
 
 
     }
