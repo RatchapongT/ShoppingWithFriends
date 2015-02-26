@@ -118,14 +118,21 @@ public class DatabaseInterfacer {
         String[] ret = new String[1];
         try {
             JSONObject json = queryDatabase(VIEW_FRIEND_URL, params);
+            if (json == null) {
+                ret[0] = "Database Error: no json object returned";
+                return ret;
+            }
             // check your log for json response
             JSONArray jArray = json.getJSONArray(TAG_MESSAGE);
+            if (jArray == null) {
+                ret[0] = "Database Error: No Friends Found";
+                return ret;
+            }
 
             if (json.getInt(TAG_SUCCESS) == 1) {
                 ret = new String[jArray.length() + 1];
-                for(int i = 0; i < jArray.length(); ++i) {
+                for(int i = 0; i < jArray.length(); i++) {
                     ret[i + 1] = jArray.getString(i);
-
                 }
 
                 ret[0] = "Success";

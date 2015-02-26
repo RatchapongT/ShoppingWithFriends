@@ -80,43 +80,14 @@ public class ViewFriends extends FragmentActivity implements View.OnClickListene
 
         @Override
         protected String doInBackground(String... args) {
-
-            int viewFriendSuccess;
             String myUser = CurrentUser.getCurrentUser().getUsername();
-            myUser = myUser.toLowerCase();
-
-            try {
-                // Building Parameters
-                List<NameValuePair> parameters = new ArrayList<NameValuePair>();
-                parameters.add(new BasicNameValuePair("UserID", myUser));
-
-
-                // getting product details by making HTTP request
-                JSONObject json = jsonParser.makeHttpRequest(SERVER_URL, "POST", parameters);
-
-                // check your log for json response
-                JSONArray jArray = json.getJSONArray(TAG_MESSAGE);
-
-
-                // json success tag
-                viewFriendSuccess = json.getInt(TAG_SUCCESS);
-                if (viewFriendSuccess == 1) {
-                    for (int i = 0; i < jArray.length(); ++i) {
-                        values.add(jArray.getString(i));
-
-                    }
-
-                    return "Here are list of friends.";
-                } else {
-                    return "No Friends.";
-
+            String[] list = DatabaseInterfacer.viewFriends(myUser);
+            if (list.length > 1) {
+                for (int i = 1; i < list.length; i++) {
+                    values.add(list[i]);
                 }
-            } catch (JSONException e) {
-                e.printStackTrace();
             }
-
-            return null;
-
+            return list[0];
         }
 
         /**
