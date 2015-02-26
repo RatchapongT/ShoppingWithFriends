@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
@@ -26,6 +27,7 @@ public class MyProfilePage extends Activity implements View.OnClickListener {
     private Button cancelButton, submitButton;
     private ProgressDialog progressDialog;
     private EditText enteredName, enteredBiography, enteredLocation, enteredEmail, enteredPhoneNumber;
+    private User userObject;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,13 +129,8 @@ public class MyProfilePage extends Activity implements View.OnClickListener {
         protected String doInBackground(String... args) {
             String myUser = CurrentUser.getCurrentUser().getUsername();
 
-            User ret = DatabaseInterfacer.retrieveProfile(myUser);
-            if (ret != null) {
-                enteredName.setText("145456");
-                enteredBiography.setText(ret.getBiography());
-                enteredLocation.setText(ret.getLocation());
-                enteredEmail.setText(ret.getEmail());
-                enteredPhoneNumber.setText(ret.getPhoneNumber());
+            userObject = DatabaseInterfacer.retrieveProfile(myUser);
+            if (userObject != null) {
                 return "Success";
             } else {
                 return "Fail";
@@ -149,6 +146,12 @@ public class MyProfilePage extends Activity implements View.OnClickListener {
             // dismiss the dialog once product deleted
             progressDialog.dismiss();
             if (file_url != null) {
+                enteredName.setText(userObject.getName());
+
+                enteredBiography.setText(userObject.getBiography());
+                enteredLocation.setText(userObject.getLocation());
+                enteredEmail.setText(userObject.getEmail());
+                enteredPhoneNumber.setText(userObject.getPhoneNumber());
                 Toast.makeText(MyProfilePage.this, file_url, Toast.LENGTH_LONG).show();
             }
         }
