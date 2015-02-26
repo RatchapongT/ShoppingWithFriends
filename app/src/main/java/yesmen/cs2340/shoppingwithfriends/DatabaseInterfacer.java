@@ -4,6 +4,7 @@ import android.util.Log;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -101,6 +102,41 @@ public class DatabaseInterfacer {
             e.printStackTrace();
             return "Database error";
         }
+    }
+
+    /**
+     * Returns a String[] with String[0] being success or failure message
+     * In event of success, String[1] - String[length-1] will contain the list of friends
+     * @param myUser Current username
+     * @return String[], String[0] will be "Success" in event of success, otherwise will contain
+     * and error message.
+     */
+    public static String[] viewFriends(String myUser) {
+        myUser = myUser.toLowerCase();
+        List<NameValuePair> params = new ArrayList<>();
+        params.add(new BasicNameValuePair("UserID", myUser));
+        String[] ret = new String[1];
+        try {
+            JSONObject json = queryDatabase(VIEW_FRIEND_URL, params);
+            // check your log for json response
+            JSONArray jArray = json.getJSONArray(TAG_MESSAGE);
+
+            if (json.getInt(TAG_SUCCESS) == 1) {
+                ret = new String[jArray.length() + 1];
+                for(int i = 0; i < jArray.length(); ++i) {
+                    ret[i + 1] = jArray.getString(i);
+
+                }
+
+                ret[0] = "Success";
+            } else {
+                ret[0] =  "No Friends.";
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+            ret[0] = "Database Error";
+        }
+        return ret;
     }
 
 
