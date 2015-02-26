@@ -26,6 +26,7 @@ public class DatabaseInterfacer {
     private static final String REGISTER_URL = "/yesmen/register.php";
     private static final String ADD_FRIEND_URL = "/yesmen/add_friend.php";
     private static final String VIEW_FRIEND_URL = "/yesmen/view_friends.php";
+    private static final String RETRIEVE_PROFILE_URL = "/yesmen/profile_retrieve.php";
 
     //JSON element ids from response of php script:
     private static final String TAG_SUCCESS = "success";
@@ -147,6 +148,71 @@ public class DatabaseInterfacer {
     }
 
 
+/*
+    public static String[] retriveProfile(String myUser) {
+        myUser = myUser.toLowerCase();
+        List<NameValuePair> params = new ArrayList<>();
+        params.add(new BasicNameValuePair("UserID", myUser));
+        String[] ret = new String[1];
+        try {
+            JSONObject json = queryDatabase(RETRIEVE_PROFILE_URL, params);
+            if (json == null) {
+                ret[0] = "Database Error: no json object returned";
+                return ret;
+            }
+            // check your log for json response
+            JSONArray jArray = json.getJSONArray(TAG_MESSAGE);
+            if (jArray == null) {
+                ret[0] = "Database Error: Something went wrong.";
+                return ret;
+            }
+
+            if (json.getInt(TAG_SUCCESS) == 1) {
+                ret = new String[jArray.length() + 1];
+                for(int i = 0; i < jArray.length(); i++) {
+                    ret[i + 1] = jArray.getString(i);
+                }
+
+                ret[0] = "Success";
+            } else {
+                ret[0] =  "Something went wrong.";
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+            ret[0] = "Database Error";
+        }
+        return ret;
+    }*/
+
+
+    public static User retrieveProfile(String username) {
+        List<NameValuePair> params = new ArrayList<>();
+        params.add(new BasicNameValuePair("username", username));
+        JSONObject json = queryDatabase(RETRIEVE_PROFILE_URL, params);
+
+        if (json != null) {
+            try {
+                JSONObject friend = json.getJSONObject(TAG_MESSAGE);
+                User ret = new User(friend.getString("Username"));
+
+                ret.setName(friend.getString("Name"));
+
+
+                ret.setBiography(friend.getString("Biography"));
+                ret.setEmail(friend.getString("Email"));
+                ret.setLocation(friend.getString("Location"));
+                ret.setPhoneNumber(friend.getString("Phonenum"));
+
+                //Log.d("Database Query Successful!", friend);
+                return ret;
+            } catch (JSONException e) {
+                Log.d("FUCK THIS SHIT", e.getMessage());
+                e.printStackTrace();
+            }
+        }
+        Log.d("FUCK THIS SHIT", "FUCK THIS SHIT");
+        return null;
+    }
 
     /**
      * Validates the login attempt with the help of the query database.
