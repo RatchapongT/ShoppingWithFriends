@@ -28,6 +28,7 @@ public class DatabaseInterfacer {
     private static final String VIEW_FRIEND_URL = "/yesmen/view_friends.php";
     private static final String RETRIEVE_PROFILE_URL = "/yesmen/profile_retrieve.php";
     private static final String UPDATE_PROFILE_URL = "/yesmen/profile_update.php";
+    private static final String DELETE_FRIEND_URL = "/yesmen/delete_friend.php";
 
     //JSON element ids from response of php script:
     private static final String TAG_SUCCESS = "success";
@@ -174,6 +175,22 @@ public class DatabaseInterfacer {
         }
         Log.d("FUCK THIS SHIT", "FUCK THIS SHIT");
         return new User("Fuck","Fuck","Fuck","Fuck","Fuck","Fuck");
+    }
+
+    public static String deleteFriend(String myUser, String myFriend) {
+        List<NameValuePair> params = new ArrayList<>();
+        params.add(new BasicNameValuePair("UserID", myUser));
+        params.add(new BasicNameValuePair("FriendID", myFriend));
+        JSONObject json = queryDatabase(DELETE_FRIEND_URL, params);
+
+        try {
+            if (json != null) {
+                return json.getString(TAG_MESSAGE);
+            } else return "Database error";
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return "Database error";
+        }
     }
 
     public static String updateProfile(String username, String name, String biography,
