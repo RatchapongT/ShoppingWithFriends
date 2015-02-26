@@ -36,7 +36,8 @@
         android:layout_marginEnd="32dp"
         android:layout_alignBottom="@+id/view_friend_list"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:clickable="false" />
 
     <LinearLayout
         android:background="@android:color/darker_gray"
@@ -217,7 +218,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Delete"
+        android:text="Delete Friend"
         android:id="@+id/delete_friends"
         android:layout_alignTop="@+id/friend_back"
         android:layout_alignLeft="@+id/imageView"
