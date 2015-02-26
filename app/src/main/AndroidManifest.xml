@@ -18,7 +18,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".RegistrationPage"
             android:label="Registration" >
@@ -31,13 +30,15 @@
             android:name=".AddFriendPage"
             android:label="Add Friend" >
         </activity>
-
         <activity
             android:name=".ViewFriends"
             android:label="View Friends"
             android:theme="@android:style/Theme.Dialog" >
         </activity>
-
+        <activity
+            android:name=".DetailedFriend"
+            android:label="@string/title_activity_detailed_friend" >
+        </activity>
     </application>
 
 </manifest>

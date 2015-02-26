@@ -8,5 +8,6 @@
     <string name="title_activity_add_friend">addFriend</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
+    <string name="title_activity_detailed_friend">DetailedFriend</string>
 
 </resources>
