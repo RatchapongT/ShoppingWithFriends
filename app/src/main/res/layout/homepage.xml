@@ -1,33 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
+    android:background="#18BD9B"
     android:orientation="vertical"
     android:id="@+id/verticalLayout"
     android:weightSum="1">
 
 
     <ImageButton
-        android:layout_width="172dp"
+        android:scaleType="fitXY"
+        android:background="@null"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:id="@+id/homepage_add_friend_button"
         android:src="@drawable/add_user"
         android:clickable="true"
-        android:onClick="addFriend" />
+        android:onClick="addFriend"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="25dp"
+        android:layout_marginStart="25dp" />
+
+    <ImageButton
+        android:scaleType="fitXY"
+        android:background="@null"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:id="@+id/my_profile_button"
+        android:layout_gravity="right"
+        android:src="@drawable/my_profile"
+        android:clickable="true"
+        android:layout_above="@+id/relativeLayout"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="24dp"
+        android:layout_marginEnd="24dp" />
 
     <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/homepage_add_friend_button"
+        android:id="@+id/relativeLayout"
+        android:background="#18BD9B">
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Friends List"
             android:id="@+id/homepage_view_friends_button"
+            android:background="@android:color/darker_gray"
+            android:textColor="@android:color/white"
             android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_toLeftOf="@+id/homepage_logout_button"
+            android:layout_toStartOf="@+id/homepage_logout_button"
+            android:layout_marginRight="30dp"
+            android:layout_marginEnd="30dp" />
 
         <Button
             android:layout_width="wrap_content"
@@ -36,7 +67,10 @@
             android:id="@+id/homepage_logout_button"
             android:layout_gravity="center_horizontal"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:background="@android:color/darker_gray"
+            android:textColor="@android:color/white" />
+
     </RelativeLayout>
 
-</LinearLayout>
+</RelativeLayout>

@@ -22,7 +22,6 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:id="@+id/imageView"
-        android:focusableInTouchMode="true"
         android:src="@drawable/friend_blank"
         android:layout_gravity="center_horizontal|top"
         android:layout_alignParentTop="true"
