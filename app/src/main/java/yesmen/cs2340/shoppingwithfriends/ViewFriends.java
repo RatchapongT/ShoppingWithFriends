@@ -109,6 +109,10 @@ public class ViewFriends extends FragmentActivity implements View.OnClickListene
                             "Position :" + itemPosition + "  ListItem : " + itemValue, Toast.LENGTH_LONG)
                             .show();
 
+                    Intent intent = new Intent(getBaseContext(), DetailedFriend.class);
+                    intent.putExtra("Username", itemValue);
+                    startActivity(intent);
+
                 }
             });
 
