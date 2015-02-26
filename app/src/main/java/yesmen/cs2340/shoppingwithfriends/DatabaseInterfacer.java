@@ -148,6 +148,7 @@ public class DatabaseInterfacer {
     }
 
 
+
 /*
     public static String[] retriveProfile(String myUser) {
         myUser = myUser.toLowerCase();
@@ -194,10 +195,7 @@ public class DatabaseInterfacer {
             try {
                 JSONObject friend = json.getJSONObject(TAG_MESSAGE);
                 User ret = new User(friend.getString("Username"));
-
                 ret.setName(friend.getString("Name"));
-
-
                 ret.setBiography(friend.getString("Biography"));
                 ret.setEmail(friend.getString("Email"));
                 ret.setLocation(friend.getString("Location"));
@@ -211,7 +209,7 @@ public class DatabaseInterfacer {
             }
         }
         Log.d("FUCK THIS SHIT", "FUCK THIS SHIT");
-        return null;
+        return new User("Fuck","Fuck","Fuck","Fuck","Fuck","Fuck");
     }
 
     /**
