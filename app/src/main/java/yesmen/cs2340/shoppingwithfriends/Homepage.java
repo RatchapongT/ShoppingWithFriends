@@ -16,7 +16,7 @@ import android.widget.Button;
  */
 public class Homepage extends Activity implements View.OnClickListener {
 
-    private Button logoutButton, viewButton, wishlistButton;
+    private Button logoutButton, viewButton, wishlistButton, viewwishlistButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +32,9 @@ public class Homepage extends Activity implements View.OnClickListener {
 
         wishlistButton = (Button) findViewById(R.id.wishlist_button);
         wishlistButton.setOnClickListener(this);
+
+        viewwishlistButton = (Button) findViewById(R.id.home_view_wish_list);
+        viewwishlistButton.setOnClickListener(this);
     }
 
     @Override

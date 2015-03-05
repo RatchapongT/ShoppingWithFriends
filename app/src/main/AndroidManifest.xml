@@ -50,6 +50,10 @@
             android:label="Wishlist" >
         </activity>
 
+        <activity
+            android:name=".ViewWishList"
+            android:label="ViewWishlist" >
+        </activity>
     </application>
 
 </manifest>

@@ -30,7 +30,7 @@ public class DatabaseInterfacer {
     private static final String UPDATE_PROFILE_URL = "/yesmen/profile_update.php";
     private static final String DELETE_FRIEND_URL = "/yesmen/delete_friend.php";
     private static final String UPDATE_WISHLIST_URL = "/yesmen/wishlist_update.php";
-    private static final String FETCH_WISHLIST_URL = "yesmen/wishlist_retreive.php";
+    private static final String FETCH_WISHLIST_URL = "/yesmen/wishlist_retrieve.php";
 
     //JSON element ids from response of php script:
     private static final String TAG_SUCCESS = "success";
@@ -225,10 +225,11 @@ public class DatabaseInterfacer {
     public static Wishlist getWishlist(String user) throws DatabaseErrorException {
         user = user.toLowerCase();
         List<NameValuePair> params = new ArrayList<>();
-        params.add(new BasicNameValuePair("Username", user));
+        params.add(new BasicNameValuePair("username", user));
         Wishlist ret = new Wishlist();
         try {
             JSONObject json = queryDatabase(FETCH_WISHLIST_URL, params);
+            Log.d("ASDFASDFSA", user);
             if (json == null) {
                 throw new DatabaseErrorException("Database Error: no json object returned");
             }
@@ -239,11 +240,13 @@ public class DatabaseInterfacer {
             }
 
             if (json.getInt(TAG_SUCCESS) == 1) {
+
                 JSONObject temp;
                 for(int i = 0; i < jArray.length(); i++) {
                     temp = jArray.getJSONObject(i);
                     Item item = new Item(temp.getString("Item"), temp.getInt("Price"));
                     ret.addToWishlist(item);
+
                 }
             } else if (json.getInt(TAG_SUCCESS) == 2) {
                 return ret;

@@ -72,13 +72,18 @@ public class ViewWishList extends FragmentActivity implements View.OnClickListen
         @Override
         protected String doInBackground(String... args) {
             String myUser = CurrentUser.getCurrentUser().getUsername();
-            Wishlist myWishList = DatabaseInterfacer.getWishlist(myUser);
-            if (list.length > 1) {
-                for (int i = 1; i < list.length; i++) {
-                    values.add(list[i]);
+            try {
+                Wishlist myWishList = DatabaseInterfacer.getWishlist(myUser);
+                ArrayList<Item> itemArray = myWishList.getWishlist();
+                for(Item obj : itemArray) {
+                    values.add(obj.getName());
                 }
+
+
+            } catch (DatabaseErrorException e) {
+                return e.getMessage();
             }
-            return list[0];
+        return "Success!";
         }
 
         /**
@@ -87,7 +92,7 @@ public class ViewWishList extends FragmentActivity implements View.OnClickListen
          * @param file_url
          */
         protected void onPostExecute(String file_url) {
-            listView = (ListView) findViewById(R.id.view_friend_list);
+            listView = (ListView) findViewById(R.id.view_wish_list);
 
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(ViewWishList.this,
                     android.R.layout.simple_list_item_1, android.R.id.text1, values);
