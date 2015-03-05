@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +22,7 @@ public class DetailedFriend extends Activity implements View.OnClickListener{
     private TextView enteredLocation, enteredEmail, enteredPhoneNumber, enteredName;
     private Button backButton, deleteButton;
     private String requestedUser;
+    private RatingBar ratingBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,8 @@ public class DetailedFriend extends Activity implements View.OnClickListener{
 
 
         new RetrieveFriendProfileAttempt().execute();
+
+        addListenerOnRatingBar();
 
 
     }
@@ -82,6 +86,20 @@ public class DetailedFriend extends Activity implements View.OnClickListener{
             Intent intention = new Intent(this, Homepage.class);
             startActivity(intention);
         }
+    }
+
+    public void addListenerOnRatingBar() {
+
+        ratingBar = (RatingBar) findViewById(R.id.ratingBar);
+
+        //if rating value is changed,
+        //display the current rating value in the result (textview) automatically
+        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            public void onRatingChanged(RatingBar ratingBar, float rating,
+                                        boolean fromUser) {
+
+            }
+        });
     }
 
     class RetrieveFriendProfileAttempt extends AsyncTask<String, String, String> {
