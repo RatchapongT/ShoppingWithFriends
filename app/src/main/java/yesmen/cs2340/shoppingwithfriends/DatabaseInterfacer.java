@@ -216,13 +216,51 @@ public class DatabaseInterfacer {
         }
     }
 
-    public static Wishlist getWishlist(String user) {
-        //the magic happens here!
+    /**
+     * Returns the user's wishlist
+     * @param user The user in question
+     * @return a copy of the Wishlist object belonging to the user
+     * @throws DatabaseErrorException
+     */
+    public static Wishlist getWishlist(String user) throws DatabaseErrorException {
+        user = user.toLowerCase();
+        List<NameValuePair> params = new ArrayList<>();
+        params.add(new BasicNameValuePair("UserID", user));
         Wishlist ret = new Wishlist();
-        ret.addToWishlist(new Item("Fucks", 0));
-        return new Wishlist();
+        try {
+            JSONObject json = queryDatabase(FETCH_WISHLIST_URL, params);
+            if (json == null) {
+                throw new DatabaseErrorException("Database Error: no json object returned");
+            }
+            // check your log for json response
+            JSONArray jArray = json.getJSONArray(TAG_MESSAGE);
+            if (jArray == null) {
+                throw new DatabaseErrorException("Database Error: No Wishlist Found");
+            }
+
+            if (json.getInt(TAG_SUCCESS) == 1) {
+                JSONObject temp;
+                for(int i = 0; i < jArray.length(); i++) {
+                    temp = jArray.getJSONObject(i);
+                    Item item = new Item(temp.getString("Item"), temp.getInt("Price"));
+                    ret.addToWishlist(item);
+                }
+            } else if (json.getInt(TAG_SUCCESS) == 2) {
+                return ret;
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+            throw new DatabaseErrorException("Something went horribly wrong!");
+        }
+        return ret;
     }
 
+    /**
+     * Adds an item to the wishlist
+     * @param item name of the item
+     * @param threshold maximum price the user is willing to pay for the item
+     * @return String success or failure message
+     */
     public static String addToWishlist(String item, int threshold) {
         List<NameValuePair> params = new ArrayList<>();
         String myUser = CurrentUser.getCurrentUser().getName().toLowerCase();

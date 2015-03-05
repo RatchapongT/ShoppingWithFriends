@@ -85,6 +85,9 @@ public class AddFriendPage extends Activity implements View.OnClickListener {
             String friendUser = enteredFriend.getText().toString();
             String myUser = CurrentUser.getCurrentUser().getUsername();
 
+            if (myUser.equals(friendUser)) {
+                return "Can't add yourself!";
+            }
             return DatabaseInterfacer.addFriend(friendUser, myUser);
         }
 
