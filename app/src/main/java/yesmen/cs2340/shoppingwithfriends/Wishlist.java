@@ -6,10 +6,20 @@ import java.util.ArrayList;
  */
 public class Wishlist {
     ArrayList<Item> items;
+
+    /**
+     * Creates an empty Wishlist object
+     */
     public Wishlist() {
         items = new ArrayList<>();
     }
 
+    /**
+     * Adds an item to this wishlist
+     * does not add duplicate items
+     * @param item Item to add to wishlist
+     * @return String for success or failure
+     */
     public String addToWishlist(Item item) {
         if (!items.contains(item)) {
             items.add(item);
@@ -19,6 +29,10 @@ public class Wishlist {
         }
     }
 
+    /**
+     * Returns the backing Arraylist of items in the wishlist
+     * @return Arraylist of Items
+     */
     public ArrayList<Item> getWishlist() {
         return items;
     }
