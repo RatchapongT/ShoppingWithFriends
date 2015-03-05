@@ -29,6 +29,8 @@ public class DatabaseInterfacer {
     private static final String RETRIEVE_PROFILE_URL = "/yesmen/profile_retrieve.php";
     private static final String UPDATE_PROFILE_URL = "/yesmen/profile_update.php";
     private static final String DELETE_FRIEND_URL = "/yesmen/delete_friend.php";
+    private static final String UPDATE_WISHLIST_URL = "/yesmen/push_to_wishlist.php";
+    private static final String FETCH_WISHLIST_URL = "yesmen/pull_wishlist.php";
 
     //JSON element ids from response of php script:
     private static final String TAG_SUCCESS = "success";
@@ -210,6 +212,29 @@ public class DatabaseInterfacer {
             } else return "Database error";
         } catch (JSONException e) {
             e.printStackTrace();
+            return "Database error";
+        }
+    }
+
+    public static Wishlist getWishlist(String user) {
+        //the magic happens here!
+        return new Wishlist();
+    }
+
+    public static String addToWishlist(String item, int threshold) {
+        List<NameValuePair> params = new ArrayList<>();
+        String myUser = CurrentUser.getCurrentUser().getName().toLowerCase();
+        params.add(new BasicNameValuePair("UserID", myUser));
+        params.add(new BasicNameValuePair("Itemname", item));
+        params.add(new BasicNameValuePair("Threshhold", threshold + ""));
+        JSONObject json = queryDatabase(UPDATE_WISHLIST_URL, params);
+        try {
+            if (json != null && json.getInt(TAG_SUCCESS) == 1) {
+                return item + " successfully added to wishlist";
+            } else {
+                return "Database error, item may not have been added";
+            }
+        } catch (JSONException e) {
             return "Database error";
         }
     }
