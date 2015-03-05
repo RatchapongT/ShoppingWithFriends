@@ -46,7 +46,7 @@
         </activity>
 
         <activity
-            android:name=".Wishlist"
+            android:name=".AddWishList"
             android:label="Wishlist" >
         </activity>
 

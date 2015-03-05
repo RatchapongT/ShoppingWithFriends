@@ -29,8 +29,8 @@ public class DatabaseInterfacer {
     private static final String RETRIEVE_PROFILE_URL = "/yesmen/profile_retrieve.php";
     private static final String UPDATE_PROFILE_URL = "/yesmen/profile_update.php";
     private static final String DELETE_FRIEND_URL = "/yesmen/delete_friend.php";
-    private static final String UPDATE_WISHLIST_URL = "/yesmen/push_to_wishlist.php";
-    private static final String FETCH_WISHLIST_URL = "yesmen/pull_wishlist.php";
+    private static final String UPDATE_WISHLIST_URL = "/yesmen/wishlist_update.php";
+    private static final String FETCH_WISHLIST_URL = "yesmen/wishlist_retreive.php";
 
     //JSON element ids from response of php script:
     private static final String TAG_SUCCESS = "success";
@@ -225,7 +225,7 @@ public class DatabaseInterfacer {
     public static Wishlist getWishlist(String user) throws DatabaseErrorException {
         user = user.toLowerCase();
         List<NameValuePair> params = new ArrayList<>();
-        params.add(new BasicNameValuePair("UserID", user));
+        params.add(new BasicNameValuePair("Username", user));
         Wishlist ret = new Wishlist();
         try {
             JSONObject json = queryDatabase(FETCH_WISHLIST_URL, params);
@@ -263,10 +263,10 @@ public class DatabaseInterfacer {
      */
     public static String addToWishlist(String item, int threshold) {
         List<NameValuePair> params = new ArrayList<>();
-        String myUser = CurrentUser.getCurrentUser().getName().toLowerCase();
-        params.add(new BasicNameValuePair("UserID", myUser));
-        params.add(new BasicNameValuePair("Itemname", item));
-        params.add(new BasicNameValuePair("Threshhold", threshold + ""));
+        String myUser = CurrentUser.getCurrentUser().getUsername().toLowerCase();
+        params.add(new BasicNameValuePair("Username", myUser));
+        params.add(new BasicNameValuePair("Item", item));
+        params.add(new BasicNameValuePair("Price", Integer.toString(threshold)));
         JSONObject json = queryDatabase(UPDATE_WISHLIST_URL, params);
         try {
             if (json != null && json.getInt(TAG_SUCCESS) == 1) {

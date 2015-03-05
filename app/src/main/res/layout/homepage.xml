@@ -82,6 +82,14 @@
             android:onClick="wishlist"
             android:nestedScrollingEnabled="false" />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View WishList"
+            android:id="@+id/home_view_wish_list"
+            android:layout_below="@+id/wishlist_button"
+            android:layout_centerHorizontal="true" />
+
     </RelativeLayout>
 
 </RelativeLayout>
