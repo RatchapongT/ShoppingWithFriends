@@ -45,6 +45,10 @@
             android:label="MY PRI" >
         </activity>
 
+        <activity
+            android:name=".Wishlist"
+            android:label="Wishlist" >
+        </activity>
 
     </application>
 

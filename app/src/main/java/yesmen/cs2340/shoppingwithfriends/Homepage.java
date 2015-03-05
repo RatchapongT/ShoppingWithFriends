@@ -16,7 +16,7 @@ import android.widget.Button;
  */
 public class Homepage extends Activity implements View.OnClickListener {
 
-    private Button logoutButton, viewButton;
+    private Button logoutButton, viewButton, wishlistButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +29,9 @@ public class Homepage extends Activity implements View.OnClickListener {
 
         viewButton = (Button) findViewById(R.id.homepage_view_friends_button);
         viewButton.setOnClickListener(this);
+
+        wishlistButton = (Button) findViewById(R.id.wishlist_button);
+        wishlistButton.setOnClickListener(this);
     }
 
     @Override
@@ -42,16 +45,12 @@ public class Homepage extends Activity implements View.OnClickListener {
         } else if (v.getId() == R.id.homepage_view_friends_button) {
             Intent intention = new Intent(this, ViewFriends.class);
             startActivity(intention);
+        } else if (v.getId() == R.id.wishlist_button) {
+            Intent intention = new Intent(this, Wishlist.class);
+            startActivity(intention);
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu items for use in the action bar
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.action_bar, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
 
     /**
      * Called when the user clicks the Add Friend button
