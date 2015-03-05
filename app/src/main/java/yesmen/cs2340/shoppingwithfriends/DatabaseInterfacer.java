@@ -218,6 +218,8 @@ public class DatabaseInterfacer {
 
     public static Wishlist getWishlist(String user) {
         //the magic happens here!
+        Wishlist ret = new Wishlist();
+        ret.addToWishlist(new Item("Fucks", 0));
         return new Wishlist();
     }
 
