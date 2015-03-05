@@ -72,6 +72,15 @@
             android:background="@android:color/darker_gray"
             android:textColor="@android:color/white" />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add To Wishlist"
+            android:id="@+id/button"
+            android:layout_below="@+id/homepage_view_friends_button"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="75dp" />
+
     </RelativeLayout>
 
 </RelativeLayout>
