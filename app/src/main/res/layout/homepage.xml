@@ -98,9 +98,24 @@
             android:layout_height="wrap_content"
             android:id="@+id/report_sales_button"
             android:src="@drawable/report_sales_button"
-            android:layout_below="@+id/homepage_view_friends_button"
-            android:layout_toRightOf="@+id/home_view_wish_list"
-            android:layout_toEndOf="@+id/home_view_wish_list" />
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <ImageButton
+            android:scaleType="fitXY"
+            android:background="@null"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/blue_button"
+            android:clickable="true"
+            android:src="@drawable/blue_icon"
+            android:layout_below="@+id/report_sales_button"
+            android:layout_alignLeft="@+id/report_sales_button"
+            android:layout_alignStart="@+id/report_sales_button"
+            android:layout_above="@+id/wishlist_button"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
     </RelativeLayout>
 

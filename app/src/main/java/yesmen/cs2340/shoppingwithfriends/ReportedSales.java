@@ -17,7 +17,7 @@ public class ReportedSales extends Activity implements View.OnClickListener {
 
     private ProgressDialog progressDialog;
     private Button cancelButton, submitButton;
-    private EditText enteredItem, enteredPrice, enteredLocation;
+    private EditText enteredItem, enteredPrice, enteredLocation, enteredQuantity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +84,7 @@ public class ReportedSales extends Activity implements View.OnClickListener {
         protected String doInBackground(String... args) {
             String newItem = enteredItem.getText().toString();
             String newPrice = enteredPrice.getText().toString();
+            String quantity = enteredQuantity.getText().toString();
 
             //Let the Interfacer take a newItem, threshold, and Location string********************
 

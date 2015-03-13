@@ -42,8 +42,6 @@ public class ViewWishList extends FragmentActivity implements View.OnClickListen
 
 
         new ViewFriendsAttempt().execute();
-
-
     }
 
     @Override
