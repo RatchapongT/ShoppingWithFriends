@@ -455,7 +455,7 @@ public class DatabaseInterfacer {
                 ret = new ItemReport[jArray.length()];
                 for(int i = 0; i < jArray.length(); i++) {
                     JSONObject jtemp = jArray.getJSONObject(i);
-                    ret[i] = new ItemReport(jtemp.getString("FriendID"),
+                    ret[i] = new ItemReport(jtemp.getString("Username"),
                             jtemp.getString("Name"),
                             jtemp.getString("Location"),
                             jtemp.getDouble("Price"),
