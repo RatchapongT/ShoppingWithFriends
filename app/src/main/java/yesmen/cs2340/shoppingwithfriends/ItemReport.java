@@ -15,6 +15,7 @@ public class ItemReport {
     String location;
     double price;
     int quantity;
+    int read;
 
     /**
      * Creates an ItemReport object
@@ -24,12 +25,13 @@ public class ItemReport {
      * @param price Price of the Item
      * @param quantity Quantity of the Item
      */
-    public ItemReport (String originator, String productName, String location, double price, int quantity) {
+    public ItemReport (String originator, String productName, String location, double price, int quantity, int read) {
         this.originator = originator;
         this.productName = productName;
         this.location = location;
         this.price = price;
         this.quantity = quantity;
+        this.read = read;
     }
 
     /*
@@ -60,5 +62,8 @@ public class ItemReport {
 
     public int getQuantity() {
         return quantity;
+    }
+    public int getRead() {
+        return read;
     }
 }

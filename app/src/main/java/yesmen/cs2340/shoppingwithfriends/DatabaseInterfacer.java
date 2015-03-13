@@ -36,6 +36,7 @@ public class DatabaseInterfacer {
     private static final String GET_ALERTS_URL = "/yesmen/get_alerts.php";
     private static final String CREATE_ITEM_REPORT = "/yesmen/update_item_report.php";
     private static final String RETRIEVE_ITEM_REPORTS_URL = "/yesmen/retrieve_item_report.php";
+    private static final String UPDATE_READ = "/yesmen/update_read.php";
 
     //JSON element ids from response of php script:
     private static final String TAG_SUCCESS = "success";
@@ -459,7 +460,8 @@ public class DatabaseInterfacer {
                             jtemp.getString("Name"),
                             jtemp.getString("Location"),
                             jtemp.getDouble("Price"),
-                            jtemp.getInt("Quantity"));
+                            jtemp.getInt("Quantity"),
+                            jtemp.getInt("readReport"));
                 }
             } else {
                 return null;
@@ -469,5 +471,21 @@ public class DatabaseInterfacer {
             Log.d("itemReport Error", "error connecting to database");
             throw new DatabaseErrorException("Database Error: unexpected JSONException");
         }
+    }
+
+    public static String updateRead() {
+        List<NameValuePair> params = new ArrayList<>();
+        params.add(new BasicNameValuePair("Username", CurrentUser.getCurrentUser().getUsername().toLowerCase()));
+        try {
+            JSONObject json = queryDatabase(UPDATE_READ, params);
+            if (json != null && json.getInt(TAG_SUCCESS) == 1) {
+                return "SUCCESS!";
+            } else {
+                return "Database error, item may not have been added";
+            }
+        } catch (JSONException e) {
+            return "Database error";
+        }
+
     }
 }

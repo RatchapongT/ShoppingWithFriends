@@ -120,6 +120,16 @@
             android:layout_alignParentEnd="true"
             android:onClick="salesForMe" />
 
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/notifiaction"
+            android:layout_above="@+id/wishlist_button"
+            android:layout_toLeftOf="@+id/blue_button"
+            android:layout_toStartOf="@+id/blue_button"
+            android:layout_marginBottom="25dp"
+            android:textColor="#ffff0c18" />
+
     </RelativeLayout>
 
 </RelativeLayout>

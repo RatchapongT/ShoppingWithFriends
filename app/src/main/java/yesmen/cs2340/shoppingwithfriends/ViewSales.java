@@ -89,6 +89,7 @@ public class ViewSales extends FragmentActivity implements View.OnClickListener 
         protected String doInBackground(String... args) {
             String myUser = CurrentUser.getCurrentUser().getUsername();
             try {
+
                 Wishlist myWishList = DatabaseInterfacer.getWishlist(myUser);
                 ArrayList<Item> itemArray = myWishList.getWishlist();
 
@@ -96,7 +97,15 @@ public class ViewSales extends FragmentActivity implements View.OnClickListener 
                 for (ItemReport obj : reportedSales) {
                     for (int i = 0; i < itemArray.size(); i++) {
                         if(obj.getProductName().equals(itemArray.get(i).getName()) && obj.getPrice() <= itemArray.get(i).getPrice()) {
-                            values.add("Product: " + obj.getProductName() + "\n"
+                            String read;
+                            if (obj.getRead() == 1) {
+                                read = "";
+                            } else {
+                                read = "New Report!";
+                            }
+
+                            values.add(read + "\n"
+                                + "Product: " + obj.getProductName() + "\n"
                                 + "Price: " + obj.getPrice() + "\n"
                                 + "Location: " + obj.getLocation() + "\n"
                                 + "Quantity: " + obj.getQuantity() + "\n"
@@ -105,6 +114,7 @@ public class ViewSales extends FragmentActivity implements View.OnClickListener 
 
                     }
                 }
+                DatabaseInterfacer.updateRead();
                 Collections.reverse(values);
 
             } catch (DatabaseErrorException e) {
@@ -119,6 +129,7 @@ public class ViewSales extends FragmentActivity implements View.OnClickListener 
          * @param file_url
          */
         protected void onPostExecute(String file_url) {
+            //DatabaseInterfacer.updateRead();
             listView = (ListView) findViewById(R.id.view_sale_list);
 
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(ViewSales.this,

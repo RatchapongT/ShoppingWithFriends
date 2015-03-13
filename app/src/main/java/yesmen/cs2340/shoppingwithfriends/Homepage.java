@@ -7,7 +7,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Class Homepage extends ActionBarActivity and implements View.OnClickListener,
@@ -20,6 +26,8 @@ public class Homepage extends Activity implements View.OnClickListener {
 
     private Button logoutButton, viewButton, wishlistButton, viewwishlistButton;
     private ImageButton blue_button;
+    //private TextView notificaiton;
+    int count = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,27 +48,51 @@ public class Homepage extends Activity implements View.OnClickListener {
         viewwishlistButton.setOnClickListener(this);
 
         blue_button = (ImageButton) findViewById(R.id.blue_button);
+        //notificaiton = (TextView) findViewById(R.id.notifiaction);
 
-        new AsyncTask<Void, Void, Void> () {
+        new AsyncTask<Void, Void, Void>() {
+
             protected Void doInBackground(Void... params) {
+
+                String myUser = CurrentUser.getCurrentUser().getUsername();
                 try {
-                    int temp = DatabaseInterfacer.retrieveItemReports().length;
-                    if (temp > CurrentUser.getCurrentUser().getLatestReport()) {
-                        CurrentUser.getCurrentUser().setLatestReport(temp);
+
+                    Wishlist myWishList = DatabaseInterfacer.getWishlist(myUser);
+                    ArrayList<Item> itemArray = myWishList.getWishlist();
+
+                    ItemReport[] reportedSales = DatabaseInterfacer.retrieveItemReports();
+                    for (ItemReport obj : reportedSales) {
+                        for (int i = 0; i < itemArray.size(); i++) {
+                            if (obj.getProductName().equals(itemArray.get(i).getName()) && obj.getPrice() <= itemArray.get(i).getPrice()) {
+                                if (obj.getRead() == 0) {
+                                    count++;
+                                }
+
+                            }
+
+                        }
+                    }
+
+                    if (count > 0) {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
                                 blue_button.setImageResource(R.drawable.notification_icon);
+
                             }
                         });
-                        Log.d("yes", "works");
                     }
+
                 } catch (DatabaseErrorException e) {
 
                 }
                 return null;
             }
+
         }.execute();
+        //notificaiton.setText(count + " Notification");
+
+
     }
 
     @Override
