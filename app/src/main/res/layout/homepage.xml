@@ -77,18 +77,30 @@
             android:layout_height="wrap_content"
             android:text="Add To Wishlist"
             android:id="@+id/wishlist_button"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="75dp"
             android:onClick="wishlist"
-            android:nestedScrollingEnabled="false" />
+            android:nestedScrollingEnabled="false"
+            android:layout_above="@+id/home_view_wish_list"
+            android:layout_centerHorizontal="true" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="View WishList"
             android:id="@+id/home_view_wish_list"
-            android:layout_below="@+id/wishlist_button"
-            android:layout_centerHorizontal="true" />
+            android:layout_above="@+id/homepage_logout_button"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="82dp" />
+
+        <ImageButton
+            android:scaleType="fitXY"
+            android:background="@null"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/report_sales_button"
+            android:src="@drawable/reportSalesButton"
+            android:layout_below="@+id/homepage_view_friends_button"
+            android:layout_toRightOf="@+id/home_view_wish_list"
+            android:layout_toEndOf="@+id/home_view_wish_list" />
 
     </RelativeLayout>
 
