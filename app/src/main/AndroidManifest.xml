@@ -39,20 +39,21 @@
             android:name=".DetailedFriend"
             android:label="@string/title_activity_detailed_friend" >
         </activity>
-
         <activity
             android:name=".MyProfilePage"
             android:label="MY PRI" >
         </activity>
-
         <activity
             android:name=".AddWishList"
             android:label="Wishlist" >
         </activity>
-
         <activity
             android:name=".ViewWishList"
             android:label="ViewWishlist" >
+        </activity>
+        <activity
+            android:name=".ReportedSales"
+            android:label="@string/title_activity_reported_sales" >
         </activity>
     </application>
 

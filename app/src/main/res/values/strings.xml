@@ -9,5 +9,6 @@
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="title_activity_detailed_friend">DetailedFriend</string>
+    <string name="title_activity_reported_sales">ReportedSales</string>
 
 </resources>

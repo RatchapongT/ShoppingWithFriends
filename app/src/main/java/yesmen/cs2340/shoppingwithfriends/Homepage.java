@@ -54,6 +54,9 @@ public class Homepage extends Activity implements View.OnClickListener {
         } else if (v.getId() == R.id.home_view_wish_list) {
             Intent intention = new Intent(this, ViewWishList.class);
             startActivity(intention);
+        } else if (v.getId() == R.id.report_sales_button) {
+            Intent intention = new Intent(this, ReportedSales.class);
+            startActivity(intention);
         }
 
     }
