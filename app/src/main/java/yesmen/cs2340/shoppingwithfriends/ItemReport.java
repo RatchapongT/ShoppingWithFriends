@@ -9,20 +9,23 @@ public class ItemReport {
 
     int reportId;
     String productName;
+    String location;
     double price;
-    int productsLeft;
+    int quantity;
 
-    public ItemReport (String productName, double price, int productsLeft) {
+    public ItemReport (String productName, String location, double price, int quantity) {
         this.productName = productName;
+        this.location = location;
         this.price = price;
-        this. productsLeft = productsLeft;
+        this.quantity = quantity;
     }
 
     public ItemReport(int reportId) {
         ItemReport copy = DatabaseInterfacer.getItemReport(reportId);
         this.productName = copy.productName;
+        this.location = copy.location;
         this.price = copy.price;
-        this.productsLeft = copy.productsLeft;
+        this.quantity = copy.quantity;
     }
 
 }

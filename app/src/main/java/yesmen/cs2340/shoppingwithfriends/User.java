@@ -14,6 +14,8 @@ public class User {
     private String location;
     private String email;
     private String phoneNumber;
+    private int[] reportedSales;
+    private int[] newAlerts;
 
     /**
      * Constructor for username
@@ -134,5 +136,21 @@ public class User {
      */
     public String getPhoneNumber() {
         return phoneNumber;
+    }
+
+    public void setReportedSales(int[] reportedSales) {
+        this.reportedSales = reportedSales;
+    }
+
+    public int[] getReportedSales() {
+        return reportedSales;
+    }
+
+    public void setNewAlerts(int[] newAlerts) {
+        this.newAlerts = newAlerts;
+    }
+
+    public int[] getNewAlerts() {
+        return newAlerts;
     }
 }

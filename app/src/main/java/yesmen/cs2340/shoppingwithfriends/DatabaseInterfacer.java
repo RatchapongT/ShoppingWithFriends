@@ -33,6 +33,8 @@ public class DatabaseInterfacer {
     private static final String FETCH_WISHLIST_URL = "/yesmen/wishlist_retrieve.php";
     private static final String GET_ITEM_REPORT_URL = "/yesmen/get_item_report.php";
     private static final String SEND_ALERT_URL = "/yesmen/send_alert.php";
+    private static final String GET_ALERTS_URL = "/yesmen/get_alerts.php";
+    private static final String CREATE_ITEM_REPORT = "/yesmen/create_report.php";
 
     //JSON element ids from response of php script:
     private static final String TAG_SUCCESS = "success";
@@ -316,11 +318,9 @@ public class DatabaseInterfacer {
         }
     }
 
-    public static String sendAlert(String user, String expirationDate, String productName, int reportID) {
+    public static String sendAlert(String user, int reportID) {
         List<NameValuePair> params = new ArrayList<>();
         params.add(new BasicNameValuePair("Username", user.toLowerCase()));
-        params.add(new BasicNameValuePair("Expiration Date", expirationDate));
-        params.add(new BasicNameValuePair("Product Name", productName));
         params.add(new BasicNameValuePair("ID", ""+reportID));
         JSONObject json = queryDatabase(SEND_ALERT_URL, params);
         if (json == null) {
@@ -332,6 +332,57 @@ public class DatabaseInterfacer {
         }
     }
 
+    public static int[] getAlerts() throws DatabaseErrorException {
+        List<NameValuePair> params = new ArrayList<>();
+        params.add(new BasicNameValuePair("Username", CurrentUser.getCurrentUser().getUsername().toLowerCase()));
+        int[] ret = new int[1];
+        try {
+            JSONObject json = queryDatabase(GET_ALERTS_URL, params);
+            if (json == null) {
+                throw new DatabaseErrorException("Database Error: no json object returned");
+            }
+
+            JSONArray jArray = json.getJSONArray(TAG_MESSAGE);
+            if (jArray == null) {
+                throw new DatabaseErrorException("Database Error: No Friends Found");
+            }
+
+            if (json.getInt(TAG_SUCCESS) == 1) {
+                ret = new int[jArray.length()];
+                for(int i = 0; i < jArray.length(); i++) {
+                    ret[i] = jArray.getInt(i);
+                }
+            } else {
+                ret[0] = 0;
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+            throw new DatabaseErrorException("Unexpected JSONException");
+        }
+        return ret;
+}
+
+    public static int createItemReport(String productName, String location,
+                                           double price, int quantity) {
+        List<NameValuePair> params = new ArrayList<>();
+        params.add(new BasicNameValuePair("productName", productName));
+        params.add(new BasicNameValuePair("location", location));
+        params.add(new BasicNameValuePair("price", ""+price));
+        params.add(new BasicNameValuePair("quantity", ""+quantity));
+        try {
+            JSONObject json = queryDatabase(CREATE_ITEM_REPORT, params);
+            if (json == null) {
+                Log.d("createItemReport Error", "json was null");
+                return 0;
+            } else {
+                return json.getInt("ID");
+            }
+        } catch (JSONException e) {
+            Log.d("createItemReport Error", "unexpected JSONException");
+        }
+        return 0;
+    }
+
     public static ItemReport getItemReport(int reportId) {
         List<NameValuePair> params = new ArrayList<>();
         params.add(new BasicNameValuePair("ID", ""+reportId));
@@ -339,7 +390,8 @@ public class DatabaseInterfacer {
         try {
             ItemReport ret;
             if (json != null) {
-                ret = new ItemReport(json.getString("name"), json.getDouble("price"), json.getInt("products"));
+                ret = new ItemReport(json.getString("name"), json.getString("location"),
+                        json.getDouble("price"), json.getInt("quantity"));
             } else {
                 ret = null;
             }
