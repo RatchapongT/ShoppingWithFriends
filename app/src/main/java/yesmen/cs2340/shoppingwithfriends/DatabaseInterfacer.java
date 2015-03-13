@@ -35,6 +35,7 @@ public class DatabaseInterfacer {
     private static final String SEND_ALERT_URL = "/yesmen/send_alert.php";
     private static final String GET_ALERTS_URL = "/yesmen/get_alerts.php";
     private static final String CREATE_ITEM_REPORT = "/yesmen/create_report.php";
+    private static final String RETRIEVE_ITEM_REPORTS_URL = "/yesmen/retrieve_item_report.php";
 
     //JSON element ids from response of php script:
     private static final String TAG_SUCCESS = "success";
@@ -430,5 +431,39 @@ public class DatabaseInterfacer {
         }
 
         return null;
+    }
+
+    /**
+     * Fetches the entire new item report list for the current user
+     * @return ItemReport[] all relevant ItemReports
+     * @throws DatabaseErrorException if the database has trouble
+     */
+    public static ItemReport[] retrieveItemReports() throws DatabaseErrorException {
+        List<NameValuePair> params = new ArrayList<>();
+        params.add(new BasicNameValuePair("Username", CurrentUser.getCurrentUser().getUsername().toLowerCase()));
+        try {
+            JSONObject json = queryDatabase(RETRIEVE_ITEM_REPORTS_URL, params);
+            ItemReport[] ret;
+
+            JSONArray jArray = json.getJSONArray(TAG_MESSAGE);
+            if (jArray == null) {
+                throw new DatabaseErrorException("Database Error: no json object returned");
+            }
+
+            if (json.getInt(TAG_SUCCESS) == 1) {
+                ret = new ItemReport[jArray.length()];
+                for(int i = 0; i < jArray.length(); i++) {
+                    JSONObject jtemp = jArray.getJSONObject(i);
+                    ret[i] = new ItemReport(jtemp.getString("Name"), jtemp.getString("Location"),
+                            jtemp.getDouble("Price"), jtemp.getInt("Quantity"));
+                }
+            } else {
+                return null;
+            }
+            return ret;
+        } catch (JSONException e) {
+            Log.d("itemReport Error", "error connecting to database");
+            throw new DatabaseErrorException("Database Error: unexpected JSONException");
+        }
     }
 }

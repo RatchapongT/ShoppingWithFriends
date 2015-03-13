@@ -26,7 +26,7 @@ public class DealAlert {
     class sendDealAlert extends AsyncTask<String, String, String> {
         @Override
         protected String doInBackground(String... args) {
-            return DatabaseInterfacer.sendAlert(user, expirationDate.toString(), productName, productID);
+            //return DatabaseInterfacer.sendAlert(user, expirationDate.toString(), productName, productID);
         }
     }
 }
