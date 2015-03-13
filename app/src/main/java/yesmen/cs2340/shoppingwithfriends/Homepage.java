@@ -47,7 +47,12 @@ public class Homepage extends Activity implements View.OnClickListener {
                     int temp = DatabaseInterfacer.retrieveItemReports().length;
                     if (temp > CurrentUser.getCurrentUser().getLatestReport()) {
                         CurrentUser.getCurrentUser().setLatestReport(temp);
-                        blue_button.setImageResource(R.drawable.notification_icon);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                blue_button.setImageResource(R.drawable.notification_icon);
+                            }
+                        });
                         Log.d("yes", "works");
                     }
                 } catch (DatabaseErrorException e) {
