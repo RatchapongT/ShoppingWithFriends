@@ -97,7 +97,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/report_sales_button"
-            android:src="@drawable/reportSalesButton"
+            android:src="@drawable/report_sales_button"
             android:layout_below="@+id/homepage_view_friends_button"
             android:layout_toRightOf="@+id/home_view_wish_list"
             android:layout_toEndOf="@+id/home_view_wish_list" />
