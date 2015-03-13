@@ -10,25 +10,40 @@ package yesmen.cs2340.shoppingwithfriends;
  */
 public class ItemReport {
 
-    int reportId;
+    String originator;
     String productName;
     String location;
     double price;
     int quantity;
 
-    public ItemReport (String productName, String location, double price, int quantity) {
+    /**
+     * Creates an ItemReport object
+     * @param originator origin user of the ItemReport
+     * @param productName Name of the Item
+     * @param location Location of the Item
+     * @param price Price of the Item
+     * @param quantity Quantity of the Item
+     */
+    public ItemReport (String originator, String productName, String location, double price, int quantity) {
+        this.originator = originator;
         this.productName = productName;
         this.location = location;
         this.price = price;
         this.quantity = quantity;
     }
 
+    /*
     public ItemReport(int reportId) {
         ItemReport copy = DatabaseInterfacer.getItemReport(reportId);
         this.productName = copy.productName;
         this.location = copy.location;
         this.price = copy.price;
         this.quantity = copy.quantity;
+    }
+    */
+
+    public String getOriginator() {
+        return originator;
     }
 
     public String getProductName() {

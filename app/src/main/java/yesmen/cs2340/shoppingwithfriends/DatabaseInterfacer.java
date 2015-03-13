@@ -412,7 +412,7 @@ public class DatabaseInterfacer {
      * Passes the database a report ID and retrieves the information associated with the ID
      * @param reportID the unique integer ID associated with a report object
      * @return ItemReport a copy of the itemreport stored on the database with reportID
-     */
+     *//*
     public static ItemReport getItemReport(int reportID) {
         List<NameValuePair> params = new ArrayList<>();
         params.add(new BasicNameValuePair("ID", ""+reportID));
@@ -432,6 +432,7 @@ public class DatabaseInterfacer {
 
         return null;
     }
+    */
 
     /**
      * Fetches the entire new item report list for the current user
@@ -454,8 +455,11 @@ public class DatabaseInterfacer {
                 ret = new ItemReport[jArray.length()];
                 for(int i = 0; i < jArray.length(); i++) {
                     JSONObject jtemp = jArray.getJSONObject(i);
-                    ret[i] = new ItemReport(jtemp.getString("Name"), jtemp.getString("Location"),
-                            jtemp.getDouble("Price"), jtemp.getInt("Quantity"));
+                    ret[i] = new ItemReport(jtemp.getString("FriendID"),
+                            jtemp.getString("Name"),
+                            jtemp.getString("Location"),
+                            jtemp.getDouble("Price"),
+                            jtemp.getInt("Quantity"));
                 }
             } else {
                 return null;
