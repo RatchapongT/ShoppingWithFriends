@@ -318,6 +318,13 @@ public class DatabaseInterfacer {
         }
     }
 
+    /**
+     * This method sends a username and an ID to the database. The database should add
+     * the ID to the newAlerts[] integer array that belongs to arg user.
+     * @param user Friend recieving the alert
+     * @param reportID ID of the itemReport in the database
+     * @return "success" if successfully added to databes, "failure" otherwise
+     *
     public static String sendAlert(String user, int reportID) {
         List<NameValuePair> params = new ArrayList<>();
         params.add(new BasicNameValuePair("Username", user.toLowerCase()));
@@ -331,7 +338,14 @@ public class DatabaseInterfacer {
             return "success";
         }
     }
+    */
 
+    /**
+     * This method retrieves an int[] from the database. The int[] is an array of
+     * Report IDs that each represent a unique ItemReport.
+     * @return int[] of report IDs that are relevant to the current user's wishlist
+     * @throws DatabaseErrorException
+     */
     public static int[] getAlerts() throws DatabaseErrorException {
         List<NameValuePair> params = new ArrayList<>();
         params.add(new BasicNameValuePair("Username", CurrentUser.getCurrentUser().getUsername().toLowerCase()));
@@ -362,6 +376,16 @@ public class DatabaseInterfacer {
         return ret;
 }
 
+    /**
+     * Passes the database the fields of an ItemReport object
+     * Database should store these fields with a unique integer ID
+     * Database should then return said ID
+     * @param productName product's name
+     * @param location location of the item
+     * @param price price of the item
+     * @param quantity quantity of the item
+     * @return integer ID key for the newly stored database ItemReport
+     */
     public static int createItemReport(String productName, String location,
                                            double price, int quantity) {
         List<NameValuePair> params = new ArrayList<>();
@@ -383,9 +407,14 @@ public class DatabaseInterfacer {
         return 0;
     }
 
-    public static ItemReport getItemReport(int reportId) {
+    /**
+     * Passes the database a report ID and retrieves the information associated with the ID
+     * @param reportID the unique integer ID associated with a report object
+     * @return ItemReport a copy of the itemreport stored on the database with reportID
+     */
+    public static ItemReport getItemReport(int reportID) {
         List<NameValuePair> params = new ArrayList<>();
-        params.add(new BasicNameValuePair("ID", ""+reportId));
+        params.add(new BasicNameValuePair("ID", ""+reportID));
         JSONObject json = queryDatabase(GET_ITEM_REPORT_URL, params);
         try {
             ItemReport ret;
