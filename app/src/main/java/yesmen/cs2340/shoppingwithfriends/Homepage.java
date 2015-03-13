@@ -76,4 +76,9 @@ public class Homepage extends Activity implements View.OnClickListener {
         Intent intent = new Intent(this, ReportedSales.class);
         startActivity(intent);
     }
+
+    public void salesForMe(View view) {
+        Intent intent = new Intent(this, ViewSales.class);
+        startActivity(intent);
+    }
 }

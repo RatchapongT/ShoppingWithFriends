@@ -31,4 +31,19 @@ public class ItemReport {
         this.quantity = copy.quantity;
     }
 
+    public String getProductName() {
+        return productName;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
 }

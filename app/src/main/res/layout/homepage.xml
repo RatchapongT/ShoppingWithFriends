@@ -117,7 +117,8 @@
             android:layout_alignStart="@+id/report_sales_button1"
             android:layout_above="@+id/wishlist_button"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:onClick="salesForMe" />
 
     </RelativeLayout>
 

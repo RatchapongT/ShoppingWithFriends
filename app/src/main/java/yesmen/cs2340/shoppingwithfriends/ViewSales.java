@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -86,8 +87,17 @@ public class ViewSales extends FragmentActivity implements View.OnClickListener 
             try {
                 Wishlist myWishList = DatabaseInterfacer.getWishlist(myUser);
                 ArrayList<Item> itemArray = myWishList.getWishlist();
-                for (Item obj : itemArray) {
-                    values.add(obj.getName() + " " + obj.getPrice());
+
+                ItemReport[] reportedSales = DatabaseInterfacer.retrieveItemReports();
+                for (ItemReport obj : reportedSales) {
+                    for (int i = 0; i < itemArray.size(); i++) {
+                        if(obj.getProductName().equals(itemArray.get(i).getName()) && obj.getPrice() <= itemArray.get(i).getPrice()) {
+                            values.add("Product: " + obj.getProductName() + "\n"
+                                + "Price: " + obj.getPrice() + "\n"
+                                + "Location: " + obj.getLocation() + "\n"
+                                + "Quantity: " + obj.getQuantity() + "\n");
+                        }
+                    }
                 }
 
 
@@ -103,7 +113,7 @@ public class ViewSales extends FragmentActivity implements View.OnClickListener 
          * @param file_url
          */
         protected void onPostExecute(String file_url) {
-            listView = (ListView) findViewById(R.id.view_wish_list);
+            listView = (ListView) findViewById(R.id.view_sale_list);
 
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(ViewSales.this,
                     android.R.layout.simple_list_item_1, android.R.id.text1, values);
@@ -135,7 +145,7 @@ public class ViewSales extends FragmentActivity implements View.OnClickListener 
             // dismiss the dialog once product deleted
             progressDialog.dismiss();
             if (file_url != null) {
-                Toast.makeText(ViewWishList.this, file_url, Toast.LENGTH_LONG).show();
+                Toast.makeText(ViewSales.this, file_url, Toast.LENGTH_LONG).show();
             }
         }
     }
