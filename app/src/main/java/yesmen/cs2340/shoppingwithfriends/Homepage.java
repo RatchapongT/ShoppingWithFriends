@@ -41,7 +41,7 @@ public class Homepage extends Activity implements View.OnClickListener {
                 //UPDATE BUTTON TO BLUE
             }
         } catch (DatabaseErrorException e) {
-            
+
         }
     }
 
