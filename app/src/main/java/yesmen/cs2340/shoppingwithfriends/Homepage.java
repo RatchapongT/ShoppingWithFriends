@@ -26,7 +26,7 @@ public class Homepage extends Activity implements View.OnClickListener {
 
     private Button logoutButton, viewButton, wishlistButton, viewwishlistButton;
     private ImageButton blue_button;
-    //private TextView notificaiton;
+    private TextView notificaiton;
     int count = 0;
 
     @Override
@@ -48,7 +48,7 @@ public class Homepage extends Activity implements View.OnClickListener {
         viewwishlistButton.setOnClickListener(this);
 
         blue_button = (ImageButton) findViewById(R.id.blue_button);
-        //notificaiton = (TextView) findViewById(R.id.notifiaction);
+        notificaiton = (TextView) findViewById(R.id.notifiaction);
 
         new AsyncTask<Void, Void, Void>() {
 
@@ -78,7 +78,7 @@ public class Homepage extends Activity implements View.OnClickListener {
                             @Override
                             public void run() {
                                 blue_button.setImageResource(R.drawable.notification_icon);
-
+                                notificaiton.setText(count + " Notification");
                             }
                         });
                     }
@@ -89,8 +89,10 @@ public class Homepage extends Activity implements View.OnClickListener {
                 return null;
             }
 
+   
+
         }.execute();
-        //notificaiton.setText(count + " Notification");
+        //
 
 
     }
