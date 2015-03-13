@@ -11,8 +11,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-
+/**
+ * Class ReportedSales shows a ListView of all the sales relevant to you.
+ *
+ * @author      Luka Antolic-Soban, Resse Aitken, Ratchapong Tangkijvorakul, Matty Attokaren, Sunny Patel
+ * @version     1.6
+ */
 public class ReportedSales extends Activity implements View.OnClickListener {
 
     private ProgressDialog progressDialog;
@@ -70,6 +74,9 @@ public class ReportedSales extends Activity implements View.OnClickListener {
         }
     }
 
+    /**
+     * Class AddReportAttempt is an async task that loads the ListView as the program is running.
+     */
     class AddReportAttempt extends AsyncTask<String, String, String> {
         @Override
         protected void onPreExecute() {

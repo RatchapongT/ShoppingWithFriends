@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,7 +16,10 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Collections;
 
-
+/**
+ * Class ViewSales extends ActionBarActivity and implements View.OnClickListener,
+ * is all the code that pertains to the view friends page in android.
+ */
 public class ViewSales extends FragmentActivity implements View.OnClickListener {
 
     private ProgressDialog progressDialog;
