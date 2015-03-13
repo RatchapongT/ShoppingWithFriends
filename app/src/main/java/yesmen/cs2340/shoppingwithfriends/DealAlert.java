@@ -20,13 +20,15 @@ public class DealAlert {
     }
 
     public void send() {
-        new sendDealAlert().execute();
+        //new sendDealAlert().execute();
     }
 
-    class sendDealAlert extends AsyncTask<String, String, String> {
+    /*class sendDealAlert extends AsyncTask<String, String, String> {
         @Override
         protected String doInBackground(String... args) {
             //return DatabaseInterfacer.sendAlert(user, expirationDate.toString(), productName, productID);
+
         }
     }
+    */
 }
