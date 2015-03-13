@@ -31,6 +31,8 @@ public class DatabaseInterfacer {
     private static final String DELETE_FRIEND_URL = "/yesmen/delete_friend.php";
     private static final String UPDATE_WISHLIST_URL = "/yesmen/wishlist_update.php";
     private static final String FETCH_WISHLIST_URL = "/yesmen/wishlist_retrieve.php";
+    private static final String GET_ITEM_REPORT_URL = "/yesmen/get_item_report.php";
+    private static final String SEND_ALERT_URL = "/yesmen/send_alert.php";
 
     //JSON element ids from response of php script:
     private static final String TAG_SUCCESS = "success";
@@ -312,5 +314,40 @@ public class DatabaseInterfacer {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public static String sendAlert(String user, String expirationDate, String productName, int reportID) {
+        List<NameValuePair> params = new ArrayList<>();
+        params.add(new BasicNameValuePair("Username", user.toLowerCase()));
+        params.add(new BasicNameValuePair("Expiration Date", expirationDate));
+        params.add(new BasicNameValuePair("Product Name", productName));
+        params.add(new BasicNameValuePair("ID", ""+reportID));
+        JSONObject json = queryDatabase(SEND_ALERT_URL, params);
+        if (json == null) {
+            Log.d("sendAlert Error", "error connecting to database");
+            return "failure";
+        } else {
+            Log.d("sendAlert Success", "Alert sent to " + user);
+            return "success";
+        }
+    }
+
+    public static ItemReport getItemReport(int reportId) {
+        List<NameValuePair> params = new ArrayList<>();
+        params.add(new BasicNameValuePair("ID", ""+reportId));
+        JSONObject json = queryDatabase(GET_ITEM_REPORT_URL, params);
+        try {
+            ItemReport ret;
+            if (json != null) {
+                ret = new ItemReport(json.getString("name"), json.getDouble("price"), json.getInt("products"));
+            } else {
+                ret = null;
+            }
+            return ret;
+        } catch (JSONException e) {
+            Log.d("itemReport Error", "error connecting to database");
+        }
+
+        return null;
     }
 }

@@ -7,14 +7,22 @@ package yesmen.cs2340.shoppingwithfriends;
  */
 public class ItemReport {
 
+    int reportId;
+    String productName;
     double price;
     int productsLeft;
-    int rating;
 
-    public ItemReport (double price, int productsLeft) {
+    public ItemReport (String productName, double price, int productsLeft) {
+        this.productName = productName;
         this.price = price;
         this. productsLeft = productsLeft;
-        rating = 0;
+    }
+
+    public ItemReport(int reportId) {
+        ItemReport copy = DatabaseInterfacer.getItemReport(reportId);
+        this.productName = copy.productName;
+        this.price = copy.price;
+        this.productsLeft = copy.productsLeft;
     }
 
 }
