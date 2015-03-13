@@ -3,8 +3,11 @@ package yesmen.cs2340.shoppingwithfriends;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+
 /**
  * Class Homepage extends ActionBarActivity and implements View.OnClickListener,
  * is all the code that pertains to the homepage in android.
@@ -15,6 +18,7 @@ import android.widget.Button;
 public class Homepage extends Activity implements View.OnClickListener {
 
     private Button logoutButton, viewButton, wishlistButton, viewwishlistButton;
+    private ImageButton blue_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,11 +38,14 @@ public class Homepage extends Activity implements View.OnClickListener {
         viewwishlistButton = (Button) findViewById(R.id.home_view_wish_list);
         viewwishlistButton.setOnClickListener(this);
 
+        blue_button = (ImageButton)findViewById(R.id.blue_button);
+
         try {
             int temp = DatabaseInterfacer.retrieveItemReports().length;
             if (temp > CurrentUser.getCurrentUser().getLatestReport()) {
                 CurrentUser.getCurrentUser().setLatestReport(temp);
-                //UPDATE BUTTON TO BLUE
+                blue_button.setImageResource(R.drawable.notification_icon);
+                Log.d("yes", "works");
             }
         } catch (DatabaseErrorException e) {
 

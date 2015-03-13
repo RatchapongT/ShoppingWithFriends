@@ -15,6 +15,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 
 public class ViewSales extends FragmentActivity implements View.OnClickListener {
@@ -23,6 +24,7 @@ public class ViewSales extends FragmentActivity implements View.OnClickListener 
     private Button cancelbutton;
     ListView listView;
     private ArrayList<String> values = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,7 +101,7 @@ public class ViewSales extends FragmentActivity implements View.OnClickListener 
                         }
                     }
                 }
-
+                Collections.reverse(values);
 
             } catch (DatabaseErrorException e) {
                 return e.getMessage();

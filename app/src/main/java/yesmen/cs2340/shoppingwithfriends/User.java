@@ -16,6 +16,7 @@ public class User {
     private String phoneNumber;
     private int[] reportedSales;
     private int[] newAlerts;
+    private int latestReport = 0;
 
     /**
      * Constructor for username
@@ -153,4 +154,8 @@ public class User {
     public int[] getNewAlerts() {
         return newAlerts;
     }
+
+    public int getLatestReport() { return latestReport; }
+
+    public void setLatestReport(int latestReport) { this.latestReport = latestReport; }
 }
