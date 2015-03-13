@@ -55,6 +55,10 @@
             android:name=".ReportedSales"
             android:label="@string/title_activity_reported_sales" >
         </activity>
+        <activity
+            android:name=".ViewSales"
+            android:label="@string/title_activity_view_sales" >
+        </activity>
     </application>
 
 </manifest>

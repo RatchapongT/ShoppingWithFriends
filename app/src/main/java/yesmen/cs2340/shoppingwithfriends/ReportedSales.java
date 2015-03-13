@@ -33,6 +33,7 @@ public class ReportedSales extends Activity implements View.OnClickListener {
         enteredItem = (EditText) findViewById(R.id.reported_item_name);
         enteredPrice = (EditText) findViewById(R.id.reported_item_price);
         enteredLocation = (EditText) findViewById(R.id.location_input);
+        enteredQuantity = (EditText) findViewById(R.id.reported_item_quantity);
     }
 
 
@@ -85,12 +86,11 @@ public class ReportedSales extends Activity implements View.OnClickListener {
             String newItem = enteredItem.getText().toString();
             String newPrice = enteredPrice.getText().toString();
             String quantity = enteredQuantity.getText().toString();
-
-            //Let the Interfacer take a newItem, threshold, and Location string********************
-
             String newLocation = enteredLocation.getText().toString();
-            int threshold = Integer.parseInt(newPrice);
-            return DatabaseInterfacer.addToWishlist(newItem, threshold);
+
+            double price = Double.parseDouble(newPrice);
+            int quant = Integer.parseInt(quantity);
+            return DatabaseInterfacer.createItemReport(newItem, newLocation, price, quant);
         }
 
         /**

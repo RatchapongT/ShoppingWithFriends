@@ -3,8 +3,6 @@ package yesmen.cs2340.shoppingwithfriends;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 /**
@@ -54,9 +52,6 @@ public class Homepage extends Activity implements View.OnClickListener {
         } else if (v.getId() == R.id.home_view_wish_list) {
             Intent intention = new Intent(this, ViewWishList.class);
             startActivity(intention);
-        } else if (v.getId() == R.id.report_sales_button) {
-            Intent intention = new Intent(this, ReportedSales.class);
-            startActivity(intention);
         }
 
     }
@@ -74,6 +69,11 @@ public class Homepage extends Activity implements View.OnClickListener {
 
     public void myProfile(View view) {
         Intent intent = new Intent(this, MyProfilePage.class);
+        startActivity(intent);
+    }
+
+    public void myReports(View view) {
+        Intent intent = new Intent(this, ReportedSales.class);
         startActivity(intent);
     }
 }
