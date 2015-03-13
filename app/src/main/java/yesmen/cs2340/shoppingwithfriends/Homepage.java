@@ -2,6 +2,7 @@ package yesmen.cs2340.shoppingwithfriends;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -38,18 +39,23 @@ public class Homepage extends Activity implements View.OnClickListener {
         viewwishlistButton = (Button) findViewById(R.id.home_view_wish_list);
         viewwishlistButton.setOnClickListener(this);
 
-        blue_button = (ImageButton)findViewById(R.id.blue_button);
+        blue_button = (ImageButton) findViewById(R.id.blue_button);
 
-        try {
-            int temp = DatabaseInterfacer.retrieveItemReports().length;
-            if (temp > CurrentUser.getCurrentUser().getLatestReport()) {
-                CurrentUser.getCurrentUser().setLatestReport(temp);
-                blue_button.setImageResource(R.drawable.notification_icon);
-                Log.d("yes", "works");
+        new AsyncTask<Void, Void, Void> () {
+            protected Void doInBackground(Void... params) {
+                try {
+                    int temp = DatabaseInterfacer.retrieveItemReports().length;
+                    if (temp > CurrentUser.getCurrentUser().getLatestReport()) {
+                        CurrentUser.getCurrentUser().setLatestReport(temp);
+                        blue_button.setImageResource(R.drawable.notification_icon);
+                        Log.d("yes", "works");
+                    }
+                } catch (DatabaseErrorException e) {
+
+                }
+                return null;
             }
-        } catch (DatabaseErrorException e) {
-
-        }
+        }.execute();
     }
 
     @Override
