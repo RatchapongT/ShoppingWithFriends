@@ -33,6 +33,16 @@ public class Homepage extends Activity implements View.OnClickListener {
 
         viewwishlistButton = (Button) findViewById(R.id.home_view_wish_list);
         viewwishlistButton.setOnClickListener(this);
+
+        try {
+            int temp = DatabaseInterfacer.retrieveItemReports().length;
+            if (temp > CurrentUser.getCurrentUser().getLatestReport()) {
+                CurrentUser.getCurrentUser().setLatestReport(temp);
+                //UPDATE BUTTON TO BLUE
+            }
+        } catch (DatabaseErrorException e) {
+            
+        }
     }
 
     @Override
