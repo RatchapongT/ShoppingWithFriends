@@ -4,6 +4,9 @@ package yesmen.cs2340.shoppingwithfriends;
  * Created by Reese on 3/12/2015.
  * Item Report object, holds the price of the item, then umber of products left,
  * and the ItemReport's rating
+ *
+ * ********MUST IMPLEMENT THIS LATER
+ *
  */
 public class ItemReport {
 

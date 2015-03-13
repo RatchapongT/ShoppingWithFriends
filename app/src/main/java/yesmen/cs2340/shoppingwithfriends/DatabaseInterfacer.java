@@ -390,15 +390,15 @@ public class DatabaseInterfacer {
     public static String createItemReport(String productName, String location,
                                            double price, int quantity) {
         List<NameValuePair> params = new ArrayList<>();
-        params.add(new BasicNameValuePair("Username", CurrentUser.getCurrentUser().getUsername().toLowerCase()));
-        params.add(new BasicNameValuePair("productName", productName));
-        params.add(new BasicNameValuePair("location", location));
-        params.add(new BasicNameValuePair("price", ""+price));
-        params.add(new BasicNameValuePair("quantity", ""+quantity));
+        params.add(new BasicNameValuePair("UserID", CurrentUser.getCurrentUser().getUsername().toLowerCase()));
+        params.add(new BasicNameValuePair("Name", productName));
+        params.add(new BasicNameValuePair("Location", location));
+        params.add(new BasicNameValuePair("Price", ""+price));
+        params.add(new BasicNameValuePair("Quantity", ""+quantity));
         try {
             JSONObject json = queryDatabase(CREATE_ITEM_REPORT, params);
-            if (json == null && json.getInt(TAG_SUCCESS) == 1) {
-                return productName + " successfully added to wishlist";
+            if (json != null && json.getInt(TAG_SUCCESS) == 1) {
+                return productName + " successfully reported as a sale";
             } else {
                 return "Database error, item may not have been added";
             }
