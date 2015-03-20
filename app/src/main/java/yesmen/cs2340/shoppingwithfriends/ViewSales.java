@@ -13,6 +13,13 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.UiSettings;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -30,11 +37,33 @@ public class ViewSales extends FragmentActivity implements View.OnClickListener 
     ListView listView;
     private ArrayList<String> values = new ArrayList<>();
 
+    private GoogleMap googleMap;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        LatLng currentSaleMarker = new LatLng(33.75, -84.39);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_sales);
+
+        try {
+            if (googleMap == null) {
+                googleMap = ((MapFragment) getFragmentManager().
+                        findFragmentById(R.id.map)).getMap();
+            }
+            googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+            googleMap.setMyLocationEnabled(true);
+            UiSettings uiSettings = googleMap.getUiSettings();
+            uiSettings.setZoomControlsEnabled(true);
+            uiSettings.setMyLocationButtonEnabled(true);
+            Marker SM = googleMap.addMarker(new MarkerOptions().
+                    position(currentSaleMarker).title("Name of Current Sale"));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         cancelbutton = (Button) findViewById(R.id.view_sale_list_cancel_button);
         cancelbutton.setOnClickListener(this);

@@ -17,13 +17,23 @@
 
     <ListView
         android:id="@+id/view_sale_list"
-        android:layout_height="397dp"
+        android:layout_height="250dp"
         android:layout_width="match_parent"
         android:clickable="true"
         android:nestedScrollingEnabled="true"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/view_sale_list_cancel_button"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
     </ListView>
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:name="com.google.android.gms.maps.MapFragment"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/view_sale_list"
+        android:layout_alignEnd="@+id/view_sale_list"
+        android:layout_marginTop="5dp" />
 
 </RelativeLayout>

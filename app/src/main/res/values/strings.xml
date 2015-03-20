@@ -11,5 +11,6 @@
     <string name="title_activity_detailed_friend">DetailedFriend</string>
     <string name="title_activity_reported_sales">ReportedSales</string>
     <string name="title_activity_view_sales">ViewSales</string>
+    <string name="title_activity_sale_map">SaleMap</string>
 
 </resources>
