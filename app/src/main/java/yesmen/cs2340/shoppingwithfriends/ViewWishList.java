@@ -74,7 +74,7 @@ public class ViewWishList extends FragmentActivity implements View.OnClickListen
                 Wishlist myWishList = DatabaseInterfacer.getWishlist(myUser);
                 ArrayList<Item> itemArray = myWishList.getWishlist();
                 for(Item obj : itemArray) {
-                    values.add(obj.getName() + " " + obj.getPrice());
+                    values.add(obj.getName() + " $" + obj.getPrice());
                 }
 
 

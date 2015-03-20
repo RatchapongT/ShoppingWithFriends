@@ -109,7 +109,7 @@ public class ViewSales extends FragmentActivity implements View.OnClickListener 
 
                             values.add(read + "\n"
                                 + "Product: " + obj.getProductName() + "\n"
-                                + "Price: " + obj.getPrice() + "\n"
+                                + "Price: $" + obj.getPrice() + "\n"
                                 + "Location: " + obj.getLocation() + "\n"
                                 + "Quantity: " + obj.getQuantity() + "\n"
                                 + "Sent by: " + obj.getOriginator() + "\n");
