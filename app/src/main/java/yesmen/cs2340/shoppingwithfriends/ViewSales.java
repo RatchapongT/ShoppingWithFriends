@@ -19,6 +19,9 @@ import java.util.Collections;
 /**
  * Class ViewSales extends ActionBarActivity and implements View.OnClickListener,
  * is all the code that pertains to the view friends page in android.
+ *
+ * @author Luka Antolic-Soban, Resse Aitken, Ratchapong Tangkijvorakul, Matty Attokaren, Sunny Patel
+ * @version 1.6
  */
 public class ViewSales extends FragmentActivity implements View.OnClickListener {
 
