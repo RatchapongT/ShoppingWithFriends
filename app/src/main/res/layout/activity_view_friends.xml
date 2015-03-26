@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:clickable="false">
+    android:clickable="false"
+    android:background="#2ABC9D">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cancel"
-        android:id="@+id/view_friend_cancel_button"
-        android:layout_gravity="center_horizontal" />
+
 
     <ListView
         android:id="@+id/view_friend_list"
@@ -19,5 +15,27 @@
         android:nestedScrollingEnabled="true">
     </ListView>
 
+    <!--CANCEL-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:background="@drawable/background"
+        android:layout_marginRight="64dp"
+        android:padding="2dp"
+        android:gravity="center">
 
-</LinearLayout>
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="35dp"
+            android:text="Cancel"
+            android:id="@+id/view_friend_cancel_button"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/shape"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>
