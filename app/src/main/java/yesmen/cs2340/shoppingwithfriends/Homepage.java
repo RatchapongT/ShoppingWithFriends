@@ -38,16 +38,16 @@ public class Homepage extends Activity implements View.OnClickListener {
         logoutButton = (Button) findViewById(R.id.homepage_logout_button);
         logoutButton.setOnClickListener(this);
 
-        viewButton = (Button) findViewById(R.id.homepage_view_friends_button);
+        ImageButton viewButton = (ImageButton) findViewById(R.id.homepage_view_friends_button);
         viewButton.setOnClickListener(this);
 
-        wishlistButton = (Button) findViewById(R.id.wishlist_button);
+        ImageButton wishlistButton = (ImageButton) findViewById(R.id.wishlist_button);
         wishlistButton.setOnClickListener(this);
 
-        viewwishlistButton = (Button) findViewById(R.id.home_view_wish_list);
+        ImageButton viewwishlistButton = (ImageButton) findViewById(R.id.home_view_wish_list);
         viewwishlistButton.setOnClickListener(this);
 
-        blue_button = (ImageButton) findViewById(R.id.blue_button);
+        blue_button = (ImageButton) findViewById(R.id.sales_for_me_button);
         notificaiton = (TextView) findViewById(R.id.notifiaction);
 
         new AsyncTask<Void, Void, Void>() {

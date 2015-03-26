@@ -6,142 +6,230 @@
     android:orientation="vertical"
     android:id="@+id/verticalLayout">
 
-    <ImageButton
-        android:scaleType="fitXY"
-        android:background="@null"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:id="@+id/homepage_add_friend_button"
-        android:src="@drawable/add_user"
-        android:clickable="true"
-        android:onClick="addFriend"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="25dp"
-        android:layout_marginStart="25dp" />
-    <TextView
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/homepage_add_friend_button"
-        android:text="hello"/>
-
-    <ImageButton
-        android:scaleType="fitXY"
-        android:background="@null"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:id="@+id/my_profile_button"
-        android:layout_gravity="right"
-        android:src="@drawable/my_profile"
-        android:clickable="true"
-        android:layout_above="@+id/relativeLayout"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="24dp"
-        android:layout_marginEnd="24dp"
-        android:onClick="myProfile" />
-
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/homepage_add_friend_button"
-        android:id="@+id/relativeLayout"
-        android:background="#18BD9B">
+        android:background="@drawable/background"
+        android:layout_marginRight="64dp"
+        android:padding="2dp"
+        android:id="@+id/my_profile_background"
+        android:gravity="center">
 
-        <Button
+        <!--MY PROFILE-->
+        <ImageButton
+            android:background="@null"
+            android:scaleType="fitXY"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/my_profile_button"
+            android:src="@drawable/my_profile"
+            android:clickable="true"
+            android:onClick="myProfile" />
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Friends List"
-            android:id="@+id/homepage_view_friends_button"
-            android:background="@android:color/darker_gray"
-            android:textColor="@android:color/white"
-            android:layout_alignParentTop="true"
-            android:layout_toLeftOf="@+id/homepage_logout_button"
-            android:layout_toStartOf="@+id/homepage_logout_button"
-            android:layout_marginRight="30dp"
-            android:layout_marginEnd="30dp" />
+            android:layout_below="@id/my_profile_button"
+            android:layout_centerInParent="true"
+            android:text="My Profile"
+            android:textColor="#FFFFFF"/>
+    </RelativeLayout>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="LogOut"
-            android:id="@+id/homepage_logout_button"
-            android:layout_gravity="center_horizontal"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:background="@android:color/darker_gray"
-            android:textColor="@android:color/white" />
+    <!--WISHLIST-->
+    <RelativeLayout
+        android:id="@+id/wishlist_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/my_profile_background"
+        android:layout_centerInParent="true"
+        android:background="@drawable/background"
+        android:layout_marginTop="4dp"
+        android:layout_marginRight="64dp"
+        android:padding="2dp"
+        android:gravity="center">
 
         <ImageButton
             android:scaleType="fitXY"
             android:background="@null"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:text="Add To Wishlist"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:src="@drawable/add_wishlist"
             android:id="@+id/wishlist_button"
+            android:clickable="true"
             android:onClick="wishlist"
-            android:nestedScrollingEnabled="false"
-            android:layout_above="@+id/home_view_wish_list"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"/>
         <TextView
-            android:layout_width="250dp"
-            android:layout_height="35dp"
-            />
+            android:id="@+id/add_to_wish_list_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/wishlist_button"
+            android:layout_marginRight="10dp"
+            android:text="Add To Wishlist"
+            android:textColor="#FFFFFF"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"/>
 
         <ImageButton
             android:scaleType="fitXY"
             android:background="@null"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:text="View WishList"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:src="@drawable/favorite"
             android:id="@+id/home_view_wish_list"
-            android:layout_above="@+id/homepage_logout_button"
+            android:layout_toRightOf="@id/wishlist_button"
+            android:layout_centerHorizontal="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/home_view_wish_list"
+            android:layout_toRightOf="@id/add_to_wish_list_text"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="82dp" />
+            android:text="View Wishlist"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            />
+
+    </RelativeLayout>
+
+   <!--ADD FRIENDS-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/wishlist_background"
+        android:layout_centerInParent="true"
+        android:background="@drawable/background"
+        android:layout_marginRight="64dp"
+        android:layout_marginTop="4dp"
+        android:padding="2dp"
+        android:id="@+id/friend_background"
+        android:gravity="center">
 
         <ImageButton
             android:scaleType="fitXY"
             android:background="@null"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/homepage_add_friend_button"
+            android:src="@drawable/add_user"
+            android:clickable="true"
+            android:onClick="addFriend"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/text_add_friend"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/report_sales_button1"
-            android:src="@drawable/report_sales_button"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:clickable="true"
-            android:onClick="myReports" />
+            android:layout_below="@id/homepage_add_friend_button"
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="16dp"
+            android:text="Add Friend"
+            android:textColor="#FFFFFF"
+            android:gravity="center"/>
 
         <ImageButton
             android:scaleType="fitXY"
             android:background="@null"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/homepage_view_friends_button"
+            android:src="@drawable/friend_list"
+            android:layout_centerHorizontal="true"
+            android:layout_toRightOf="@id/text_add_friend"/>
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/blue_button"
+            android:layout_below="@id/homepage_view_friends_button"
+            android:layout_centerHorizontal="true"
+            android:text="Friend's List"
+            android:textColor="#FFFFFF"
+            android:layout_toRightOf="@id/text_add_friend"
+            android:layout_marginLeft="12dp"
+            android:gravity="center"/>
+
+    </RelativeLayout>
+<!--REPORT SALE-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/friend_background"
+        android:layout_centerInParent="true"
+        android:background="@drawable/background"
+        android:layout_marginRight="64dp"
+        android:layout_marginTop="4dp"
+        android:padding="2dp"
+        android:id="@+id/report_sale_background"
+        android:gravity="center">
+
+        <ImageButton
+            android:scaleType="fitXY"
+            android:background="@null"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/report_sales_button"
+            android:src="@drawable/report_sale"
             android:clickable="true"
-            android:src="@drawable/blue_icon"
-            android:layout_below="@+id/report_sales_button1"
-            android:layout_alignLeft="@+id/report_sales_button1"
-            android:layout_alignStart="@+id/report_sales_button1"
-            android:layout_above="@+id/wishlist_button"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
+            android:onClick="myReports"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/report_sale_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/report_sales_button"
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="16dp"
+            android:text="Report A Sale"
+            android:textColor="#FFFFFF"
+            android:gravity="center"/>
+
+        <ImageButton
+            android:scaleType="fitXY"
+            android:background="@null"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/sales_for_me_button"
+            android:clickable="true"
+            android:src="@drawable/sales_for_me"
+            android:layout_centerHorizontal="true"
+            android:layout_toRightOf="@id/report_sales_button"
             android:onClick="salesForMe" />
 
-        <EditText
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/notifiaction"
-            android:layout_above="@+id/wishlist_button"
-            android:layout_toLeftOf="@+id/blue_button"
-            android:layout_toStartOf="@+id/blue_button"
-            android:layout_marginBottom="25dp"
-            android:textColor="#ffff0c18" />
+            android:layout_below="@+id/sales_for_me_button"
+            android:layout_centerHorizontal="true"
+            android:text="Sales For Me"
+            android:textColor="#FFFFFF"
+            android:layout_toRightOf="@id/report_sale_text"
+            android:gravity="center"/>
+
+        </RelativeLayout>
+
+
+    <!--LOGOUT-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:background="@drawable/background"
+        android:layout_marginRight="64dp"
+        android:padding="2dp"
+        android:gravity="center">
+
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="35dp"
+            android:text="Log Out"
+            android:id="@+id/homepage_logout_button"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/shape"/>
 
     </RelativeLayout>
 

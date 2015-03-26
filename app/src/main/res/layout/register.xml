@@ -23,7 +23,9 @@
             android:hint="@string/username"
             android:background="@drawable/rounded_edittext"
             android:textColorHint="#FFFFFF"
-            android:paddingLeft="8dp"/>
+            android:paddingLeft="8dp"
+            android:textCursorDrawable="@drawable/color_cursor"
+            />
 
         <!--PASSWORD INPUT-->
         <EditText
@@ -39,7 +41,9 @@
             android:textColorHint="#FFFFFF"
             android:inputType="textPassword"
             android:paddingLeft="8dp"
-            android:layout_marginTop="4dp"/>
+            android:layout_marginTop="4dp"
+            android:textCursorDrawable="@drawable/color_cursor"
+            />
 
         <!--CONFIRM PASSWORD INPUT-->
         <EditText
@@ -55,7 +59,9 @@
             android:textColorHint="#FFFFFF"
             android:inputType="textPassword"
             android:paddingLeft="8dp"
-            android:layout_marginTop="4dp"/>
+            android:layout_marginTop="4dp"
+            android:textCursorDrawable="@drawable/color_cursor"
+            />
 
         <!--REGISTER BUTTON-->
         <Button

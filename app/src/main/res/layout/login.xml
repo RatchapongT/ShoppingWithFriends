@@ -25,6 +25,7 @@
             android:background="@drawable/rounded_edittext"
             android:layout_centerHorizontal="true"
             android:paddingLeft="8dp"
+            android:textCursorDrawable="@drawable/color_cursor"
             />
 
         <!--PASSWORD INPUT-->
@@ -39,7 +40,7 @@
             android:background="@drawable/rounded_edittext"
             android:layout_below="@id/login_username_input"
             android:textColorHint="#FFFFFF"
-
+            android:textCursorDrawable="@drawable/color_cursor"
             android:inputType="textPassword"
             android:paddingLeft="8dp"
             android:layout_marginTop="4dp"
