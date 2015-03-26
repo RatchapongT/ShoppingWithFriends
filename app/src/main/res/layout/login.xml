@@ -3,68 +3,74 @@
     android:layout_height="match_parent"
     android:background="#2ABC9D"
     >
-//BACKGROUND BOX
-    <TextView
-        android:layout_width="300dp"
-        android:layout_height="200dp"
-        android:background="#123456"
-        android:id="@+id/textView6"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
 
-//REGISTER BUTTON
-    <Button
-        android:id="@+id/login_register_button"
-        android:layout_width="250dp"
-        android:layout_height="35dp"
-        android:text="Register"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/shape"
-        android:layout_alignBottom="@+id/textView6"
-        android:layout_centerHorizontal="true" />
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/background"
+        android:layout_marginRight="64dp"
+        android:padding="16dp">
 
-//LOGIN BUTTON
-    <Button
-        android:id="@+id/login_execute_button"
-        android:layout_width="250dp"
-        android:layout_height="35dp"
-        android:text="Log In"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/shape"
-        android:layout_above="@+id/login_register_button"
-        android:layout_alignLeft="@+id/login_register_button"
-        android:layout_alignStart="@+id/login_register_button" />
+        <!--USERNAME INPUT-->
+        <EditText
+            android:id="@+id/login_username_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:drawableRight="@drawable/user"
+            android:hint="@string/username"
+            android:textColorHint="#FFFFFF"
+            android:background="@drawable/rounded_edittext"
+            android:layout_centerHorizontal="true"
+            android:paddingLeft="8dp"
+            />
 
-//PASSWORD INPUT
-    <EditText
-        android:id="@+id/login_password_input"
-        android:layout_width="250dp"
-        android:layout_height="35dp"
-        android:padding="8dp"
-        android:textSize="16sp"
-        android:drawableRight="@drawable/user"
-        android:hint="@string/password"
-        android:background="#FFFFFF"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:layout_alignLeft="@+id/login_execute_button"
-        android:layout_alignStart="@+id/login_execute_button"
-        android:password="true">
-    </EditText>
+        <!--PASSWORD INPUT-->
+        <EditText
+            android:id="@+id/login_password_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:drawableRight="@drawable/lock"
+            android:hint="@string/password"
+            android:background="@drawable/rounded_edittext"
+            android:layout_below="@id/login_username_input"
+            android:textColorHint="#FFFFFF"
 
-//USERNAME INPUT
-    <EditText
-        android:id="@+id/login_username_input"
-        android:layout_width="250dp"
-        android:layout_height="35dp"
-        android:padding="8dp"
-        android:textSize="16sp"
-        android:drawableRight="@drawable/user"
-        android:hint="@string/username"
-        android:background="#FFFFFF"
-        android:layout_above="@+id/login_password_input"
-        android:layout_alignLeft="@+id/login_password_input"
-        android:layout_alignStart="@+id/login_password_input">
-    </EditText>
+            android:inputType="textPassword"
+            android:paddingLeft="8dp"
+            android:layout_marginTop="4dp"
+            />
+
+        <!--LOGIN BUTTON-->
+        <Button
+            android:id="@+id/login_execute_button"
+            android:layout_width="250dp"
+            android:layout_height="35dp"
+            android:text="Log In"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/shape"
+            android:layout_below="@+id/login_password_input"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="4dp"/>
+
+        <!--REGISTER BUTTON-->
+        <Button
+            android:id="@+id/login_register_button"
+            android:layout_width="250dp"
+            android:layout_height="35dp"
+            android:text="Register"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/shape"
+            android:layout_below="@+id/login_execute_button"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="4dp"/>
+
+    </RelativeLayout>
 
 </RelativeLayout>

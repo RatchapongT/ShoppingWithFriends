@@ -2,87 +2,84 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#2ABC9D"
    >
-
-    <ImageView
-        android:id="@+id/register_logo"
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/shopping_logo"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerInParent="true"
+        android:background="@drawable/background"
+        android:layout_marginRight="64dp"
+        android:padding="16dp">
 
-    <TextView
-        android:id="@+id/register_username_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Username"
-        android:layout_alignBottom="@+id/register_logo"
-        android:layout_alignLeft="@+id/register_password_input"
-        android:layout_alignStart="@+id/register_password_input" />
+        <!--USERNAME INPUT-->
+        <EditText
+            android:id="@+id/register_username_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:drawableRight="@drawable/user"
+            android:hint="@string/username"
+            android:background="@drawable/rounded_edittext"
+            android:textColorHint="#FFFFFF"
+            android:paddingLeft="8dp"/>
 
-    <EditText
-        android:id="@+id/register_username_input"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:layout_below="@+id/register_logo"
-        android:layout_alignLeft="@+id/register_username_text"
-        android:layout_alignStart="@+id/register_username_text" />
+        <!--PASSWORD INPUT-->
+        <EditText
+            android:id="@+id/register_password_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:drawableRight="@drawable/lock"
+            android:hint="@string/password"
+            android:background="@drawable/rounded_edittext"
+            android:layout_below="@id/register_username_input"
+            android:textColorHint="#FFFFFF"
+            android:inputType="textPassword"
+            android:paddingLeft="8dp"
+            android:layout_marginTop="4dp"/>
 
-    <TextView
-        android:id="@+id/register_password_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Password"
-        android:layout_below="@+id/register_username_input"
-        android:layout_alignRight="@+id/register_username_text"
-        android:layout_alignEnd="@+id/register_username_text" />
+        <!--CONFIRM PASSWORD INPUT-->
+        <EditText
+            android:id="@+id/register_confirm_password_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:drawableRight="@drawable/lock"
+            android:hint="Confirm Password"
+            android:background="@drawable/rounded_edittext"
+            android:layout_below="@id/register_password_input"
+            android:textColorHint="#FFFFFF"
+            android:inputType="textPassword"
+            android:paddingLeft="8dp"
+            android:layout_marginTop="4dp"/>
 
-
-    <EditText
-        android:id="@+id/register_password_input"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:layout_below="@+id/register_password_text"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:id="@+id/register_execute_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Register"
-        android:layout_below="@+id/register_confirm_password_input"
-        android:layout_alignRight="@+id/register_username_input"
-        android:layout_alignEnd="@+id/register_username_input" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cancel"
-        android:id="@+id/register_cancel_button"
-        android:layout_below="@+id/register_confirm_password_input"
-        android:layout_alignLeft="@+id/register_password_text"
-        android:layout_alignStart="@+id/register_password_text" />
-
-    <EditText
-        android:id="@+id/register_confirm_password_input"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:layout_below="@+id/register_confirm_password_text"
-        android:layout_alignLeft="@+id/register_cancel_button"
-        android:layout_alignStart="@+id/register_cancel_button" />
-
-    <TextView
-        android:id="@+id/register_confirm_password_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Confirmed Password"
-        android:layout_below="@+id/register_password_input"
-        android:layout_alignLeft="@+id/register_password_input"
-        android:layout_alignStart="@+id/register_password_input" />
-
+        <!--REGISTER BUTTON-->
+        <Button
+            android:id="@+id/register_execute_button"
+            android:layout_width="250dp"
+            android:layout_height="35dp"
+            android:text="Register"
+            android:background="@drawable/shape"
+            android:textColor="#FFFFFF"
+            android:layout_below="@id/register_confirm_password_input"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="4dp"/>
+        <!--CANCEL BUTTON-->
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="35dp"
+            android:text="Cancel"
+            android:id="@+id/register_cancel_button"
+            android:background="@drawable/shape"
+            android:textColor="#FFFFFF"
+            android:layout_below="@id/register_execute_button"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="4dp"/>
+    </RelativeLayout>
 </RelativeLayout>
