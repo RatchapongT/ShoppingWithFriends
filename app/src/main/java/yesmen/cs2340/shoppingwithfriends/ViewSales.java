@@ -44,12 +44,12 @@ public class ViewSales extends FragmentActivity implements View.OnClickListener 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        LatLng currentSaleMarker = new LatLng(33.75, -84.39);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_sales);
 
         //here is where GoogleMaps will create a marker depending on the sale selection
+        //it creates the map and type and then controls for user access
         try {
             if (googleMap == null) {
                 googleMap = ((MapFragment) getFragmentManager().
@@ -122,10 +122,14 @@ public class ViewSales extends FragmentActivity implements View.OnClickListener 
             String myUser = CurrentUser.getCurrentUser().getUsername();
             try {
 
+                //gets the wishlist from the user to compare sales
                 Wishlist myWishList = DatabaseInterfacer.getWishlist(myUser);
                 ArrayList<Item> itemArray = myWishList.getWishlist();
 
                 ItemReport[] reportedSales = DatabaseInterfacer.retrieveItemReports();
+
+                //we loop through the item reports and grab the relevant ones to the user
+                //then added the strings to a new list for the ListView to display
                 for (ItemReport obj : reportedSales) {
                     for (int i = 0; i < itemArray.size(); i++) {
                         if(obj.getProductName().equals(itemArray.get(i).getName()) && obj.getPrice() <= itemArray.get(i).getPrice()) {
@@ -135,7 +139,6 @@ public class ViewSales extends FragmentActivity implements View.OnClickListener 
                             } else {
                                 read = "New Report!";
                             }
-
                             values.add(read + "\n"
                                 + "Product: " + obj.getProductName() + "\n"
                                 + "Price: $" + obj.getPrice() + "\n"
@@ -157,7 +160,8 @@ public class ViewSales extends FragmentActivity implements View.OnClickListener 
         }
 
         /**
-         * When a post is executed
+         * When a post is executed. Creates the sale markers on the Google Map and then displays
+         * them on a ListView.
          *
          * @param file_url
          */
