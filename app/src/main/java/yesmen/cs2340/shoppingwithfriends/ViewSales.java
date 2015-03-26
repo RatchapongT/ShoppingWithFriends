@@ -48,6 +48,7 @@ public class ViewSales extends FragmentActivity implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_sales);
 
+        //here is where GoogleMaps will create a marker depending on the sale selection
         try {
             if (googleMap == null) {
                 googleMap = ((MapFragment) getFragmentManager().
