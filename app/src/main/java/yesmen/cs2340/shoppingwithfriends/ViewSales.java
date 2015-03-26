@@ -36,6 +36,7 @@ public class ViewSales extends FragmentActivity implements View.OnClickListener 
     private Button cancelbutton;
     ListView listView;
     private ArrayList<String> values = new ArrayList<>();
+    private ArrayList<ItemReport> markers = new ArrayList<>();
 
     private GoogleMap googleMap;
 
@@ -59,8 +60,6 @@ public class ViewSales extends FragmentActivity implements View.OnClickListener 
             UiSettings uiSettings = googleMap.getUiSettings();
             uiSettings.setZoomControlsEnabled(true);
             uiSettings.setMyLocationButtonEnabled(true);
-            Marker SM = googleMap.addMarker(new MarkerOptions().
-                    position(currentSaleMarker).title("Name of Current Sale"));
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -145,6 +144,7 @@ public class ViewSales extends FragmentActivity implements View.OnClickListener 
                                 + "Sent by: " + obj.getOriginator() + "\n");
                         }
 
+                        markers.add(obj);
                     }
                 }
                 DatabaseInterfacer.updateRead();
@@ -168,6 +168,13 @@ public class ViewSales extends FragmentActivity implements View.OnClickListener 
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(ViewSales.this,
                     android.R.layout.simple_list_item_1, android.R.id.text1, values);
             listView.setAdapter(adapter);
+
+            for(ItemReport obj : markers) {
+                LatLng currentSaleMarker = new LatLng(obj.getLatitude(), obj.getLongitude());
+                googleMap.addMarker(new MarkerOptions().
+                        position(currentSaleMarker).title("Sale of " + obj.getProductName() + " - "
+                                + obj.getOriginator()));
+            }
             /*listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
                 @Override
