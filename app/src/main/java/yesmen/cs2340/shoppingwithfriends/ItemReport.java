@@ -16,6 +16,8 @@ public class ItemReport {
     double price;
     int quantity;
     int read;
+    double latitude;
+    double longitude;
 
     /**
      * Creates an ItemReport object
@@ -25,13 +27,16 @@ public class ItemReport {
      * @param price Price of the Item
      * @param quantity Quantity of the Item
      */
-    public ItemReport (String originator, String productName, String location, double price, int quantity, int read) {
+    public ItemReport (String originator, String productName, String location, double price,
+                       int quantity, int read, double latitude, double longitude) {
         this.originator = originator;
         this.productName = productName;
         this.location = location;
         this.price = price;
         this.quantity = quantity;
         this.read = read;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     /*
@@ -65,5 +70,13 @@ public class ItemReport {
     }
     public int getRead() {
         return read;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
     }
 }

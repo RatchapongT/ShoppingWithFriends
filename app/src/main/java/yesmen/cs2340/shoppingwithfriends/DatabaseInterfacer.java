@@ -461,7 +461,10 @@ public class DatabaseInterfacer {
                             jtemp.getString("Location"),
                             jtemp.getDouble("Price"),
                             jtemp.getInt("Quantity"),
-                            jtemp.getInt("readReport"));
+                            jtemp.getInt("readReport"),
+                            jtemp.getDouble("Latitude"),
+                            jtemp.getDouble("Longitude")
+                    );
                 }
             } else {
                 return null;
