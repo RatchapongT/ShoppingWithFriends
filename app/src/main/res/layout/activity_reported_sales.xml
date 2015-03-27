@@ -22,6 +22,7 @@
             android:layout_height="wrap_content"
             android:textSize="16sp"
             android:textColor="#FFFFFF"
+            android:inputType="text"
             android:drawableRight="@drawable/item"
             android:hint="Enter Item"
             android:textColorHint="#FFFFFF"
@@ -40,6 +41,7 @@
             android:layout_height="wrap_content"
             android:textSize="16sp"
             android:textColor="#FFFFFF"
+            android:inputType="numberDecimal"
             android:drawableRight="@drawable/money"
             android:hint="Enter Price"
             android:textColorHint="#FFFFFF"
@@ -58,6 +60,7 @@
             android:layout_height="wrap_content"
             android:textSize="16sp"
             android:textColor="#FFFFFF"
+            android:inputType="text"
             android:drawableRight="@drawable/location"
             android:hint="City, State, Zip"
             android:textColorHint="#FFFFFF"
@@ -114,74 +117,5 @@
             android:layout_below="@+id/reported_submit_button" />
 
     </RelativeLayout>
-
-    <!--<EditText-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:hint="Enter Item"-->
-        <!--android:id="@+id/reported_item_name"-->
-        <!--android:layout_weight="0.30"/>-->
-
-    <!--<EditText-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:inputType="numberDecimal"-->
-        <!--android:ems="10"-->
-        <!--android:id="@+id/reported_item_price"-->
-        <!--android:hint="Enter Price"-->
-        <!--android:layout_weight="0.30"-->
-        <!--android:layout_marginTop="34dp"-->
-        <!--android:layout_below="@+id/reported_item_name"-->
-        <!--android:layout_alignParentRight="true"-->
-        <!--android:layout_alignParentEnd="true" />-->
-
-    <!--<EditText-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:ems="10"-->
-        <!--android:id="@+id/location_input"-->
-        <!--android:hint="City, State, Zip"-->
-        <!--android:layout_weight="0.30"-->
-        <!--android:layout_below="@+id/reported_item_price"-->
-        <!--android:layout_alignParentRight="true"-->
-        <!--android:layout_alignParentEnd="true"-->
-        <!--android:layout_marginTop="50dp" />-->
-
-    <!--<Button-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="Submit"-->
-        <!--android:id="@+id/reported_submit_button"-->
-        <!--android:layout_weight="0.30"-->
-        <!--android:layout_marginLeft="59dp"-->
-        <!--android:layout_marginStart="59dp"-->
-        <!--android:layout_alignTop="@+id/reported_cancel_button"-->
-        <!--android:layout_alignParentLeft="true"-->
-        <!--android:layout_alignParentStart="true" />-->
-
-    <!--<Button-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="Cancel"-->
-        <!--android:id="@+id/reported_cancel_button"-->
-        <!--android:layout_weight="0.30"-->
-        <!--android:layout_marginLeft="50dp"-->
-        <!--android:layout_marginStart="50dp"-->
-        <!--android:layout_below="@+id/location_input"-->
-        <!--android:layout_toRightOf="@+id/reported_submit_button"-->
-        <!--android:layout_toEndOf="@+id/reported_submit_button"-->
-        <!--android:layout_marginTop="127dp" />-->
-
-    <!--<EditText-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:inputType="number"-->
-        <!--android:ems="10"-->
-        <!--android:id="@+id/reported_item_quantity"-->
-        <!--android:hint="Enter Approx Quantity"-->
-        <!--android:layout_weight="0.30"-->
-        <!--android:layout_centerVertical="true"-->
-        <!--android:layout_alignParentLeft="true"-->
-        <!--android:layout_alignParentStart="true" />-->
 
 </RelativeLayout>

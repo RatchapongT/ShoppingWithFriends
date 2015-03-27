@@ -45,27 +45,27 @@
         </activity>
         <activity
             android:name=".DetailedFriend"
-            android:label="@string/title_activity_detailed_friend" >
+            android:label="Friend Details" >
         </activity>
         <activity
             android:name=".MyProfilePage"
-            android:label="MY PRI" >
+            android:label="My Profile" >
         </activity>
         <activity
             android:name=".AddWishList"
-            android:label="Wishlist" >
+            android:label="Add To Wishlist" >
         </activity>
         <activity
             android:name=".ViewWishList"
-            android:label="ViewWishlist" >
+            android:label="View Wishlist" >
         </activity>
         <activity
             android:name=".ReportedSales"
-            android:label="@string/title_activity_reported_sales" >
+            android:label="Sales Reported" >
         </activity>
         <activity
             android:name=".ViewSales"
-            android:label="@string/title_activity_view_sales" >
+            android:label="Sales" >
         </activity>
 
         <meta-data

@@ -20,6 +20,7 @@
             android:layout_height="wrap_content"
             android:textSize="16sp"
             android:textColor="#FFFFFF"
+            android:inputType="textPersonName"
             android:drawableRight="@drawable/user"
             android:hint="Name"
             android:textColorHint="#FFFFFF"
@@ -29,8 +30,6 @@
             android:textCursorDrawable="@drawable/color_cursor"
             />
 
-
-
         <!--BIOGRAPHY-->
         <EditText
             android:id="@+id/my_profile_biography_input"
@@ -38,6 +37,7 @@
             android:layout_height="wrap_content"
             android:textSize="16sp"
             android:textColor="#FFFFFF"
+            android:inputType="text"
             android:drawableRight="@drawable/bio"
             android:hint="Biography"
             android:textColorHint="#FFFFFF"
@@ -56,6 +56,7 @@
             android:layout_height="wrap_content"
             android:textSize="16sp"
             android:textColor="#FFFFFF"
+            android:inputType="text"
             android:drawableRight="@drawable/location"
             android:hint="Location"
             android:textColorHint="#FFFFFF"
@@ -74,6 +75,7 @@
             android:layout_height="wrap_content"
             android:textSize="16sp"
             android:textColor="#FFFFFF"
+            android:inputType="textEmailAddress"
             android:drawableRight="@drawable/email"
             android:hint="Email"
             android:textColorHint="#FFFFFF"
@@ -94,7 +96,7 @@
             android:textColor="#FFFFFF"
             android:drawableRight="@drawable/phone"
             android:hint="Phone Number"
-            android:inputType="number"
+            android:inputType="phone"
             android:textColorHint="#FFFFFF"
             android:background="@drawable/rounded_edittext"
             android:layout_centerHorizontal="true"
@@ -103,7 +105,6 @@
             android:layout_below="@id/my_profile_email_input"
             android:textCursorDrawable="@drawable/color_cursor"
             />
-
 
         <!--SUBMIT-->
         <Button

@@ -5,8 +5,6 @@
     android:clickable="false"
     android:background="#2ABC9D">
 
-
-
     <ListView
         android:id="@+id/view_friend_list"
         android:layout_height="397dp"
@@ -18,8 +16,8 @@
     <!--CANCEL-->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
+        android:layout_height="50dp"
+        android:layout_below="@id/view_friend_list"
         android:layout_centerInParent="true"
         android:background="@drawable/background"
         android:layout_marginRight="64dp"
