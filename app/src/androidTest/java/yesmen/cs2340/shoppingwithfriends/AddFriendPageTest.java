@@ -26,7 +26,12 @@ public class AddFriendPageTest extends ActivityInstrumentationTestCase2<AddFrien
 
     public void testAddFriend() throws Throwable {
         DatabaseInterfacer.login(myUser, myUserPass);
-        activity.runOnUiThread(() -> username.setText(myFriend));
+        activity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                username.setText(myFriend);
+            }
+        });
         getInstrumentation().waitForIdleSync();
         assertEquals(myFriend, username.getText().toString());
         TouchUtils.clickView(this, activity.findViewById(R.id.add_friend_execute_button));
@@ -36,7 +41,12 @@ public class AddFriendPageTest extends ActivityInstrumentationTestCase2<AddFrien
 
     public void testAddExistingFriend() throws Throwable {
         DatabaseInterfacer.login(myUser, myUserPass);
-        activity.runOnUiThread(() -> username.setText(myFriend));
+        activity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                username.setText(myFriend);
+            }
+        });
         getInstrumentation().waitForIdleSync();
         assertEquals(myFriend, username.getText().toString());
         TouchUtils.clickView(this, activity.findViewById(R.id.add_friend_execute_button));
@@ -53,7 +63,12 @@ public class AddFriendPageTest extends ActivityInstrumentationTestCase2<AddFrien
 
     public void testAddNonexistantFriend() throws Throwable {
         DatabaseInterfacer.login(myUser, myUserPass);
-        activity.runOnUiThread(() -> username.setText(myImaginaryFriend));
+        activity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                username.setText(myImaginaryFriend);
+            }
+        });
         getInstrumentation().waitForIdleSync();
         assertEquals(myImaginaryFriend, username.getText().toString());
         TouchUtils.clickView(this, activity.findViewById(R.id.add_friend_execute_button));
