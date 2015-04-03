@@ -22,7 +22,7 @@
         tools:ignore="RelativeOverlap" />
 
     <ImageView
-        android:contentDescription="The bio imageview"
+        android:contentDescription="@string/bio_image_view"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:id="@+id/imageView"
