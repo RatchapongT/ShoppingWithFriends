@@ -49,7 +49,7 @@ public class JSONParser {
      * @param params parameters to send in HTTP request
      * @return jObj jsonObject
      */
-    public JSONObject makeHttpRequest(String url, String method,
+    public JSONObject makeHttpRequest(String url, @SuppressWarnings("SameParameterValue") String method,
                                       List<NameValuePair> params) {
 
         // Making HTTP request

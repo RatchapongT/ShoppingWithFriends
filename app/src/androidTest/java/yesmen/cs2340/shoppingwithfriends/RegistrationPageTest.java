@@ -15,7 +15,7 @@ public class RegistrationPageTest extends ActivityInstrumentationTestCase2<Regis
     private EditText enteredUsername, enteredPassword, enteredConfirmed;
     private Button registerButton;
     private Random number = new Random(System.currentTimeMillis());
-    int randUser;
+    private int randUser;
 
 
     @SuppressWarnings("deprecation")
