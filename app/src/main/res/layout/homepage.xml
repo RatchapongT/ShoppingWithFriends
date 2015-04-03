@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/my_profile_button"
             android:layout_centerInParent="true"
-            android:text="My Profile"
+            android:text="@string/my_profile"
             android:textColor="#FFFFFF"/>
     </RelativeLayout>
 
@@ -59,7 +59,6 @@
             android:src="@drawable/add_wishlist"
             android:id="@+id/wishlist_button"
             android:clickable="true"
-            android:onClick="wishlist"
             android:layout_centerHorizontal="true"/>
         <TextView
             android:id="@+id/add_to_wish_list_text"
@@ -67,7 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/wishlist_button"
             android:layout_marginRight="10dp"
-            android:text="Add To Wishlist"
+            android:text="@string/add_to_wishlist"
             android:textColor="#FFFFFF"
             android:layout_centerHorizontal="true"
             android:gravity="center"/>

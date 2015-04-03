@@ -12,5 +12,40 @@
     <string name="title_activity_reported_sales">ReportedSales</string>
     <string name="title_activity_view_sales">ViewSales</string>
     <string name="title_activity_sale_map">SaleMap</string>
+    <string name="large_text">Large Text</string>
+    <string name="enter_item">Enter Item</string>
+    <string name="name">Name</string>
+    <string name="enter_friend_username">Enter Friend's Username</string>
+    <string name="cancel">Cancel</string>
+    <string name="my_profile">My Profile</string>
+    <string name="threshold_price">Threshold Price</string>
+    <string name="submit">Submit</string>
+    <string name="biography">Biography</string>
+    <string name="enter_price">Enter Price</string>
+    <string name="reported_sale">Reported Sale</string>
+    <string name="location">Location</string>
+    <string name="log_in">Log In</string>
+    <string name="city_state_zip">City, State, Zip</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="add_to_wishlist">Add To Wishlist</string>
+    <string name="register">Register</string>
+    <string name="email">Email</string>
+    <string name=""></string>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </resources>

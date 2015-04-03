@@ -9,7 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
+        android:text="@string/large_text"
         android:id="@+id/view_friend_list"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -55,7 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Reported Sale"
+            android:text="@string/reported_sale"
             android:id="@+id/reported_sale"
             android:paddingLeft="10dp"
             android:textColor="#ffffffff" />
