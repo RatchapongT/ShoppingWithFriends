@@ -36,7 +36,6 @@ public class AddWishlistPageTest extends ActivityInstrumentationTestCase2<AddWis
      * @throws Throwable
      */
     public void testItemName() throws Throwable {
-        boolean error = false;
             DatabaseInterfacer.login("sunny", "sunny");
             activity.runOnUiThread(new Runnable() {
                 public void run() {
@@ -52,7 +51,6 @@ public class AddWishlistPageTest extends ActivityInstrumentationTestCase2<AddWis
      * @throws Throwable
      */
     public void testPriceValue() throws Throwable {
-        boolean error = false;
         DatabaseInterfacer.login("sunny", "sunny");
         activity.runOnUiThread(new Runnable() {
             public void run() {
@@ -95,25 +93,4 @@ public class AddWishlistPageTest extends ActivityInstrumentationTestCase2<AddWis
         TouchUtils.clickView(this,submitButton);
         assertEquals(" successfully added to wishlist", activity.response);
     }
-    /**
-     * Test case for adding an item with no name and no price
-     * @throws Throwable
-     */
-    public void testNoItemPriceWishlist() throws Throwable {
-        boolean error = false;
-            DatabaseInterfacer.login("sunny", "sunny");
-        try {
-            activity.runOnUiThread(new Runnable() {
-                public void run() {
-                    enteredItem.setText("");
-                    enteredPrice.setText("asasa");
-                }
-            });
-            TouchUtils.clickView(this, submitButton);
-        } catch (NumberFormatException e) {
-            error = true;
-        }
-        assertTrue(error);
-    }
-
 }
