@@ -25,7 +25,6 @@ import android.widget.Toast;
 public class RegistrationPage extends Activity implements OnClickListener {
 
     private EditText enteredUsername, enteredPassword, enteredConfirmed;
-    private Button registerButton, cancelbutton;
     private ProgressDialog progressDialog;
     public String response;
 	
@@ -39,8 +38,8 @@ public class RegistrationPage extends Activity implements OnClickListener {
         enteredConfirmed = (EditText)findViewById(R.id.register_confirm_password_input);
 
 
-        registerButton = (Button)findViewById(R.id.register_execute_button);
-        cancelbutton = (Button)findViewById(R.id.register_cancel_button);
+        Button registerButton = (Button) findViewById(R.id.register_execute_button);
+        Button cancelbutton = (Button) findViewById(R.id.register_cancel_button);
         registerButton.setOnClickListener(this);
         cancelbutton.setOnClickListener(this);
 		
@@ -95,16 +94,13 @@ public class RegistrationPage extends Activity implements OnClickListener {
                 Log.d("User Created!", ret);
                 finish();
             } else {
-                Log.d("User Registration Failure!", ret);
+                Log.d("User Registration Fail!", ret);
             }
             return ret;
 
 		}
-        /**
-         * When a post is executed
-         *
-         * @param file_url
-         */
+
+        @Override
         protected void onPostExecute(String file_url) {
             response = file_url;
             progressDialog.dismiss();

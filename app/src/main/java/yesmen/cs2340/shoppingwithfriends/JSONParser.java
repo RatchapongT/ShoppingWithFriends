@@ -4,13 +4,11 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
-import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
@@ -41,15 +39,15 @@ public class JSONParser {
     }
 
     // function get json from url
-    // by making HTTP POST or GET mehtod
+    // by making HTTP POST or GET method
 
     /**
      * makes an HTTP request to the web-server
      *
-     * @param url
-     * @param method
-     * @param params
-     * @return jObj
+     * @param url url to send HTTP request to
+     * @param method GET or POST
+     * @param params parameters to send in HTTP request
+     * @return jObj jsonObject
      */
     public JSONObject makeHttpRequest(String url, String method,
                                       List<NameValuePair> params) {
@@ -58,7 +56,7 @@ public class JSONParser {
         try {
 
             // check for request method
-            if(method == "POST"){
+            if(method.equals("POST")){
                 // request method is POST
                 // defaultHttpClient
                 DefaultHttpClient httpClient = new DefaultHttpClient();
@@ -69,7 +67,7 @@ public class JSONParser {
                 HttpEntity httpEntity = httpResponse.getEntity();
                 is = httpEntity.getContent();
 
-            }else if(method == "GET"){
+            }else if(method.equals("GET")){
                 // request method is GET
                 DefaultHttpClient httpClient = new DefaultHttpClient();
                 String paramString = URLEncodedUtils.format(params, "utf-8");
@@ -81,10 +79,6 @@ public class JSONParser {
                 is = httpEntity.getContent();
             }
 
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        } catch (ClientProtocolException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -93,9 +87,10 @@ public class JSONParser {
             BufferedReader reader = new BufferedReader(new InputStreamReader(
                     is, "iso-8859-1"), 8);
             StringBuilder sb = new StringBuilder();
-            String line = null;
+            String line;
             while ((line = reader.readLine()) != null) {
-                sb.append(line + "\n");
+                sb.append(line);
+                sb.append("\n");
             }
             is.close();
             json = sb.toString();

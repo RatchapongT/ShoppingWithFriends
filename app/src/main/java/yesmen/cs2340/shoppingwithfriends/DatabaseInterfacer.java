@@ -34,7 +34,6 @@ public class DatabaseInterfacer {
     private static final String CREATE_ITEM_REPORT = "/yesmen/update_item_report.php";
     private static final String RETRIEVE_ITEM_REPORTS_URL = "/yesmen/retrieve_item_report.php";
     private static final String UPDATE_READ = "/yesmen/update_read.php";
-    private static final String DELETE_USER = "/yesmen/delete_user.php";
 
     //JSON element ids from response of php script:
     private static final String TAG_SUCCESS = "success";

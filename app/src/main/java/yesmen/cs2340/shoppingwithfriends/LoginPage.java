@@ -23,7 +23,6 @@ import android.widget.Toast;
 public class LoginPage extends Activity implements View.OnClickListener {
 
     private EditText enteredUsername, enteredPassword;
-    private Button loginButton, registerButton;
 
     private ProgressDialog progressDialog;
     public String response;
@@ -37,8 +36,8 @@ public class LoginPage extends Activity implements View.OnClickListener {
         enteredUsername = (EditText) findViewById(R.id.login_username_input);
         enteredPassword = (EditText) findViewById(R.id.login_password_input);
 
-        loginButton = (Button) findViewById(R.id.login_execute_button);
-        registerButton = (Button) findViewById(R.id.login_register_button);
+        Button loginButton = (Button) findViewById(R.id.login_execute_button);
+        Button registerButton = (Button) findViewById(R.id.login_register_button);
 
         loginButton.setOnClickListener(this);
         registerButton.setOnClickListener(this);
@@ -93,11 +92,7 @@ public class LoginPage extends Activity implements View.OnClickListener {
             }
         }
 
-        /**
-         * When a post is executed
-         *
-         * @param file_url
-         */
+        @Override
         protected void onPostExecute(String file_url) {
             // dismiss the dialog once product deleted
             response = file_url;

@@ -5,15 +5,12 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import org.json.JSONArray;
 
 /**
  * Class Homepage extends ActionBarActivity and implements View.OnClickListener,
@@ -24,7 +21,6 @@ import org.json.JSONArray;
  */
 public class MyProfilePage extends Activity implements View.OnClickListener {
 
-    private Button cancelButton, submitButton;
     private ProgressDialog progressDialog;
     private EditText enteredName, enteredBiography, enteredLocation, enteredEmail, enteredPhoneNumber;
     private User userObject;
@@ -35,10 +31,10 @@ public class MyProfilePage extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_profile);
 
-        cancelButton = (Button) findViewById(R.id.my_profile_cancel_button);
+        Button cancelButton = (Button) findViewById(R.id.my_profile_cancel_button);
         cancelButton.setOnClickListener(this);
 
-        submitButton = (Button) findViewById(R.id.my_profile_execute_button);
+        Button submitButton = (Button) findViewById(R.id.my_profile_execute_button);
         submitButton.setOnClickListener(this);
 
         enteredName = (EditText) findViewById(R.id.my_profile_name_input);
@@ -136,11 +132,7 @@ public class MyProfilePage extends Activity implements View.OnClickListener {
             }
         }
 
-        /**
-         * When a post is executed
-         *
-         * @param file_url
-         */
+        @Override
         protected void onPostExecute(String file_url) {
             // dismiss the dialog once product deleted
             progressDialog.dismiss();

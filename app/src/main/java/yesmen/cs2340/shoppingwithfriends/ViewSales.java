@@ -17,7 +17,6 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
@@ -33,7 +32,6 @@ import java.util.Collections;
 public class ViewSales extends FragmentActivity implements View.OnClickListener {
 
     private ProgressDialog progressDialog;
-    private Button cancelbutton;
     ListView listView;
     private ArrayList<String> values = new ArrayList<>();
     private ArrayList<ItemReport> markers = new ArrayList<>();
@@ -65,7 +63,7 @@ public class ViewSales extends FragmentActivity implements View.OnClickListener 
             e.printStackTrace();
         }
 
-        cancelbutton = (Button) findViewById(R.id.view_sale_list_cancel_button);
+        Button cancelbutton = (Button) findViewById(R.id.view_sale_list_cancel_button);
         cancelbutton.setOnClickListener(this);
 
 
@@ -159,17 +157,12 @@ public class ViewSales extends FragmentActivity implements View.OnClickListener 
             return "Success!";
         }
 
-        /**
-         * When a post is executed. Creates the sale markers on the Google Map and then displays
-         * them on a ListView.
-         *
-         * @param file_url
-         */
+        @Override
         protected void onPostExecute(String file_url) {
             //DatabaseInterfacer.updateRead();
             listView = (ListView) findViewById(R.id.view_sale_list);
 
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(ViewSales.this,
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(ViewSales.this,
                     android.R.layout.simple_list_item_1, android.R.id.text1, values);
             listView.setAdapter(adapter);
 
