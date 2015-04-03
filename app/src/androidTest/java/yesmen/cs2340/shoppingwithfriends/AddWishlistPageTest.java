@@ -32,7 +32,37 @@ public class AddWishlistPageTest extends ActivityInstrumentationTestCase2<AddWis
         cancelButton = (Button) activity.findViewById(R.id.wishlist_cancel_button);
     }
     /**
-     * Test case of adding an item to the wishlist
+     * Test case for item name
+     * @throws Throwable
+     */
+    public void testItemName() throws Throwable {
+            DatabaseInterfacer.login("sunny", "sunny");
+            activity.runOnUiThread(new Runnable() {
+                public void run() {
+                    enteredItem.setText("shirt");
+                    enteredPrice.setText("7");
+                }
+            });
+        Thread.sleep(2000);
+        assertEquals("shirt", enteredItem.getText().toString());
+    }
+    /**
+     * Test case for price
+     * @throws Throwable
+     */
+    public void testPriceValue() throws Throwable {
+        DatabaseInterfacer.login("sunny", "sunny");
+        activity.runOnUiThread(new Runnable() {
+            public void run() {
+                enteredItem.setText("shirt");
+                enteredPrice.setText("7");
+            }
+        });
+        Thread.sleep(2000);
+        assertEquals("7", enteredPrice.getText().toString());
+    }
+    /**
+     * Test case for adding an item to the wishlist
      * @throws Throwable
      */
     public void testAddWishlist() throws Throwable {
@@ -43,14 +73,15 @@ public class AddWishlistPageTest extends ActivityInstrumentationTestCase2<AddWis
                 enteredPrice.setText("200");
             }
         });
+        Thread.sleep(2000);
         TouchUtils.clickView(this,submitButton);
         assertEquals("ps4 successfully added to wishlist", activity.response);
     }
     /**
-     * Test case of adding an item with no name
+     * Test case for adding an item with no name
      * @throws Throwable
      */
-    public void testNoItemNameWishlist() throws Throwable {
+    public void testNoItemName() throws Throwable {
         DatabaseInterfacer.login("sunny", "sunny");
         activity.runOnUiThread(new Runnable() {
             public void run() {
@@ -58,27 +89,8 @@ public class AddWishlistPageTest extends ActivityInstrumentationTestCase2<AddWis
                 enteredPrice.setText("7");
             }
         });
+        Thread.sleep(2000);
         TouchUtils.clickView(this,submitButton);
         assertEquals(" successfully added to wishlist", activity.response);
-    }
-    /**
-     * Test case of adding an item with no name
-     * @throws Throwable
-     */
-    public void testNoItemPriceWishlist() throws Throwable {
-        boolean error = false;
-        try {
-            DatabaseInterfacer.login("sunny", "sunny");
-            activity.runOnUiThread(new Runnable() {
-                public void run() {
-                    enteredItem.setText("");
-                    enteredPrice.setText("");
-                }
-            });
-            TouchUtils.clickView(this, submitButton);
-        } catch(NumberFormatException e) {
-            error = true;
-        }
-        assertTrue(error);
     }
 }
