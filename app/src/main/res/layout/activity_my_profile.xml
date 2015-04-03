@@ -32,7 +32,7 @@
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
             android:textCursorDrawable="@drawable/color_cursor"
-            />
+            tools:ignore="RtlHardcoded" />
 
         <!--BIOGRAPHY-->
         <EditText
@@ -52,7 +52,7 @@
             android:layout_marginTop="4dp"
             android:layout_below="@id/my_profile_name_input"
             android:textCursorDrawable="@drawable/color_cursor"
-            />
+            tools:ignore="RtlHardcoded" />
 
         <!--LOCATION-->
         <EditText
@@ -72,7 +72,7 @@
             android:layout_marginTop="4dp"
             android:layout_below="@id/my_profile_biography_input"
             android:textCursorDrawable="@drawable/color_cursor"
-            />
+            tools:ignore="RtlHardcoded" />
 
         <!--EMAIL-->
         <EditText
@@ -92,7 +92,7 @@
             android:layout_marginTop="4dp"
             android:layout_below="@id/my_profile_location_input"
             android:textCursorDrawable="@drawable/color_cursor"
-            />
+            tools:ignore="RtlHardcoded" />
 
         <!--PHONE NUMBER-->
         <EditText
@@ -112,7 +112,7 @@
             android:layout_marginTop="4dp"
             android:layout_below="@id/my_profile_email_input"
             android:textCursorDrawable="@drawable/color_cursor"
-            />
+            tools:ignore="RtlHardcoded" />
 
         <!--SUBMIT-->
         <Button

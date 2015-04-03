@@ -38,7 +38,7 @@
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
             android:textCursorDrawable="@drawable/color_cursor"
-            />
+            tools:ignore="RtlHardcoded" />
 
         <!--PASSWORD INPUT-->
         <EditText
@@ -57,7 +57,7 @@
             android:paddingRight="8dp"
             android:layout_marginTop="4dp"
             android:textCursorDrawable="@drawable/color_cursor"
-            />
+            tools:ignore="RtlHardcoded" />
 
         <!--CONFIRM PASSWORD INPUT-->
         <EditText
@@ -76,7 +76,7 @@
             android:paddingRight="8dp"
             android:layout_marginTop="4dp"
             android:textCursorDrawable="@drawable/color_cursor"
-            />
+            tools:ignore="RtlHardcoded" />
 
         <!--REGISTER BUTTON-->
         <Button

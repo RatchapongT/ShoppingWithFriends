@@ -33,7 +33,7 @@
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
             android:textCursorDrawable="@drawable/color_cursor"
-            />
+            tools:ignore="RtlHardcoded" />
 <!--SUBMIT-->
         <Button
             android:id="@+id/add_friend_execute_button"

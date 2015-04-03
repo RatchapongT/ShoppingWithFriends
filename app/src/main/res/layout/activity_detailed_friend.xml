@@ -18,7 +18,8 @@
         android:paddingTop="5dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:textColor="#ffffffff" />
+        android:textColor="#ffffffff"
+        tools:ignore="RelativeOverlap" />
 
     <ImageView
         android:layout_width="50dp"

@@ -30,7 +30,7 @@
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
             android:textCursorDrawable="@drawable/color_cursor"
-            />
+            tools:ignore="RtlHardcoded" />
         <!--THRESHOLD PRICE-->
         <EditText
             android:id="@+id/my_price_input"
