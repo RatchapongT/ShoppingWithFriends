@@ -18,7 +18,8 @@
         android:layout_marginTop="4dp"
         android:padding="2dp"
         android:id="@+id/my_profile_background"
-        android:gravity="center">
+        android:gravity="center"
+        tools:ignore="RtlHardcoded">
 
         <!--MY PROFILE-->
         <ImageButton
@@ -54,7 +55,8 @@
         android:layout_marginRight="64dp"
         android:layout_marginEnd="64dp"
         android:padding="2dp"
-        android:gravity="center">
+        android:gravity="center"
+        tools:ignore="RtlHardcoded">
 
         <ImageButton
             android:contentDescription="@string/wishlist_button"
@@ -76,7 +78,8 @@
             android:text="@string/add_to_wishlist"
             android:textColor="#FFFFFF"
             android:layout_centerHorizontal="true"
-            android:gravity="center"/>
+            android:gravity="center"
+            tools:ignore="RtlHardcoded" />
 
         <ImageButton
             android:contentDescription="@string/home_view_button"
@@ -114,7 +117,8 @@
         android:layout_marginTop="4dp"
         android:padding="2dp"
         android:id="@+id/friend_background"
-        android:gravity="center">
+        android:gravity="center"
+        tools:ignore="RtlHardcoded">
 
         <ImageButton
             android:contentDescription="@string/add_user_button"
@@ -138,7 +142,8 @@
             android:layout_marginEnd="16dp"
             android:text="@string/add_friend"
             android:textColor="#FFFFFF"
-            android:gravity="center"/>
+            android:gravity="center"
+            tools:ignore="RtlHardcoded" />
 
         <ImageButton
             android:contentDescription="@string/friends_button_list"
@@ -178,7 +183,8 @@
         android:layout_marginTop="4dp"
         android:padding="2dp"
         android:id="@+id/report_sale_background"
-        android:gravity="center">
+        android:gravity="center"
+        tools:ignore="RtlHardcoded">
 
         <ImageButton
             android:contentDescription="@string/report_sales_button"
@@ -202,7 +208,8 @@
             android:layout_marginEnd="16dp"
             android:text="@string/report_a_sale"
             android:textColor="#FFFFFF"
-            android:gravity="center"/>
+            android:gravity="center"
+            tools:ignore="RtlHardcoded" />
 
         <ImageButton
             android:contentDescription="@string/sales_for_me_button"
@@ -245,7 +252,8 @@
         android:layout_marginRight="64dp"
         android:layout_marginEnd="64dp"
         android:padding="2dp"
-        android:gravity="center">
+        android:gravity="center"
+        tools:ignore="RtlHardcoded">
 
         <Button
             android:layout_width="250dp"
