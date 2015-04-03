@@ -76,7 +76,7 @@ public class ReportedSales extends Activity implements View.OnClickListener {
     /**
      * Class AddReportAttempt is an async task that loads the ListView as the program is running.
      */
-    class AddReportAttempt extends AsyncTask<String, String, String> {
+    private class AddReportAttempt extends AsyncTask<String, String, String> {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();

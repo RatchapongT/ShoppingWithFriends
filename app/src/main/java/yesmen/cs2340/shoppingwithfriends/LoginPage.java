@@ -65,7 +65,7 @@ public class LoginPage extends Activity implements View.OnClickListener {
      * Class LoginAttempt extends AsyncTask, checks the Login Attempt that is made by the user
      *
      */
-    class LoginAttempt extends AsyncTask<String, String, String> {
+    private class LoginAttempt extends AsyncTask<String, String, String> {
 
         @Override
         protected void onPreExecute() {

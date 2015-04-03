@@ -99,7 +99,7 @@ public class DetailedFriend extends Activity implements View.OnClickListener{
         });
     }
 
-    class RetrieveFriendProfileAttempt extends AsyncTask<String, String, String> {
+    private class RetrieveFriendProfileAttempt extends AsyncTask<String, String, String> {
 
         @Override
         protected void onPreExecute() {
@@ -138,7 +138,7 @@ public class DetailedFriend extends Activity implements View.OnClickListener{
 
     }
 
-    class DeleteFriendAttempt extends AsyncTask<String, String, String> {
+    private class DeleteFriendAttempt extends AsyncTask<String, String, String> {
 
         @Override
         protected void onPreExecute() {

@@ -67,7 +67,7 @@ public class RegistrationPage extends Activity implements OnClickListener {
      * Class LoginAttempt extends AsyncTask, checks the user being created.
      *
      */
-	class CreateUser extends AsyncTask<String, String, String> {
+    private class CreateUser extends AsyncTask<String, String, String> {
 
         @Override
         protected void onPreExecute() {

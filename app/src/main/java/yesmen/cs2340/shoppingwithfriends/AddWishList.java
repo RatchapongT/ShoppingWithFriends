@@ -57,7 +57,7 @@ public class AddWishList extends Activity implements View.OnClickListener {
     }
 
 
-    class AddWishlistAttempt extends AsyncTask<String, String, String> {
+    private class AddWishlistAttempt extends AsyncTask<String, String, String> {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();

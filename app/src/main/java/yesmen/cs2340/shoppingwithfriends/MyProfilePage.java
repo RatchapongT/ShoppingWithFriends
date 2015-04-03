@@ -67,7 +67,7 @@ public class MyProfilePage extends Activity implements View.OnClickListener {
         return super.onCreateOptionsMenu(menu);
     }
 
-    class UpdateProfileAttempt extends AsyncTask<String, String, String> {
+    private class UpdateProfileAttempt extends AsyncTask<String, String, String> {
 
         @Override
         protected void onPreExecute() {
@@ -108,7 +108,7 @@ public class MyProfilePage extends Activity implements View.OnClickListener {
     }
 
 
-    class RetrieveProfileAttempt extends AsyncTask<String, String, String> {
+    private class RetrieveProfileAttempt extends AsyncTask<String, String, String> {
 
         @Override
         protected void onPreExecute() {

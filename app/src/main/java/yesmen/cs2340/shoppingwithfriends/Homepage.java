@@ -23,7 +23,7 @@ public class Homepage extends Activity implements View.OnClickListener {
 
     private ImageButton blue_button;
     private TextView notification;
-    int count = 0;
+    private int count = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
