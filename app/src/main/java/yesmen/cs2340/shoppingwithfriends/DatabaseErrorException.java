@@ -1,16 +1,9 @@
 package yesmen.cs2340.shoppingwithfriends;
 
 /**
- * Created by Reese on 3/5/2015.
+ * General exception to be thrown by DatabaseInterfacer
  */
 public class DatabaseErrorException extends Exception {
-
-    /**
-     * Creates a new Database Error Exception
-     */
-    public DatabaseErrorException() {
-        super();
-    }
 
     /**
      * Creates a new Database Error Exception with a message

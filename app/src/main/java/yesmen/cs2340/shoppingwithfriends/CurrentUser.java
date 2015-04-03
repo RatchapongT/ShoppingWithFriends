@@ -11,7 +11,7 @@ public class CurrentUser {
     /**
      * Constructor for current user
      *
-     * @param u
+     * @param u the current User object
      */
     public CurrentUser(User u) {
         current = u;
@@ -19,7 +19,7 @@ public class CurrentUser {
     /**
      * Gets the current user
      *
-     * @return current
+     * @return current user
      */
     public static User getCurrentUser() {
         return current;
@@ -27,7 +27,7 @@ public class CurrentUser {
     /**
      * Sets the current user
      *
-     * @param u
+     * @param u User object to set currentUser to
      */
     public static void setCurrentUser(User u) {
         current = u;

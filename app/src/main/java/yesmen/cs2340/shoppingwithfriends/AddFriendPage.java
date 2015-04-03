@@ -24,8 +24,6 @@ import android.widget.Toast;
 public class AddFriendPage extends Activity implements View.OnClickListener {
 
     private EditText enteredFriend;
-    private Button submitButton;
-    private Button cancelButton;
 
     private ProgressDialog progressDialog;
 
@@ -36,8 +34,8 @@ public class AddFriendPage extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_friend);
         enteredFriend = (EditText) findViewById(R.id.add_friend_username_input);
-        submitButton = (Button) findViewById(R.id.add_friend_execute_button);
-        cancelButton = (Button) findViewById(R.id.add_friend_cancel_button);
+        Button submitButton = (Button) findViewById(R.id.add_friend_execute_button);
+        Button cancelButton = (Button) findViewById(R.id.add_friend_cancel_button);
 
         submitButton.setOnClickListener(this);
         cancelButton.setOnClickListener(this);
@@ -81,7 +79,6 @@ public class AddFriendPage extends Activity implements View.OnClickListener {
 
         @Override
         protected String doInBackground(String... args) {
-            int addFriendSuccess = 0;
             String friendUser = enteredFriend.getText().toString();
             String myUser = CurrentUser.getCurrentUser().getUsername();
 
@@ -91,11 +88,7 @@ public class AddFriendPage extends Activity implements View.OnClickListener {
             return DatabaseInterfacer.addFriend(friendUser, myUser);
         }
 
-        /**
-         * When a post is executed
-         *
-         * @param file_url
-         */
+        @Override
         protected void onPostExecute(String file_url) {
             // dismiss the dialog once product deleted
             progressDialog.dismiss();
