@@ -77,7 +77,7 @@
             android:id="@+id/register_execute_button"
             android:layout_width="250dp"
             android:layout_height="35dp"
-            android:text="Register"
+            android:text="@string/email"
             android:background="@drawable/shape"
             android:textColor="#FFFFFF"
             android:layout_below="@id/register_confirm_password_input"
@@ -88,7 +88,7 @@
         <Button
             android:layout_width="250dp"
             android:layout_height="35dp"
-            android:text="Cancel"
+            android:text="@string/cancel"
             android:id="@+id/register_cancel_button"
             android:background="@drawable/shape"
             android:textColor="#FFFFFF"

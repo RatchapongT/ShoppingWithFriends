@@ -86,7 +86,7 @@
             android:layout_below="@id/home_view_wish_list"
             android:layout_toRightOf="@id/add_to_wish_list_text"
             android:layout_centerHorizontal="true"
-            android:text="View Wishlist"
+            android:text="@string/view_wishlist"
             android:textColor="#FFFFFF"
             android:gravity="center"
             />
@@ -124,7 +124,7 @@
             android:layout_below="@id/homepage_add_friend_button"
             android:layout_centerHorizontal="true"
             android:layout_marginRight="16dp"
-            android:text="Add Friend"
+            android:text="@string/add_friend"
             android:textColor="#FFFFFF"
             android:gravity="center"/>
 
@@ -143,7 +143,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/homepage_view_friends_button"
             android:layout_centerHorizontal="true"
-            android:text="Friend's List"
+            android:text="@string/friends_list"
             android:textColor="#FFFFFF"
             android:layout_toRightOf="@id/text_add_friend"
             android:layout_marginLeft="12dp"
@@ -181,7 +181,7 @@
             android:layout_below="@id/report_sales_button"
             android:layout_centerHorizontal="true"
             android:layout_marginRight="16dp"
-            android:text="Report A Sale"
+            android:text="@string/report_a_sale"
             android:textColor="#FFFFFF"
             android:gravity="center"/>
 
@@ -203,7 +203,7 @@
             android:id="@+id/notifiaction"
             android:layout_below="@+id/sales_for_me_button"
             android:layout_centerHorizontal="true"
-            android:text="Sales For Me"
+            android:text="@string/sales_for_me"
             android:textColor="#FFFFFF"
             android:layout_toRightOf="@id/report_sale_text"
             android:gravity="center"/>
@@ -227,7 +227,7 @@
         <Button
             android:layout_width="250dp"
             android:layout_height="35dp"
-            android:text="Log Out"
+            android:text="@string/log_out"
             android:id="@+id/homepage_logout_button"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"

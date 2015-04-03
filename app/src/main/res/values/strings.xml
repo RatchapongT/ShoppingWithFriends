@@ -30,7 +30,23 @@
     <string name="add_to_wishlist">Add To Wishlist</string>
     <string name="register">Register</string>
     <string name="email">Email</string>
-    <string name=""></string>
+    <string name="number_of_sales_reports">Number of Sales Reports Given To You</string>
+    <string name="quantity">Enter Approx Quantity</string>
+    <string name="view_wishlist">View Wishlist</string>
+    <string name="phone">Phone Number</string>
+    <string name="add_friend">Add Friend</string>
+    <string name="friends_list">Friend's List</string>
+    <string name="gmail.com">email@gmail.com</string>
+    <string name="report_a_sale">Report A Sale</string>
+    <string name="number_phone">+(470)123-4567</string>
+    <string name="sales_for_me">Sales For Me</string>
+    <string name="back">Back</string>
+    <string name="delete_friend">Delete Friend</string>
+    <string name="log_out">Log Out</string>
+    <string name="settings">Settings</string>
+
+
+
 
 
 
