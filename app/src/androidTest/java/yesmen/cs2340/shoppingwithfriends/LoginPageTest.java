@@ -3,8 +3,6 @@ package yesmen.cs2340.shoppingwithfriends;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.ViewAsserts;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -41,16 +39,16 @@ public class LoginPageTest extends ActivityInstrumentationTestCase2<LoginPage>{
 
     }
 
-    public void test0LoginButton_layout() {
-        final View decorView = myActivity.getWindow().getDecorView();
-
-        ViewAsserts.assertOnScreen(decorView, loginButton);
-
-        final ViewGroup.LayoutParams layoutParams = loginButton.getLayoutParams();
-        assertNotNull(layoutParams);
-        assertEquals(layoutParams.width, WindowManager.LayoutParams.MATCH_PARENT);
-        assertEquals(layoutParams.height, WindowManager.LayoutParams.WRAP_CONTENT);
-    }
+//    public void test0LoginButton_layout() {
+//        final View decorView = myActivity.getWindow().getDecorView();
+//
+//        ViewAsserts.assertOnScreen(decorView, loginButton);
+//
+//        final ViewGroup.LayoutParams layoutParams = loginButton.getLayoutParams();
+//        assertNotNull(layoutParams);
+//        assertEquals(layoutParams.width, WindowManager.LayoutParams.MATCH_PARENT);
+//        assertEquals(layoutParams.height, WindowManager.LayoutParams.WRAP_CONTENT);
+//    }
 
     public void test1UsernameLayout_layout() {
         final View decorView = myActivity.getWindow().getDecorView();
