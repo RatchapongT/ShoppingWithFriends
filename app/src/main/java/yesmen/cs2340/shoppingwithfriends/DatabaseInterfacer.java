@@ -34,6 +34,7 @@ public class DatabaseInterfacer {
     private static final String CREATE_ITEM_REPORT = "/yesmen/update_item_report.php";
     private static final String RETRIEVE_ITEM_REPORTS_URL = "/yesmen/retrieve_item_report.php";
     private static final String UPDATE_READ = "/yesmen/update_read.php";
+    private static final String DELETE_USER = "/yesmen/delete_user.php";
 
     //JSON element ids from response of php script:
     private static final String TAG_SUCCESS = "success";
@@ -112,6 +113,25 @@ public class DatabaseInterfacer {
         }
     }
 
+//    public static String deleteUser(String myUser) {
+//
+//        myUser = myUser.toLowerCase();
+//        // Building Parameters
+//        List<NameValuePair> params = new ArrayList<>();
+//        params.add(new BasicNameValuePair("username", myUser));
+//
+//        JSONObject json = queryDatabase(DELETE_USER, params);
+//
+//        try {
+//            if (json != null) {
+//                return json.getString(TAG_MESSAGE);
+//            } else return "Database error";
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//            return "Database error";
+//        }
+//    }
+
     /**
      * Returns a String[] with String[0] being success or failure message
      * In event of success, String[1] - String[length-1] will contain the list of friends
@@ -179,7 +199,7 @@ public class DatabaseInterfacer {
             }
         }
         Log.d("FUCK THIS SHIT", "FUCK THIS SHIT");
-        return new User("Fuck","Fuck","Fuck","Fuck","Fuck","Fuck");
+        return new User("test1","test2","test3","test4","test5","test6");
     }
 
     public static String deleteFriend(String myUser, String myFriend) {
