@@ -29,6 +29,7 @@
             android:background="@drawable/rounded_edittext"
             android:layout_centerHorizontal="true"
             android:paddingLeft="8dp"
+            android:paddingRight="8dp"
             android:textCursorDrawable="@drawable/color_cursor"
             />
 
@@ -48,6 +49,7 @@
             android:background="@drawable/rounded_edittext"
             android:layout_centerHorizontal="true"
             android:paddingLeft="8dp"
+            android:paddingRight="8dp"
             android:layout_marginTop="4dp"
             android:layout_below="@+id/reported_item_name"
             android:textCursorDrawable="@drawable/color_cursor"
@@ -67,6 +69,7 @@
             android:background="@drawable/rounded_edittext"
             android:layout_centerHorizontal="true"
             android:paddingLeft="8dp"
+            android:paddingRight="8dp"
             android:layout_marginTop="4dp"
             android:layout_below="@+id/reported_item_price"
             android:textCursorDrawable="@drawable/color_cursor"
@@ -86,6 +89,7 @@
             android:layout_centerHorizontal="true"
             android:inputType="number"
             android:paddingLeft="8dp"
+            android:paddingRight="8dp"
             android:layout_marginTop="4dp"
             android:layout_below="@+id/location_input"
             android:textCursorDrawable="@drawable/color_cursor"

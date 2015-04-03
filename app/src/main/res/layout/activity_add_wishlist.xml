@@ -25,6 +25,7 @@
             android:background="@drawable/rounded_edittext"
             android:layout_centerHorizontal="true"
             android:paddingLeft="8dp"
+            android:paddingRight="8dp"
             android:textCursorDrawable="@drawable/color_cursor"
             />
         <!--THRESHOLD PRICE-->
@@ -41,6 +42,7 @@
             android:background="@drawable/rounded_edittext"
             android:layout_centerHorizontal="true"
             android:paddingLeft="8dp"
+            android:paddingRight="8dp"
             android:layout_marginTop="4dp"
             android:layout_below="@id/my_item_input"
             android:textCursorDrawable="@drawable/color_cursor"

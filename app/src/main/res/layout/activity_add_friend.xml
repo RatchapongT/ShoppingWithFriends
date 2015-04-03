@@ -29,6 +29,7 @@
             android:background="@drawable/rounded_edittext"
             android:layout_centerHorizontal="true"
             android:paddingLeft="8dp"
+            android:paddingRight="8dp"
             android:textCursorDrawable="@drawable/color_cursor"
             />
 <!--SUBMIT-->
