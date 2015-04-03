@@ -77,17 +77,17 @@ public class LoginPageTest extends ActivityInstrumentationTestCase2<LoginPage>{
 
     }
 
-//    public void testPasswordText() {
-//
-//        myActivity.runOnUiThread(new Runnable() {
-//             @Override
-//             public void run() {
-//                 password.setText("hello");
-//             }
-//             });
-//        getInstrumentation().waitForIdleSync();
-//        assertEquals("hello", password.getText().toString());
-//    }
+    public void testPasswordText() {
+
+        myActivity.runOnUiThread(new Runnable() {
+             @Override
+             public void run() {
+                 password.setText("hello");
+             }
+             });
+        getInstrumentation().waitForIdleSync();
+        assertEquals("hello", password.getText().toString());
+    }
 
 
     public void testLoginSuccess_LoginAndPassMatch() throws Throwable {
@@ -99,7 +99,7 @@ public class LoginPageTest extends ActivityInstrumentationTestCase2<LoginPage>{
                 loginButton.performClick();
             }
         });
-        getInstrumentation().waitForIdleSync();
+        //getInstrumentation().waitForIdleSync();
         Thread.sleep(2000);
         assertEquals("Login successful!", myActivity.response);
     }
