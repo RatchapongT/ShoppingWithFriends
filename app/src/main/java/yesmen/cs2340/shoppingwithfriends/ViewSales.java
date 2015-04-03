@@ -32,7 +32,6 @@ import java.util.Collections;
 public class ViewSales extends FragmentActivity implements View.OnClickListener {
 
     private ProgressDialog progressDialog;
-    private ListView listView;
     private ArrayList<String> values = new ArrayList<>();
     private ArrayList<ItemReport> markers = new ArrayList<>();
 
@@ -160,7 +159,7 @@ public class ViewSales extends FragmentActivity implements View.OnClickListener 
         @Override
         protected void onPostExecute(String file_url) {
             //DatabaseInterfacer.updateRead();
-            listView = (ListView) findViewById(R.id.view_sale_list);
+            ListView listView = (ListView) findViewById(R.id.view_sale_list);
 
             ArrayAdapter<String> adapter = new ArrayAdapter<>(ViewSales.this,
                     android.R.layout.simple_list_item_1, android.R.id.text1, values);

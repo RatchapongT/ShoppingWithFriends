@@ -20,7 +20,6 @@ import java.util.ArrayList;
 public class ViewWishList extends FragmentActivity implements View.OnClickListener {
 
     private ProgressDialog progressDialog;
-    private ListView listView;
     private ArrayList<String> values = new ArrayList<>();
 
     @Override
@@ -76,7 +75,7 @@ public class ViewWishList extends FragmentActivity implements View.OnClickListen
 
         @Override
         protected void onPostExecute(String file_url) {
-            listView = (ListView) findViewById(R.id.view_wish_list);
+            ListView listView = (ListView) findViewById(R.id.view_wish_list);
 
             ArrayAdapter<String> adapter = new ArrayAdapter<>(ViewWishList.this,
                     android.R.layout.simple_list_item_1, android.R.id.text1, values);
