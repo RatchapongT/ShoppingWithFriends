@@ -32,7 +32,7 @@ import java.util.Collections;
 public class ViewSales extends FragmentActivity implements View.OnClickListener {
 
     private ProgressDialog progressDialog;
-    ListView listView;
+    private ListView listView;
     private ArrayList<String> values = new ArrayList<>();
     private ArrayList<ItemReport> markers = new ArrayList<>();
 
@@ -103,7 +103,7 @@ public class ViewSales extends FragmentActivity implements View.OnClickListener 
     /**
      * Class ViewSaleAttempt extends AsyncTask, checks the attempt to view friends.
      */
-    class ViewSaleAttempt extends AsyncTask<String, String, String> {
+    private class ViewSaleAttempt extends AsyncTask<String, String, String> {
 
         @Override
         protected void onPreExecute() {

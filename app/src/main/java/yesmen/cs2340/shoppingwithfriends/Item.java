@@ -6,8 +6,8 @@ import android.support.annotation.NonNull;
  * This class represents an Item object
  */
 public class Item implements Comparable<Item> {
-    private String name;
-    private int price;
+    private final String name;
+    private final int price;
 
     /**
      * Creates a new Item object

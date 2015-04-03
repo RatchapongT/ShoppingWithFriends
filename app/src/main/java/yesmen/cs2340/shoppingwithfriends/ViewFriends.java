@@ -22,8 +22,8 @@ import java.util.Collections;
 public class ViewFriends extends FragmentActivity implements View.OnClickListener {
 
     private ProgressDialog progressDialog;
-    ListView listView;
-    private ArrayList<String> values = new ArrayList<>();
+    private ListView listView;
+    private final ArrayList<String> values = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +49,7 @@ public class ViewFriends extends FragmentActivity implements View.OnClickListene
     /**
      * Class ViewFriendsAttempt extends AsyncTask, checks the attempt to view friends.
      */
-    class ViewFriendsAttempt extends AsyncTask<String, String, String> {
+    private class ViewFriendsAttempt extends AsyncTask<String, String, String> {
 
         @Override
         protected void onPreExecute() {

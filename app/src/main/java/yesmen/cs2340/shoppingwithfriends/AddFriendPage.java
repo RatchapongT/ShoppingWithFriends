@@ -65,7 +65,7 @@ public class AddFriendPage extends Activity implements View.OnClickListener {
      * friend, and all the code when attempting to add a friend.
      *
      */
-    class AddFriendAttempt extends AsyncTask<String, String, String> {
+    private class AddFriendAttempt extends AsyncTask<String, String, String> {
 
         @Override
         protected void onPreExecute() {

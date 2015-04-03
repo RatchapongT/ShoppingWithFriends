@@ -10,14 +10,14 @@ package yesmen.cs2340.shoppingwithfriends;
  */
 public class ItemReport {
 
-    String originator;
-    String productName;
-    String location;
-    double price;
-    int quantity;
-    int read;
-    double latitude;
-    double longitude;
+    private String originator;
+    private String productName;
+    private String location;
+    private double price;
+    private int quantity;
+    private int read;
+    private double latitude;
+    private double longitude;
 
     /**
      * Creates an ItemReport object

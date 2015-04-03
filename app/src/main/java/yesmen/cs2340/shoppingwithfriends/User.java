@@ -8,7 +8,7 @@ package yesmen.cs2340.shoppingwithfriends;
  */
 public class User {
 
-    private String username;
+    private final String username;
     private String name;
     private String biography;
     private String location;

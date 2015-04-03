@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class ViewWishList extends FragmentActivity implements View.OnClickListener {
 
     private ProgressDialog progressDialog;
-    ListView listView;
+    private ListView listView;
     private ArrayList<String> values = new ArrayList<>();
 
     @Override
@@ -45,7 +45,7 @@ public class ViewWishList extends FragmentActivity implements View.OnClickListen
     /**
      * Class ViewFriendsAttempt extends AsyncTask, checks the attempt to view friends.
      */
-    class ViewFriendsAttempt extends AsyncTask<String, String, String> {
+    private class ViewFriendsAttempt extends AsyncTask<String, String, String> {
 
         @Override
         protected void onPreExecute() {
