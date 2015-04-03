@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+@SuppressWarnings("ALL")
 public class DetailedFriend extends Activity implements View.OnClickListener{
 
     private ProgressDialog progressDialog;

@@ -29,6 +29,7 @@ import java.util.Collections;
  * @author Luka Antolic-Soban, Resse Aitken, Ratchapong Tangkijvorakul, Matty Attokaren, Sunny Patel
  * @version 1.6
  */
+@SuppressWarnings("ALL")
 public class ViewSales extends FragmentActivity implements View.OnClickListener {
 
     private ProgressDialog progressDialog;

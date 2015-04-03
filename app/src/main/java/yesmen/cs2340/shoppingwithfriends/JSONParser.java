@@ -25,6 +25,7 @@ import android.util.Log;
  * @author Luka Antolic-Soban, Resse Aitken, Ratchapong Tangkijvorakul, Matty Attokaren, Sunny Patel
  * @version 1.4
  */
+@SuppressWarnings("ALL")
 public class JSONParser {
 
     private static InputStream is = null;

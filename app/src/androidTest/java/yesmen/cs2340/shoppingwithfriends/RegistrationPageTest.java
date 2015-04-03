@@ -9,6 +9,7 @@ import java.util.Random;
 /**
  * ApplicationTest checks the delete Friend feature.
  */
+@SuppressWarnings("ALL")
 public class RegistrationPageTest extends ActivityInstrumentationTestCase2<RegistrationPage> {
 
     private RegistrationPage activity;

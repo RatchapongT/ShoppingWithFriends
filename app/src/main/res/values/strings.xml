@@ -43,7 +43,7 @@
     <string name="back">Back</string>
     <string name="delete_friend">Delete Friend</string>
     <string name="log_out">Log Out</string>
-    <string name="settings">Settings</string>
+    <!--<string name="settings">Settings</string>-->
     <string name="main_logo_project">The Main Logo For Our Project</string>
     <string name="project_logo">Our Main Project Logo</string>
     <string name="profile_button">The Profile Button</string>

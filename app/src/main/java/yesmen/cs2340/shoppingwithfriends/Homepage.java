@@ -19,6 +19,7 @@ import java.util.ArrayList;
  * @author Luka Antolic-Soban, Resse Aitken, Ratchapong Tangkijvorakul, Matty Attokaren, Sunny Patel
  * @version 1.6
  */
+@SuppressWarnings("ALL")
 public class Homepage extends Activity implements View.OnClickListener {
 
     private ImageButton blue_button;

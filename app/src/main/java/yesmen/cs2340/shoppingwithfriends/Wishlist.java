@@ -2,6 +2,7 @@ package yesmen.cs2340.shoppingwithfriends;
 
 import java.util.ArrayList;
 
+@SuppressWarnings("ALL")
 public class Wishlist {
     ArrayList<Item> items;
 

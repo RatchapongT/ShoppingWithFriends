@@ -6,6 +6,7 @@ package yesmen.cs2340.shoppingwithfriends;
  * @author Luka Antolic-Soban, Resse Aitken, Ratchapong Tangkijvorakul, Matty Attokaren, Sunny Patel
  * @version 1.1
  */
+@SuppressWarnings("ALL")
 public class CurrentUser {
     private static User current;
     /**

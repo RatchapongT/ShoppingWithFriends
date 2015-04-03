@@ -8,6 +8,7 @@ package yesmen.cs2340.shoppingwithfriends;
  * ********MUST IMPLEMENT THIS LATER
  *
  */
+@SuppressWarnings("ALL")
 public class ItemReport {
 
     private String originator;

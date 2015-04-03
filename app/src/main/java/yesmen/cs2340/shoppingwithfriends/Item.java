@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 /**
  * This class represents an Item object
  */
+@SuppressWarnings("ALL")
 public class Item implements Comparable<Item> {
     private final String name;
     private final int price;

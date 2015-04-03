@@ -8,10 +8,11 @@ import android.widget.EditText;
 /**
  * AddToWishListPageTest checks the add to Wish list feature.
  */
+@SuppressWarnings("ALL")
 public class AddWishlistPageTest extends ActivityInstrumentationTestCase2<AddWishList> {
 
     public AddWishList activity;
-    public Button submitButton, cancelButton;
+    public Button submitButton;
     private EditText enteredItem, enteredPrice;
 
     @SuppressWarnings("deprecation")
@@ -29,7 +30,6 @@ public class AddWishlistPageTest extends ActivityInstrumentationTestCase2<AddWis
         enteredItem = (EditText) activity.findViewById(R.id.my_item_input);
         enteredPrice = (EditText) activity.findViewById(R.id.my_price_input);
         submitButton = (Button) activity.findViewById(R.id.wishlist_submit_button);
-        cancelButton = (Button) activity.findViewById(R.id.wishlist_cancel_button);
     }
     /**
      * Test case for item name

@@ -17,6 +17,7 @@ import java.util.ArrayList;
  * Class ViewFriends extends ActionBarActivity and implements View.OnClickListener,
  * is all the code that pertains to the view friends page in android.
  */
+@SuppressWarnings("ALL")
 public class ViewWishList extends FragmentActivity implements View.OnClickListener {
 
     private ProgressDialog progressDialog;

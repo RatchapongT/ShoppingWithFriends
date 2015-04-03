@@ -3,6 +3,7 @@ package yesmen.cs2340.shoppingwithfriends;
 /**
  * General exception to be thrown by DatabaseInterfacer
  */
+@SuppressWarnings("ALL")
 public class DatabaseErrorException extends Exception {
 
     /**

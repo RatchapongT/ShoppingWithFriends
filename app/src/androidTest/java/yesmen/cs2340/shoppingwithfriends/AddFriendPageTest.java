@@ -4,6 +4,7 @@ import android.test.ActivityInstrumentationTestCase2;
 import android.test.TouchUtils;
 import android.widget.EditText;
 
+@SuppressWarnings("ALL")
 public class AddFriendPageTest extends ActivityInstrumentationTestCase2<AddFriendPage> {
 
     private AddFriendPage activity;

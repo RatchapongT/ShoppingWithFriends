@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="EntryPointsManager">
-    <entry_points version="2.0" />
+    <entry_points version="2.0">
+      <entry_point TYPE="method" FQNAME="yesmen.cs2340.shoppingwithfriends.Homepage void addFriend(android.view.View view)" />
+      <entry_point TYPE="method" FQNAME="yesmen.cs2340.shoppingwithfriends.Homepage void myProfile(android.view.View view)" />
+      <entry_point TYPE="method" FQNAME="yesmen.cs2340.shoppingwithfriends.Homepage void myReports(android.view.View view)" />
+      <entry_point TYPE="method" FQNAME="yesmen.cs2340.shoppingwithfriends.Homepage void salesForMe(android.view.View view)" />
+    </entry_points>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" assert-keyword="true" jdk-15="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
