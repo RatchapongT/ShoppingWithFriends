@@ -7,7 +7,9 @@ import java.util.Random;
 
 
 /**
- * ApplicationTest checks the delete Friend feature.
+ * RegitrationPageTest checks the add to registration  feature.
+ * @author Ratchapong
+ * @version 1.9
  */
 @SuppressWarnings("ALL")
 public class RegistrationPageTest extends ActivityInstrumentationTestCase2<RegistrationPage> {
@@ -39,7 +41,7 @@ public class RegistrationPageTest extends ActivityInstrumentationTestCase2<Regis
     }
 
     /**
-     * Test case of deleting a friend
+     * Test password mismatch
      * @throws Throwable
      */
     public void testPasswordMismatch() throws Throwable {
@@ -55,6 +57,10 @@ public class RegistrationPageTest extends ActivityInstrumentationTestCase2<Regis
         assertEquals("Password and confirmation do not match!", activity.response);
     }
 
+    /**
+     * Test registration successfully
+     * @throws Throwable
+     */
     public void testRegisterSuccess() throws Throwable {
         activity.runOnUiThread(new Runnable() {
             public void run() {
@@ -81,6 +87,10 @@ public class RegistrationPageTest extends ActivityInstrumentationTestCase2<Regis
         assertEquals("I'm sorry, this username is already in use" , activity.response);
     }
 
+    /**
+     * Test unable to register if username exist
+     * @throws Throwable
+     */
     public void testRegisterSameUser() throws Throwable {
         activity.runOnUiThread(new Runnable() {
             public void run() {
@@ -94,6 +104,11 @@ public class RegistrationPageTest extends ActivityInstrumentationTestCase2<Regis
         Thread.sleep(2000);
         assertEquals("I'm sorry, this username is already in use" , activity.response);
     }
+
+    /**
+     * Test username box working correctly
+     * @throws Throwable
+     */
     public void testUsernameBox() throws Throwable {
         getInstrumentation().runOnMainSync(new Runnable() {
             @Override
@@ -105,6 +120,10 @@ public class RegistrationPageTest extends ActivityInstrumentationTestCase2<Regis
         assertEquals("testUser", enteredUsername.getText().toString());
     }
 
+    /**
+     * Test password box working correctly
+     * @throws Throwable
+     */
     public void testPasswordBox() throws Throwable {
         getInstrumentation().runOnMainSync(new Runnable() {
             @Override
@@ -116,6 +135,10 @@ public class RegistrationPageTest extends ActivityInstrumentationTestCase2<Regis
         assertEquals("testPass", enteredPassword.getText().toString());
     }
 
+    /**
+     * Test confirm password box working correctly
+     * @throws Throwable
+     */
     public void testConfirmBox() throws Throwable {
         getInstrumentation().runOnMainSync(new Runnable() {
             @Override
