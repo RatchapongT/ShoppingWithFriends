@@ -202,7 +202,7 @@ public class DatabaseInterfacer {
             }
         }
         Log.d("FUCK THIS SHIT", "FUCK THIS SHIT");
-        return new User("Fuck","Fuck","Fuck","Fuck","Fuck","Fuck");
+        return new User("test1","test2","test3","test4","test5","test6");
     }
 
     public static String deleteFriend(String myUser, String myFriend) {
