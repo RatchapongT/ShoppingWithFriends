@@ -39,9 +39,9 @@ public class RegistrationPage extends Activity implements OnClickListener {
 
 
         Button registerButton = (Button) findViewById(R.id.register_execute_button);
-        Button cancelbutton = (Button) findViewById(R.id.register_cancel_button);
+        Button cancelButton = (Button) findViewById(R.id.register_cancel_button);
         registerButton.setOnClickListener(this);
-        cancelbutton.setOnClickListener(this);
+        cancelButton.setOnClickListener(this);
 		
 	}
 

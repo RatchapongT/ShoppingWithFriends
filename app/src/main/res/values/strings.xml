@@ -15,7 +15,7 @@
     <string name="large_text">Large Text</string>
     <string name="enter_item">Enter Item</string>
     <string name="name">Name</string>
-    <string name="enter_friend_username">Enter Friend's Username</string>
+    <string name="enter_friend_username">Enter Friend\'s Username</string>
     <string name="cancel">Cancel</string>
     <string name="my_profile">My Profile</string>
     <string name="threshold_price">Threshold Price</string>
@@ -35,7 +35,7 @@
     <string name="view_wishlist">View Wishlist</string>
     <string name="phone">Phone Number</string>
     <string name="add_friend">Add Friend</string>
-    <string name="friends_list">Friend's List</string>
+    <string name="friends_list">Friend\'s List</string>
     <string name="gmail.com">email@gmail.com</string>
     <string name="report_a_sale">Report A Sale</string>
     <string name="number_phone">+(470)123-4567</string>

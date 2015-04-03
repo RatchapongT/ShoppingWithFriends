@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 /**
- * This class allows one to add new items to the wishlist
+ * This class allows one to add new items to the wish list
  */
 public class AddWishList extends Activity implements View.OnClickListener {
 

@@ -22,7 +22,7 @@ import java.util.ArrayList;
 public class Homepage extends Activity implements View.OnClickListener {
 
     private ImageButton blue_button;
-    private TextView notificaiton;
+    private TextView notification;
     int count = 0;
 
     @Override
@@ -44,7 +44,7 @@ public class Homepage extends Activity implements View.OnClickListener {
         viewwishlistButton.setOnClickListener(this);
 
         blue_button = (ImageButton) findViewById(R.id.sales_for_me_button);
-        notificaiton = (TextView) findViewById(R.id.notifiaction);
+        notification = (TextView) findViewById(R.id.notifiaction);
 
         new AsyncTask<Void, Void, Void>() {
 
@@ -74,7 +74,7 @@ public class Homepage extends Activity implements View.OnClickListener {
                             @Override
                             public void run() {
                                 blue_button.setImageResource(R.drawable.notification_icon);
-                                notificaiton.setText(count + " Notification");
+                                notification.setText(count + " Notification");
                             }
                         });
                     }

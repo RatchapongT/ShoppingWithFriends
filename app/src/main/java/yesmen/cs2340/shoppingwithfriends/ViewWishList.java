@@ -27,8 +27,8 @@ public class ViewWishList extends FragmentActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_wishlist); // Set layout according to login.xml
-        Button cancelbutton = (Button) findViewById(R.id.view_wish_list_cancel_button);
-        cancelbutton.setOnClickListener(this);
+        Button cancelButton = (Button) findViewById(R.id.view_wish_list_cancel_button);
+        cancelButton.setOnClickListener(this);
 
 
         new ViewFriendsAttempt().execute();

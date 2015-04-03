@@ -63,8 +63,8 @@ public class ViewSales extends FragmentActivity implements View.OnClickListener 
             e.printStackTrace();
         }
 
-        Button cancelbutton = (Button) findViewById(R.id.view_sale_list_cancel_button);
-        cancelbutton.setOnClickListener(this);
+        Button cancelButton = (Button) findViewById(R.id.view_sale_list_cancel_button);
+        cancelButton.setOnClickListener(this);
 
 
         new ViewSaleAttempt().execute();

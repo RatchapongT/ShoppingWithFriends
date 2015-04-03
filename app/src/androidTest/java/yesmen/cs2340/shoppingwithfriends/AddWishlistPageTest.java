@@ -6,7 +6,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 /**
- * AddToWishListPageTest checks the add to Wishlist feature.
+ * AddToWishListPageTest checks the add to Wish list feature.
  */
 public class AddWishlistPageTest extends ActivityInstrumentationTestCase2<AddWishList> {
 

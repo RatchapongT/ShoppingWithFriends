@@ -29,8 +29,8 @@ public class ViewFriends extends FragmentActivity implements View.OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_friends); // Set layout according to login.xml
-        Button cancelbutton = (Button) findViewById(R.id.view_friend_cancel_button);
-        cancelbutton.setOnClickListener(this);
+        Button cancelButton = (Button) findViewById(R.id.view_friend_cancel_button);
+        cancelButton.setOnClickListener(this);
 
 
         new ViewFriendsAttempt().execute();
