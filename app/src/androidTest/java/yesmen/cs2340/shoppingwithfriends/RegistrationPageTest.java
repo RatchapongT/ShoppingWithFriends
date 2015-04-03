@@ -81,6 +81,52 @@ public class RegistrationPageTest extends ActivityInstrumentationTestCase2<Regis
         assertEquals("I'm sorry, this username is already in use" , activity.response);
     }
 
+    public void testRegisterSameUser() throws Throwable {
+        activity.runOnUiThread(new Runnable() {
+            public void run() {
+                enteredUsername.setText("sunny");
+                enteredPassword.setText("1234");
+                enteredConfirmed.setText("1234");
+                registerButton.performClick();
+            }
+        });
+        getInstrumentation().waitForIdleSync();
+        Thread.sleep(2000);
+        assertEquals("I'm sorry, this username is already in use" , activity.response);
+    }
+    public void testUsernameBox() throws Throwable {
+        getInstrumentation().runOnMainSync(new Runnable() {
+            @Override
+            public void run() {
+                enteredUsername.setText("testUser");
+            }
+        });
+        getInstrumentation().waitForIdleSync();
+        assertEquals("testUser", enteredUsername.getText().toString());
+    }
+
+    public void testPasswordBox() throws Throwable {
+        getInstrumentation().runOnMainSync(new Runnable() {
+            @Override
+            public void run() {
+                enteredPassword.setText("testPass");
+            }
+        });
+        getInstrumentation().waitForIdleSync();
+        assertEquals("testPass", enteredPassword.getText().toString());
+    }
+
+    public void testConfirmBox() throws Throwable {
+        getInstrumentation().runOnMainSync(new Runnable() {
+            @Override
+            public void run() {
+                enteredConfirmed.setText("testPass");
+            }
+        });
+        getInstrumentation().waitForIdleSync();
+        assertEquals("testPass", enteredConfirmed.getText().toString());
+    }
+
 
 
 

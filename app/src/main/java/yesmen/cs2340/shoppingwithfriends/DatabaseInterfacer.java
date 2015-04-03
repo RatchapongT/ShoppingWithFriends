@@ -31,9 +31,6 @@ public class DatabaseInterfacer {
     private static final String DELETE_FRIEND_URL = "/yesmen/delete_friend.php";
     private static final String UPDATE_WISHLIST_URL = "/yesmen/wishlist_update.php";
     private static final String FETCH_WISHLIST_URL = "/yesmen/wishlist_retrieve.php";
-    private static final String GET_ITEM_REPORT_URL = "/yesmen/get_item_report.php";
-    private static final String SEND_ALERT_URL = "/yesmen/send_alert.php";
-    private static final String GET_ALERTS_URL = "/yesmen/get_alerts.php";
     private static final String CREATE_ITEM_REPORT = "/yesmen/update_item_report.php";
     private static final String RETRIEVE_ITEM_REPORTS_URL = "/yesmen/retrieve_item_report.php";
     private static final String UPDATE_READ = "/yesmen/update_read.php";
@@ -327,7 +324,7 @@ public class DatabaseInterfacer {
             Log.d("json Tag Message", json.getString(TAG_MESSAGE));
 
             if (json.getInt(TAG_SUCCESS) == 1) {
-                Log.d("Database Query Successful!", json.toString());
+                Log.d("Database Query Success!", json.toString());
                 return json;
             } else {
                 Log.d("Database Query Failure!", json.toString());
@@ -339,64 +336,6 @@ public class DatabaseInterfacer {
             return null;
         }
     }
-
-    /**
-     * This method sends a username and an ID to the database. The database should add
-     * the ID to the newAlerts[] integer array that belongs to arg user.
-     * @param user Friend recieving the alert
-     * @param reportID ID of the itemReport in the database
-     * @return "success" if successfully added to databes, "failure" otherwise
-     *
-    public static String sendAlert(String user, int reportID) {
-        List<NameValuePair> params = new ArrayList<>();
-        params.add(new BasicNameValuePair("Username", user.toLowerCase()));
-        params.add(new BasicNameValuePair("ID", ""+reportID));
-        JSONObject json = queryDatabase(SEND_ALERT_URL, params);
-        if (json == null) {
-            Log.d("sendAlert Error", "error connecting to database");
-            return "failure";
-        } else {
-            Log.d("sendAlert Success", "Alert sent to " + user);
-            return "success";
-        }
-    }
-    */
-
-    /**
-     * This method retrieves an int[] from the database. The int[] is an array of
-     * Report IDs that each represent a unique ItemReport.
-     * @return int[] of report IDs that are relevant to the current user's wishlist
-     * @throws DatabaseErrorException
-     */
-    public static int[] getAlerts() throws DatabaseErrorException {
-        List<NameValuePair> params = new ArrayList<>();
-        params.add(new BasicNameValuePair("Username", CurrentUser.getCurrentUser().getUsername().toLowerCase()));
-        int[] ret = new int[1];
-        try {
-            JSONObject json = queryDatabase(GET_ALERTS_URL, params);
-            if (json == null) {
-                throw new DatabaseErrorException("Database Error: no json object returned");
-            }
-
-            JSONArray jArray = json.getJSONArray(TAG_MESSAGE);
-            if (jArray == null) {
-                throw new DatabaseErrorException("Database Error: No Friends Found");
-            }
-
-            if (json.getInt(TAG_SUCCESS) == 1) {
-                ret = new int[jArray.length()];
-                for(int i = 0; i < jArray.length(); i++) {
-                    ret[i] = jArray.getInt(i);
-                }
-            } else {
-                ret[0] = 0;
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-            throw new DatabaseErrorException("Unexpected JSONException");
-        }
-        return ret;
-}
 
     /**
      * Passes the database the fields of an ItemReport object
@@ -428,32 +367,6 @@ public class DatabaseInterfacer {
         }
 
     }
-
-    /**
-     * Passes the database a report ID and retrieves the information associated with the ID
-     * @param reportID the unique integer ID associated with a report object
-     * @return ItemReport a copy of the itemreport stored on the database with reportID
-     *//*
-    public static ItemReport getItemReport(int reportID) {
-        List<NameValuePair> params = new ArrayList<>();
-        params.add(new BasicNameValuePair("ID", ""+reportID));
-        JSONObject json = queryDatabase(GET_ITEM_REPORT_URL, params);
-        try {
-            ItemReport ret;
-            if (json != null) {
-                ret = new ItemReport(json.getString("name"), json.getString("location"),
-                        json.getDouble("price"), json.getInt("quantity"));
-            } else {
-                ret = null;
-            }
-            return ret;
-        } catch (JSONException e) {
-            Log.d("itemReport Error", "error connecting to database");
-        }
-
-        return null;
-    }
-    */
 
     /**
      * Fetches the entire new item report list for the current user

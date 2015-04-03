@@ -9,7 +9,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,9 +19,7 @@ public class DetailedFriend extends Activity implements View.OnClickListener{
     private ProgressDialog progressDialog;
     private User userObject;
     private TextView enteredLocation, enteredEmail, enteredPhoneNumber, enteredName;
-    private Button backButton, deleteButton;
     private String requestedUser;
-    private RatingBar ratingBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +31,10 @@ public class DetailedFriend extends Activity implements View.OnClickListener{
             requestedUser = extras.getString("Username");
         }
 
-        backButton = (Button) findViewById(R.id.friend_back);
+        Button backButton = (Button) findViewById(R.id.friend_back);
         backButton.setOnClickListener(this);
 
-        deleteButton = (Button) findViewById(R.id.delete_friends);
+        Button deleteButton = (Button) findViewById(R.id.delete_friends);
         deleteButton.setOnClickListener(this);
 
         enteredName = (TextView) findViewById(R.id.view_friend_list);
@@ -90,7 +87,7 @@ public class DetailedFriend extends Activity implements View.OnClickListener{
 
     public void addListenerOnRatingBar() {
 
-        ratingBar = (RatingBar) findViewById(R.id.ratingBar);
+        RatingBar ratingBar = (RatingBar) findViewById(R.id.ratingBar);
 
         //if rating value is changed,
         //display the current rating value in the result (textview) automatically
@@ -125,11 +122,7 @@ public class DetailedFriend extends Activity implements View.OnClickListener{
             }
         }
 
-        /**
-         * When a post is executed
-         *
-         * @param file_url
-         */
+        @Override
         protected void onPostExecute(String file_url) {
             // dismiss the dialog once product deleted
             progressDialog.dismiss();
@@ -163,18 +156,13 @@ public class DetailedFriend extends Activity implements View.OnClickListener{
             String ret = DatabaseInterfacer.deleteFriend(myUser,requestedUser);
 
             if (ret != null) {
-                ret = DatabaseInterfacer.deleteFriend(requestedUser, myUser);
                 return "Success";
             } else {
                 return "Fail";
             }
         }
 
-        /**
-         * When a post is executed
-         *
-         * @param file_url
-         */
+        @Override
         protected void onPostExecute(String file_url) {
             // dismiss the dialog once product deleted
             progressDialog.dismiss();
