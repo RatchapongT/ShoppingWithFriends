@@ -14,7 +14,7 @@
 
         <!--MAIN LOGO-->
         <ImageView
-            android:contentDescription="The Main Logo for our project"
+            android:contentDescription="@string/main_logo_project"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/logo_full"

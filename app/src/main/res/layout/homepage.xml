@@ -20,7 +20,7 @@
 
         <!--MY PROFILE-->
         <ImageButton
-            android:contentDescription="The Profile Button"
+            android:contentDescription="@string/profile_button"
             android:background="@null"
             android:scaleType="fitXY"
             android:layout_width="60dp"
@@ -55,7 +55,7 @@
         android:gravity="center">
 
         <ImageButton
-            android:contentDescription="The wishlist button"
+            android:contentDescription="@string/wishlist_button"
             android:scaleType="fitXY"
             android:background="@null"
             android:layout_width="100dp"
@@ -77,7 +77,7 @@
             android:gravity="center"/>
 
         <ImageButton
-            android:contentDescription="The home view wishlist"
+            android:contentDescription="@string/home_view_button"
             android:scaleType="fitXY"
             android:background="@null"
             android:layout_width="100dp"
@@ -114,7 +114,7 @@
         android:gravity="center">
 
         <ImageButton
-            android:contentDescription="The Add User button"
+            android:contentDescription="@string/add_user_button"
             android:scaleType="fitXY"
             android:background="@null"
             android:layout_width="100dp"
@@ -138,7 +138,7 @@
             android:gravity="center"/>
 
         <ImageButton
-            android:contentDescription="This is the friend's list button"
+            android:contentDescription="@string/friends_button_list"
             android:scaleType="fitXY"
             android:background="@null"
             android:layout_width="100dp"
@@ -176,7 +176,7 @@
         android:gravity="center">
 
         <ImageButton
-            android:contentDescription="The Report Sales Button"
+            android:contentDescription="@string/report_sales_button"
             android:scaleType="fitXY"
             android:background="@null"
             android:layout_width="100dp"
@@ -200,7 +200,7 @@
             android:gravity="center"/>
 
         <ImageButton
-            android:contentDescription="The Sales for me Button"
+            android:contentDescription="@string/sales_for_me_button"
             android:scaleType="fitXY"
             android:background="@null"
             android:layout_width="100dp"
