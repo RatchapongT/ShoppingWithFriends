@@ -19,6 +19,7 @@
 
         <!--MY PROFILE-->
         <ImageButton
+            android:contentDescription="The Profile Button"
             android:background="@null"
             android:scaleType="fitXY"
             android:layout_width="60dp"
@@ -52,6 +53,7 @@
         android:gravity="center">
 
         <ImageButton
+            android:contentDescription="The wishlist button"
             android:scaleType="fitXY"
             android:background="@null"
             android:layout_width="100dp"
@@ -72,6 +74,7 @@
             android:gravity="center"/>
 
         <ImageButton
+            android:contentDescription="The home view wishlist"
             android:scaleType="fitXY"
             android:background="@null"
             android:layout_width="100dp"
@@ -107,6 +110,7 @@
         android:gravity="center">
 
         <ImageButton
+            android:contentDescription="The Add User button"
             android:scaleType="fitXY"
             android:background="@null"
             android:layout_width="100dp"
@@ -129,6 +133,7 @@
             android:gravity="center"/>
 
         <ImageButton
+            android:contentDescription="This is the friend's list button"
             android:scaleType="fitXY"
             android:background="@null"
             android:layout_width="100dp"
@@ -164,6 +169,7 @@
         android:gravity="center">
 
         <ImageButton
+            android:contentDescription="The Report Sales Button"
             android:scaleType="fitXY"
             android:background="@null"
             android:layout_width="100dp"
@@ -186,6 +192,7 @@
             android:gravity="center"/>
 
         <ImageButton
+            android:contentDescription="The Sales for me Button"
             android:scaleType="fitXY"
             android:background="@null"
             android:layout_width="100dp"
