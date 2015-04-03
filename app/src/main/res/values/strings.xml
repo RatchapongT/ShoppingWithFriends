@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <string name="app_name">Shopping With Friends</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="hello_world" tools:ignore="UnusedResources">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_main_menu">MainMenu</string>
-    <string name="title_activity_add_friend">addFriend</string>
+    <string name="title_activity_main_menu" tools:ignore="UnusedResources">MainMenu</string>
+    <string name="title_activity_add_friend" tools:ignore="UnusedResources">addFriend</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
-    <string name="title_activity_detailed_friend">DetailedFriend</string>
-    <string name="title_activity_reported_sales">ReportedSales</string>
-    <string name="title_activity_view_sales">ViewSales</string>
-    <string name="title_activity_sale_map">SaleMap</string>
+    <string name="title_activity_detailed_friend" tools:ignore="UnusedResources">DetailedFriend</string>
+    <string name="title_activity_reported_sales" tools:ignore="UnusedResources">ReportedSales</string>
+    <string name="title_activity_view_sales" tools:ignore="UnusedResources">ViewSales</string>
+    <string name="title_activity_sale_map" tools:ignore="UnusedResources">SaleMap</string>
     <string name="large_text">Large Text</string>
     <string name="enter_item">Enter Item</string>
     <string name="name">Name</string>
@@ -36,16 +36,24 @@
     <string name="phone">Phone Number</string>
     <string name="add_friend">Add Friend</string>
     <string name="friends_list">Friend\'s List</string>
-    <string name="gmail.com">email@gmail.com</string>
+    <string name="gmail.com" tools:ignore="UnusedResources">email@gmail.com</string>
     <string name="report_a_sale">Report A Sale</string>
-    <string name="number_phone">+(470)123-4567</string>
+    <string name="number_phone">+(470)123—4567</string>
     <string name="sales_for_me">Sales For Me</string>
     <string name="back">Back</string>
     <string name="delete_friend">Delete Friend</string>
     <string name="log_out">Log Out</string>
     <string name="settings">Settings</string>
-
-
+    <string name="main_logo_project">The Main Logo For Our Project</string>
+    <string name="project_logo">Our Main Project Logo</string>
+    <string name="profile_button">The Profile Button</string>
+    <string name="wishlist_button">The WishList Button</string>
+    <string name="home_view_button">The Home View Button</string>
+    <string name="add_user_button">The Add User Button</string>
+    <string name="friends_button_list">This is the friend's list button</string>
+    <string name="report_sales_button">The Report Sales Button</string>
+    <string name="sales_for_me_button">The Sales For Me Button</string>
+    <string name="bio_image_view">The Bio Image View</string>
 
 
 
