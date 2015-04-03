@@ -22,7 +22,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:id="@+id/imageView"
-        android:src="@drawable/friend_blank"
+        android:src="@drawable/bio"
         android:layout_gravity="center_horizontal|top"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
