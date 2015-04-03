@@ -7,13 +7,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 /**
  * Class Homepage extends ActionBarActivity and implements View.OnClickListener,
@@ -24,7 +21,6 @@ import java.util.Collections;
  */
 public class Homepage extends Activity implements View.OnClickListener {
 
-    private Button logoutButton, viewButton, wishlistButton, viewwishlistButton;
     private ImageButton blue_button;
     private TextView notificaiton;
     int count = 0;
@@ -35,7 +31,7 @@ public class Homepage extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.homepage);
 
-        logoutButton = (Button) findViewById(R.id.homepage_logout_button);
+        Button logoutButton = (Button) findViewById(R.id.homepage_logout_button);
         logoutButton.setOnClickListener(this);
 
         ImageButton viewButton = (ImageButton) findViewById(R.id.homepage_view_friends_button);
@@ -84,7 +80,7 @@ public class Homepage extends Activity implements View.OnClickListener {
                     }
 
                 } catch (DatabaseErrorException e) {
-
+                    Log.d("Database Exception", e.getMessage());
                 }
                 return null;
             }
@@ -122,7 +118,7 @@ public class Homepage extends Activity implements View.OnClickListener {
     /**
      * Called when the user clicks the Add Friend button
      *
-     * @param view
+     * @param view the current view
      */
     public void addFriend(View view) {
         Intent intent = new Intent(this, AddFriendPage.class);

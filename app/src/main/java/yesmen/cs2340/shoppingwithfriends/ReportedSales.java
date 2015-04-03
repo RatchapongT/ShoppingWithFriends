@@ -20,7 +20,6 @@ import android.widget.Toast;
 public class ReportedSales extends Activity implements View.OnClickListener {
 
     private ProgressDialog progressDialog;
-    private Button cancelButton, submitButton;
     private EditText enteredItem, enteredPrice, enteredLocation, enteredQuantity;
 
     @Override
@@ -28,10 +27,10 @@ public class ReportedSales extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reported_sales);
 
-        submitButton = (Button) findViewById(R.id.reported_submit_button);
+        Button submitButton = (Button) findViewById(R.id.reported_submit_button);
         submitButton.setOnClickListener(this);
 
-        cancelButton = (Button) findViewById(R.id.reported_cancel_button);
+        Button cancelButton = (Button) findViewById(R.id.reported_cancel_button);
         cancelButton.setOnClickListener(this);
 
         enteredItem = (EditText) findViewById(R.id.reported_item_name);
@@ -100,11 +99,7 @@ public class ReportedSales extends Activity implements View.OnClickListener {
             return DatabaseInterfacer.createItemReport(newItem, newLocation, price, quant);
         }
 
-        /**
-         * When a post is executed
-         *
-         * @param file_url
-         */
+        @Override
         protected void onPostExecute(String file_url) {
             // dismiss the dialog once product deleted
             progressDialog.dismiss();

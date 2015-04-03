@@ -12,15 +12,8 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
-import java.util.List;
-
-import org.json.JSONArray;
+import java.util.Collections;
 
 /**
  * Class ViewFriends extends ActionBarActivity and implements View.OnClickListener,
@@ -29,7 +22,6 @@ import org.json.JSONArray;
 public class ViewFriends extends FragmentActivity implements View.OnClickListener {
 
     private ProgressDialog progressDialog;
-    private Button cancelbutton;
     ListView listView;
     private ArrayList<String> values = new ArrayList<>();
 
@@ -37,7 +29,7 @@ public class ViewFriends extends FragmentActivity implements View.OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_friends); // Set layout according to login.xml
-        cancelbutton = (Button) findViewById(R.id.view_friend_cancel_button);
+        Button cancelbutton = (Button) findViewById(R.id.view_friend_cancel_button);
         cancelbutton.setOnClickListener(this);
 
 
@@ -74,22 +66,16 @@ public class ViewFriends extends FragmentActivity implements View.OnClickListene
             String myUser = CurrentUser.getCurrentUser().getUsername();
             String[] list = DatabaseInterfacer.viewFriends(myUser);
             if (list.length > 1) {
-                for (int i = 1; i < list.length; i++) {
-                    values.add(list[i]);
-                }
+                Collections.addAll(values, list);
             }
             return list[0];
         }
 
-        /**
-         * When a post is executed
-         *
-         * @param file_url
-         */
+        @Override
         protected void onPostExecute(String file_url) {
             listView = (ListView) findViewById(R.id.view_friend_list);
 
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(ViewFriends.this,
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(ViewFriends.this,
                     android.R.layout.simple_list_item_1, android.R.id.text1, values);
             listView.setAdapter(adapter);
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -98,15 +84,12 @@ public class ViewFriends extends FragmentActivity implements View.OnClickListene
                 public void onItemClick(AdapterView<?> parent, View view,
                                         int position, long id) {
 
-                    // ListView Clicked item index
-                    int itemPosition = position;
-
                     // ListView Clicked item value
                     String itemValue = (String) listView.getItemAtPosition(position);
 
                     // Show Alert
                     Toast.makeText(getApplicationContext(),
-                            "Position :" + itemPosition + "  ListItem : " + itemValue, Toast.LENGTH_LONG)
+                            "Position :" + position + "  ListItem : " + itemValue, Toast.LENGTH_LONG)
                             .show();
 
                     Intent intent = new Intent(getBaseContext(), DetailedFriend.class);

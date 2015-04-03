@@ -14,14 +14,17 @@ public class User {
     private String location;
     private String email;
     private String phoneNumber;
+
+    /* Currently Unused
     private int[] reportedSales;
     private int[] newAlerts;
     private int latestReport = 0;
+    */
 
     /**
      * Constructor for username
      *
-     * @param userName
+     * @param userName of the user
      */
     public User(String userName) {
         this.username = userName;
@@ -52,7 +55,7 @@ public class User {
     /**
      * Gets the name
      *
-     * @return name
+     * @return name name of the user
      */
     public String getName() {
         return name;
@@ -61,7 +64,7 @@ public class User {
     /**
      * Constructor for setting name
      *
-     * @param name
+     * @param name name of the user
      */
     public void setName(String name) {
         this.name = name;
@@ -70,7 +73,7 @@ public class User {
     /**
      * Constructor for setting biography
      *
-     * @param biography
+     * @param biography of the user
      */
     public void setBiography(String biography) {
         this.biography = biography;
@@ -79,7 +82,7 @@ public class User {
     /**
      *  Gets user biography
      *
-     * @return biography
+     * @return biography of the user
      */
     public String getBiography() {
         return biography;
@@ -88,7 +91,7 @@ public class User {
     /**
      * Constructor for setting location
      *
-     * @param location
+     * @param location of the user
      */
     public void setLocation(String location) {
         this.location = location;
@@ -97,7 +100,7 @@ public class User {
     /**
      * Gets user location
      *
-     * @return location
+     * @return location of the user
      */
     public String getLocation() {
         return location;
@@ -106,7 +109,7 @@ public class User {
     /**
      * Constructor for setting user email
      *
-     * @param email
+     * @param email of the user
      */
     public void setEmail(String email) {
         this.email = email;
@@ -115,7 +118,7 @@ public class User {
     /**
      * Sets the user email
      *
-     * @return
+     * @return user's email
      */
     public String getEmail() {
         return email;
@@ -124,7 +127,7 @@ public class User {
     /**
      * Constructor for setting user phone number
      *
-     * @param phoneNumber
+     * @param phoneNumber of the user
      */
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
@@ -133,12 +136,13 @@ public class User {
     /**
      * Gets the user phone number
      *
-     * @return phoneNumber
+     * @return phoneNumber of the user
      */
     public String getPhoneNumber() {
         return phoneNumber;
     }
 
+    /* Currently Unused
     public void setReportedSales(int[] reportedSales) {
         this.reportedSales = reportedSales;
     }
@@ -158,4 +162,5 @@ public class User {
     public int getLatestReport() { return latestReport; }
 
     public void setLatestReport(int latestReport) { this.latestReport = latestReport; }
+    */
 }

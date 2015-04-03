@@ -1,7 +1,9 @@
 package yesmen.cs2340.shoppingwithfriends;
 
+import android.support.annotation.NonNull;
+
 /**
- * Created by Reese on 3/5/2015.
+ * This class represents an Item object
  */
 public class Item implements Comparable<Item> {
     private String name;
@@ -33,8 +35,12 @@ public class Item implements Comparable<Item> {
         return price;
     }
 
-    @Override
-    public int compareTo(Item other) {
+    /**
+     * Compares two Items
+     * @param other Item to compare with this
+     * @return integer result of comparison
+     */
+    public int compareTo(@NonNull Item other) {
         return this.name.compareTo(other.getName());
     }
 }
