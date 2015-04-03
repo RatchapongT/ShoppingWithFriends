@@ -12,6 +12,7 @@
         android:layout_centerHorizontal="true"
         android:background="@drawable/background"
         android:layout_marginRight="64dp"
+        android:layout_marginEnd="64dp"
         android:layout_marginTop="4dp"
         android:padding="2dp"
         android:id="@+id/my_profile_background"
@@ -49,6 +50,7 @@
         android:background="@drawable/background"
         android:layout_marginTop="4dp"
         android:layout_marginRight="64dp"
+        android:layout_marginEnd="64dp"
         android:padding="2dp"
         android:gravity="center">
 
@@ -68,6 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/wishlist_button"
             android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
             android:text="@string/add_to_wishlist"
             android:textColor="#FFFFFF"
             android:layout_centerHorizontal="true"
@@ -104,6 +107,7 @@
         android:layout_centerInParent="true"
         android:background="@drawable/background"
         android:layout_marginRight="64dp"
+        android:layout_marginEnd="64dp"
         android:layout_marginTop="4dp"
         android:padding="2dp"
         android:id="@+id/friend_background"
@@ -128,6 +132,7 @@
             android:layout_below="@id/homepage_add_friend_button"
             android:layout_centerHorizontal="true"
             android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp"
             android:text="@string/add_friend"
             android:textColor="#FFFFFF"
             android:gravity="center"/>
@@ -152,6 +157,7 @@
             android:textColor="#FFFFFF"
             android:layout_toRightOf="@id/text_add_friend"
             android:layout_marginLeft="12dp"
+            android:layout_marginStart="12dp"
             android:gravity="center"/>
 
     </RelativeLayout>
@@ -163,6 +169,7 @@
         android:layout_centerInParent="true"
         android:background="@drawable/background"
         android:layout_marginRight="64dp"
+        android:layout_marginEnd="64dp"
         android:layout_marginTop="4dp"
         android:padding="2dp"
         android:id="@+id/report_sale_background"
@@ -187,6 +194,7 @@
             android:layout_below="@id/report_sales_button"
             android:layout_centerHorizontal="true"
             android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp"
             android:text="@string/report_a_sale"
             android:textColor="#FFFFFF"
             android:gravity="center"/>
@@ -228,6 +236,7 @@
         android:layout_centerInParent="true"
         android:background="@drawable/background"
         android:layout_marginRight="64dp"
+        android:layout_marginEnd="64dp"
         android:padding="2dp"
         android:gravity="center">
 

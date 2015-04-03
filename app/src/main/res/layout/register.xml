@@ -9,6 +9,7 @@
         android:layout_centerInParent="true"
         android:background="@drawable/background"
         android:layout_marginRight="64dp"
+        android:layout_marginEnd="64dp"
         android:padding="16dp">
 
         <!--MAIN LOGO-->

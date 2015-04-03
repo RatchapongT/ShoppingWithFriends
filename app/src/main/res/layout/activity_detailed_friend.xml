@@ -59,7 +59,7 @@
             android:text="@string/reported_sale"
             android:id="@+id/reported_sale"
             android:paddingLeft="10dp"
-            android:paddingRight="8dp"
+            android:paddingRight="10dp"
             android:textColor="#ffffffff" />
     </LinearLayout>
 
