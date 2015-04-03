@@ -19,6 +19,7 @@ public class AddWishList extends Activity implements View.OnClickListener {
     private Button cancelButton, submitButton;
     private EditText enteredItem, enteredPrice;
     private ProgressDialog progressDialog;
+    public String response;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +84,7 @@ public class AddWishList extends Activity implements View.OnClickListener {
          */
         protected void onPostExecute(String file_url) {
             // dismiss the dialog once product deleted
+            response = file_url;
             progressDialog.dismiss();
             if (file_url != null) {
                 Toast.makeText(AddWishList.this, file_url, Toast.LENGTH_LONG).show();
