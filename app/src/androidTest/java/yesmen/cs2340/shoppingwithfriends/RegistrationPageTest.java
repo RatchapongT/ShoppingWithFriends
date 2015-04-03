@@ -13,7 +13,7 @@ public class RegistrationPageTest extends ActivityInstrumentationTestCase2<Regis
 
     private RegistrationPage activity;
     private EditText enteredUsername, enteredPassword, enteredConfirmed;
-    private Button registerButton, cancelbutton;
+    private Button registerButton;
     private Random number = new Random(System.currentTimeMillis());
     int randUser;
 
@@ -34,7 +34,6 @@ public class RegistrationPageTest extends ActivityInstrumentationTestCase2<Regis
         enteredPassword = (EditText)activity.findViewById(R.id.register_password_input);
         enteredConfirmed = (EditText)activity.findViewById(R.id.register_confirm_password_input);
         registerButton = (Button)activity.findViewById(R.id.register_execute_button);
-        cancelbutton = (Button)activity.findViewById(R.id.register_cancel_button);
         randUser = number.nextInt();
     }
 
