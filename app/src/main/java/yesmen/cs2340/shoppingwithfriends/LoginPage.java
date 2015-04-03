@@ -25,6 +25,7 @@ public class LoginPage extends Activity implements View.OnClickListener {
     private EditText enteredUsername, enteredPassword;
 
     private ProgressDialog progressDialog;
+    public String response;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,6 +95,7 @@ public class LoginPage extends Activity implements View.OnClickListener {
         @Override
         protected void onPostExecute(String file_url) {
             // dismiss the dialog once product deleted
+            response = file_url;
             progressDialog.dismiss();
             if (file_url != null) {
                 Toast.makeText(LoginPage.this, file_url, Toast.LENGTH_LONG).show();

@@ -66,34 +66,45 @@ public class LoginPageTest extends ActivityInstrumentationTestCase2<LoginPage>{
 
     public void testUsernameText() {
 
-        getInstrumentation().runOnMainSync(new Runnable() {
+        myActivity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 username.setText("luka");
             }
         });
         getInstrumentation().waitForIdleSync();
-        getInstrumentation().sendStringSync("luka");
         assertEquals("luka", username.getText().toString());
 
     }
 
-    public void testPasswordText() {
-        getInstrumentation().runOnMainSync(new Runnable() {
+//    public void testPasswordText() {
+//
+//        myActivity.runOnUiThread(new Runnable() {
+//             @Override
+//             public void run() {
+//                 password.setText("hello");
+//             }
+//             });
+//        getInstrumentation().waitForIdleSync();
+//        assertEquals("hello", password.getText().toString());
+//    }
+
+
+    public void testLoginSuccess_LoginAndPassMatch() throws Throwable {
+        myActivity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
+                username.setText("luka");
                 password.setText("hello");
+                loginButton.performClick();
             }
         });
         getInstrumentation().waitForIdleSync();
-        getInstrumentation().sendStringSync("hello");
-        assertEquals("hello", password.getText().toString());
+        Thread.sleep(2000);
+        assertEquals("Login successful!", myActivity.response);
     }
 
 
-//    public void testPushLoginButton_clickAndExpectSuccess() {
-//
-//    }
 
 
 }
