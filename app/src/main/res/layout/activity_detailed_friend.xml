@@ -3,7 +3,8 @@
     android:layout_height="match_parent"
     tools:context="yesmen.cs2340.shoppingwithfriends.DetailedFriend"
     android:id="@+id/friend_main_layout"
-    android:background="#2ABC9D">
+    android:background="#2ABC9D"
+    tools:ignore="Overdraw">
 
     <TextView
         android:layout_width="wrap_content"
