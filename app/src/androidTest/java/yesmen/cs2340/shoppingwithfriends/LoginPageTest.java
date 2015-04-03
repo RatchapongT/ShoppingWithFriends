@@ -1,3 +1,7 @@
+/**
+ * @author Luka Antolic Soban
+ */
+
 package yesmen.cs2340.shoppingwithfriends;
 
 import android.test.ActivityInstrumentationTestCase2;
@@ -6,7 +10,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-
+/**
+ * Test that checks all branches if Login Page works
+ */
 public class LoginPageTest extends ActivityInstrumentationTestCase2<LoginPage>{
 
     private LoginPage myActivity;
@@ -50,18 +56,27 @@ public class LoginPageTest extends ActivityInstrumentationTestCase2<LoginPage>{
 //        assertEquals(layoutParams.height, WindowManager.LayoutParams.WRAP_CONTENT);
 //    }
 
+    /**
+     * Tests the layout of the Username field
+     */
     public void test1UsernameLayout_layout() {
         final View decorView = myActivity.getWindow().getDecorView();
         ViewAsserts.assertOnScreen(decorView, username);
         assertTrue(View.VISIBLE == username.getVisibility());
     }
 
+    /**
+     * Tests the Password field layout
+     */
     public void test2PasswordLayout_layout() {
         final View decorView = myActivity.getWindow().getDecorView();
         ViewAsserts.assertOnScreen(decorView, password);
         assertTrue(View.VISIBLE == password.getVisibility());
     }
 
+    /**
+     * Tests to see if a username can be input in the field
+     */
     public void test3UsernameText() {
 
         getInstrumentation().runOnMainSync(new Runnable() {
@@ -75,6 +90,9 @@ public class LoginPageTest extends ActivityInstrumentationTestCase2<LoginPage>{
 
     }
 
+    /**
+     * Tests to see if a password can be input in the field
+     */
     public void test4PasswordText() {
         getInstrumentation().runOnMainSync(new Runnable() {
              @Override
@@ -86,6 +104,10 @@ public class LoginPageTest extends ActivityInstrumentationTestCase2<LoginPage>{
         assertEquals("hello", password.getText().toString());
     }
 
+    /**
+     * Tests the Login if a wrong password is put in
+     * @throws Throwable
+     */
     public void test5LoginPasswordWrong() throws Throwable {
 
         myActivity.runOnUiThread(new Runnable() {
@@ -101,6 +123,10 @@ public class LoginPageTest extends ActivityInstrumentationTestCase2<LoginPage>{
 
     }
 
+    /**
+     * Tests the login if a non existing user is trying to log in
+     * @throws Throwable
+     */
     public void test6UserNotExist() throws Throwable {
 
         myActivity.runOnUiThread(new Runnable() {
@@ -116,6 +142,10 @@ public class LoginPageTest extends ActivityInstrumentationTestCase2<LoginPage>{
 
     }
 
+    /**
+     * Tests the login successful state
+     * @throws Throwable
+     */
     public void test7LoginSuccess() throws Throwable {
 
         myActivity.runOnUiThread(new Runnable() {
