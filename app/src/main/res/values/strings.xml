@@ -44,7 +44,15 @@
     <string name="delete_friend">Delete Friend</string>
     <string name="log_out">Log Out</string>
     <string name="settings">Settings</string>
-
+    <string name="main_logo_project">The Main Logo For Our Project</string>
+    <string name="project_logo">Our Main Project Logo</string>
+    <string name="profile_button">The Profile Button</string>
+    <string name="wishlist_button">The WishList Button</string>
+    <string name="home_view_button">The Home View Button</string>
+    <string name="add_user_button">The Add User Button</string>
+    <string name="friends_button_list">This is the friend's list button</string>
+    <string name="report_sales_button">The Report Sales Button</string>
+    <string name="sales_for_me_button">The Sales For Me Button</string>
 
 
 
