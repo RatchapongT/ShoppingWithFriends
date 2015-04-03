@@ -37,6 +37,7 @@ public class DatabaseInterfacer {
     private static final String CREATE_ITEM_REPORT = "/yesmen/update_item_report.php";
     private static final String RETRIEVE_ITEM_REPORTS_URL = "/yesmen/retrieve_item_report.php";
     private static final String UPDATE_READ = "/yesmen/update_read.php";
+    private static final String DELETE_USER = "/yesmen/delete_user.php";
 
     //JSON element ids from response of php script:
     private static final String TAG_SUCCESS = "success";
@@ -114,6 +115,25 @@ public class DatabaseInterfacer {
             return "Database error";
         }
     }
+
+//    public static String deleteUser(String myUser) {
+//
+//        myUser = myUser.toLowerCase();
+//        // Building Parameters
+//        List<NameValuePair> params = new ArrayList<>();
+//        params.add(new BasicNameValuePair("username", myUser));
+//
+//        JSONObject json = queryDatabase(DELETE_USER, params);
+//
+//        try {
+//            if (json != null) {
+//                return json.getString(TAG_MESSAGE);
+//            } else return "Database error";
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//            return "Database error";
+//        }
+//    }
 
     /**
      * Returns a String[] with String[0] being success or failure message

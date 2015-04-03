@@ -26,8 +26,8 @@ public class RegistrationPage extends Activity implements OnClickListener {
 
     private EditText enteredUsername, enteredPassword, enteredConfirmed;
     private Button registerButton, cancelbutton;
-
     private ProgressDialog progressDialog;
+    public String response;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +106,7 @@ public class RegistrationPage extends Activity implements OnClickListener {
          * @param file_url
          */
         protected void onPostExecute(String file_url) {
+            response = file_url;
             progressDialog.dismiss();
             if (file_url != null){
             	Toast.makeText(RegistrationPage.this, file_url, Toast.LENGTH_LONG).show();
