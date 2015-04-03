@@ -37,11 +37,9 @@ public class AddWishlistPageTest extends ActivityInstrumentationTestCase2<AddWis
      */
     public void testItemName() throws Throwable {
             DatabaseInterfacer.login("sunny", "sunny");
-            activity.runOnUiThread(new Runnable() {
-                public void run() {
-                    enteredItem.setText("shirt");
-                    enteredPrice.setText("7");
-                }
+            activity.runOnUiThread(() -> {
+                enteredItem.setText("shirt");
+                enteredPrice.setText("7");
             });
         Thread.sleep(2000);
         assertEquals("shirt", enteredItem.getText().toString());
@@ -52,11 +50,9 @@ public class AddWishlistPageTest extends ActivityInstrumentationTestCase2<AddWis
      */
     public void testPriceValue() throws Throwable {
         DatabaseInterfacer.login("sunny", "sunny");
-        activity.runOnUiThread(new Runnable() {
-            public void run() {
-                enteredItem.setText("shirt");
-                enteredPrice.setText("7");
-            }
+        activity.runOnUiThread(() -> {
+            enteredItem.setText("shirt");
+            enteredPrice.setText("7");
         });
         Thread.sleep(2000);
         assertEquals("7", enteredPrice.getText().toString());
@@ -67,11 +63,9 @@ public class AddWishlistPageTest extends ActivityInstrumentationTestCase2<AddWis
      */
     public void testAddWishlist() throws Throwable {
         DatabaseInterfacer.login("sunny", "sunny");
-        activity.runOnUiThread(new Runnable() {
-            public void run() {
-                enteredItem.setText("ps4");
-                enteredPrice.setText("200");
-            }
+        activity.runOnUiThread(() -> {
+            enteredItem.setText("ps4");
+            enteredPrice.setText("200");
         });
         Thread.sleep(2000);
         TouchUtils.clickView(this,submitButton);
@@ -83,11 +77,9 @@ public class AddWishlistPageTest extends ActivityInstrumentationTestCase2<AddWis
      */
     public void testNoItemName() throws Throwable {
         DatabaseInterfacer.login("sunny", "sunny");
-        activity.runOnUiThread(new Runnable() {
-            public void run() {
-                enteredItem.setText("");
-                enteredPrice.setText("7");
-            }
+        activity.runOnUiThread(() -> {
+            enteredItem.setText("");
+            enteredPrice.setText("7");
         });
         Thread.sleep(2000);
         TouchUtils.clickView(this,submitButton);
