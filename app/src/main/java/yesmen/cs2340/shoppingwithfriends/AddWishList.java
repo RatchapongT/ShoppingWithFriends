@@ -12,11 +12,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 /**
- * Created by Reese on 3/5/2015.
+ * This class allows one to add new items to the wishlist
  */
 public class AddWishList extends Activity implements View.OnClickListener {
 
-    private Button cancelButton, submitButton;
     private EditText enteredItem, enteredPrice;
     private ProgressDialog progressDialog;
 
@@ -25,10 +24,10 @@ public class AddWishList extends Activity implements View.OnClickListener {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_wishlist);
-        submitButton = (Button) findViewById(R.id.wishlist_submit_button);
+        Button submitButton = (Button) findViewById(R.id.wishlist_submit_button);
         submitButton.setOnClickListener(this);
 
-        cancelButton = (Button) findViewById(R.id.wishlist_cancel_button);
+        Button cancelButton = (Button) findViewById(R.id.wishlist_cancel_button);
         cancelButton.setOnClickListener(this);
 
         enteredItem = (EditText) findViewById(R.id.my_item_input);
@@ -76,11 +75,7 @@ public class AddWishList extends Activity implements View.OnClickListener {
             return DatabaseInterfacer.addToWishlist(newItem, threshold);
         }
 
-        /**
-         * When a post is executed
-         *
-         * @param file_url
-         */
+        @Override
         protected void onPostExecute(String file_url) {
             // dismiss the dialog once product deleted
             progressDialog.dismiss();
