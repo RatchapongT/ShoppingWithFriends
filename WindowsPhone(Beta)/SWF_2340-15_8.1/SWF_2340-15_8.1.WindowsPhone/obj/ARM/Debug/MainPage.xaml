@@ -1,0 +1,19 @@
+﻿<Page
+    x:Class="SWF_2340_15_8._1.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SWF_2340_15_8._1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <TextBlock x:Uid="title" Margin="10,21,16,0" TextWrapping="Wrap" Text="Shopping With Friends!" VerticalAlignment="Top" FontSize="72" FontWeight="Bold"/>
+        <TextBlock x:Uid="block" HorizontalAlignment="Left" Margin="10,342,0,0" TextWrapping="Wrap" Text="Team 39: Will Code For Money" VerticalAlignment="Top" FontSize="48"/>
+        <Button x:ConnectionId='1' x:Name="loginB" x:Uid="loginB" Content="Login" HorizontalAlignment="Left" Margin="28,535,0,0" VerticalAlignment="Top"                     />
+        <Button x:ConnectionId='2' x:Name="regB" x:Uid="regB" Content="Register" HorizontalAlignment="Left" Margin="260,535,0,0" VerticalAlignment="Top"                    />
+
+    </Grid>
+</Page>
+
