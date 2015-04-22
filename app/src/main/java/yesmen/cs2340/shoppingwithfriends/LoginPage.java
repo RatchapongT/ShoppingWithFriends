@@ -59,6 +59,7 @@ public class LoginPage extends Activity implements View.OnClickListener {
         } else if (v.getId() == R.id.login_register_button) {
             Intent intention = new Intent(this, RegistrationPage.class);
             startActivity(intention);
+            overridePendingTransition(R.anim.right_in, R.anim.left_out);
         }
     }
     /**
@@ -86,6 +87,7 @@ public class LoginPage extends Activity implements View.OnClickListener {
                 Intent intention = new Intent(LoginPage.this, Homepage.class);
                 finish();
                 startActivity(intention);
+                overridePendingTransition(R.anim.right_in, R.anim.left_out);
                 return ret;
             } else {
                 return ret;

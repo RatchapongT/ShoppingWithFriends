@@ -102,15 +102,21 @@ public class Homepage extends Activity implements View.OnClickListener {
             Intent intention = new Intent(this, LoginPage.class);
             finish();
             startActivity(intention);
+            overridePendingTransition(R.anim.bottom_in, R.anim.top_out);
         } else if (v.getId() == R.id.homepage_view_friends_button) {
             Intent intention = new Intent(this, ViewFriends.class);
             startActivity(intention);
+            overridePendingTransition(R.anim.bottom_in, R.anim.top_out);
         } else if (v.getId() == R.id.wishlist_button) {
             Intent intention = new Intent(this, AddWishList.class);
             startActivity(intention);
+            overridePendingTransition(R.anim.bottom_in, R.anim.top_out);
+
         } else if (v.getId() == R.id.home_view_wish_list) {
             Intent intention = new Intent(this, ViewWishList.class);
             startActivity(intention);
+            overridePendingTransition(R.anim.bottom_in, R.anim.top_out);
+
         }
 
     }
@@ -124,20 +130,28 @@ public class Homepage extends Activity implements View.OnClickListener {
     public void addFriend(View view) {
         Intent intent = new Intent(this, AddFriendPage.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.bottom_in, R.anim.top_out);
+
     }
 
     public void myProfile(View view) {
         Intent intent = new Intent(this, MyProfilePage.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.bottom_in, R.anim.top_out);
+
     }
 
     public void myReports(View view) {
         Intent intent = new Intent(this, ReportedSales.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.bottom_in, R.anim.top_out);
+
     }
 
     public void salesForMe(View view) {
         Intent intent = new Intent(this, ViewSales.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.bottom_in, R.anim.top_out);
+
     }
 }

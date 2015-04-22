@@ -49,10 +49,12 @@ public class RegistrationPage extends Activity implements OnClickListener {
 	public void onClick(View v) {
         if (v.getId() == R.id.register_execute_button) {
             new CreateUser().execute();
+            overridePendingTransition(R.anim.bottom_in, R.anim.top_out);
         } else if (v.getId() == R.id.register_cancel_button) {
             Intent intention = new Intent(this, LoginPage.class);
             finish();
             startActivity(intention);
+            overridePendingTransition(R.anim.left_in, R.anim.right_out);
         }
 	}
 

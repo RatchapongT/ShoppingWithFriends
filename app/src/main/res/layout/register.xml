@@ -84,7 +84,7 @@
             android:id="@+id/register_execute_button"
             android:layout_width="250dp"
             android:layout_height="35dp"
-            android:text="@string/email"
+            android:text="@string/register"
             android:background="@drawable/shape"
             android:textColor="#FFFFFF"
             android:layout_below="@id/register_confirm_password_input"

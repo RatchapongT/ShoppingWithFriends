@@ -39,6 +39,8 @@ public class ViewWishList extends FragmentActivity implements View.OnClickListen
         if (v.getId() == R.id.view_wish_list_cancel_button) {
             Intent intention = new Intent(this, Homepage.class);
             startActivity(intention);
+            overridePendingTransition(R.anim.left_in, R.anim.right_out);
+
         }
     }
 

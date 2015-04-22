@@ -45,6 +45,8 @@ public class AddWishList extends Activity implements View.OnClickListener {
             Intent intention = new Intent(this, Homepage.class);
             finish();
             startActivity(intention);
+            overridePendingTransition(R.anim.left_in, R.anim.right_out);
+
         }
     }
 

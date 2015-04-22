@@ -43,6 +43,8 @@ public class ViewFriends extends FragmentActivity implements View.OnClickListene
         if (v.getId() == R.id.view_friend_cancel_button) {
             Intent intention = new Intent(this, Homepage.class);
             startActivity(intention);
+            overridePendingTransition(R.anim.left_in, R.anim.right_out);
+
         }
     }
 
